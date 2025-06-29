@@ -7,6 +7,7 @@ using Azure.Search.Documents.Indexes;
 using Azure.Search.Documents.Indexes.Models;
 using Azure.Search.Documents.Models;
 using AzureOpenAIConsole.Models;
+using AzureOpenAIConsole.Services;
 
 namespace AzureOpenAIConsole
 {
@@ -18,11 +19,15 @@ namespace AzureOpenAIConsole
         private static string chatDeployment;
         private static string embeddingDeployment;
         private static SearchClient searchClient;
+        private static AppConfiguration appConfig;
 
         static async Task Main(string[] args)
         {
             // Load environment variables
             Env.Load();
+
+            // Load application configuration
+            await LoadApplicationConfiguration();
 
             LoadConfiguration();
             SetupSearchClient();
@@ -81,34 +86,44 @@ namespace AzureOpenAIConsole
         {
             Console.WriteLine("Setting up knowledge base...");
 
-            // Sample documents about Paris
-            var documents = new[]
+            // Load documents from external source
+            var documentLoader = new DocumentLoader();
+            List<DocumentInfo> documents;
+
+            try
             {
-                new
+                switch (appConfig.DataSource.Type)
                 {
-                    Id = "1",
-                    Title = "Eiffel Tower",
-                    Content = "The Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France. It is named after the engineer Gustave Eiffel. The tower is 330 metres tall and was the world's tallest man-made structure until 1930."
-                },
-                new
-                {
-                    Id = "2",
-                    Title = "Louvre Museum",
-                    Content = "The Louvre is the world's largest art museum and a historic monument in Paris, France. It is home to the Mona Lisa and Venus de Milo. The museum is housed in the Louvre Palace, originally built as a fortress in the late 12th century."
-                },
-                new
-                {
-                    Id = "3",
-                    Title = "Notre-Dame Cathedral",
-                    Content = "Notre-Dame de Paris is a medieval Catholic cathedral on the Île de la Cité in the 4th arrondissement of Paris. The cathedral is considered to be one of the finest examples of French Gothic architecture."
-                },
-                new
-                {
-                    Id = "4",
-                    Title = "Champs-Élysées",
-                    Content = "The Champs-Élysées is an avenue in the 8th arrondissement of Paris, France. It is 1.9 kilometres long and is the most famous street in Paris. It connects Place de la Concorde and Place Charles de Gaulle."
+                    case DataSourceType.Json:
+                        Console.WriteLine($"Loading documents from JSON file: {appConfig.DataSource.FilePath}");
+                        documents = await documentLoader.LoadDocumentsFromJsonAsync(appConfig.DataSource.FilePath);
+                        break;
+
+                    case DataSourceType.Csv:
+                        Console.WriteLine($"Loading documents from CSV file: {appConfig.DataSource.FilePath}");
+                        documents = await documentLoader.LoadDocumentsFromCsvAsync(appConfig.DataSource.FilePath);
+                        break;
+
+                    case DataSourceType.TextFiles:
+                        Console.WriteLine($"Loading documents from text files in: {appConfig.DataSource.DirectoryPath}");
+                        documents = await documentLoader.LoadDocumentsFromTextFilesAsync(appConfig.DataSource.DirectoryPath);
+                        break;
+
+                    default:
+                        // Fallback to hardcoded documents
+                        Console.WriteLine("Using hardcoded documents (fallback)");
+                        documents = GetHardcodedDocuments();
+                        break;
                 }
-            };
+
+                Console.WriteLine($"Loaded {documents.Count} documents");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading documents: {ex.Message}");
+                Console.WriteLine("Falling back to hardcoded documents");
+                documents = GetHardcodedDocuments();
+            }
 
             // Create or update search index
             await CreateSearchIndex();
@@ -135,6 +150,37 @@ namespace AzureOpenAIConsole
             // Upload to search index
             await UploadDocuments(knowledgeDocs);
             Console.WriteLine("Knowledge base setup complete!\n");
+        }
+
+        static List<DocumentInfo> GetHardcodedDocuments()
+        {
+            return new List<DocumentInfo>
+            {
+                new DocumentInfo
+                {
+                    Id = "1",
+                    Title = "Eiffel Tower",
+                    Content = "The Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France. It is named after the engineer Gustave Eiffel. The tower is 330 metres tall and was the world's tallest man-made structure until 1930."
+                },
+                new DocumentInfo
+                {
+                    Id = "2",
+                    Title = "Louvre Museum",
+                    Content = "The Louvre is the world's largest art museum and a historic monument in Paris, France. It is home to the Mona Lisa and Venus de Milo. The museum is housed in the Louvre Palace, originally built as a fortress in the late 12th century."
+                },
+                new DocumentInfo
+                {
+                    Id = "3",
+                    Title = "Notre-Dame Cathedral",
+                    Content = "Notre-Dame de Paris is a medieval Catholic cathedral on the Île de la Cité in the 4th arrondissement of Paris. The cathedral is considered to be one of the finest examples of French Gothic architecture."
+                },
+                new DocumentInfo
+                {
+                    Id = "4",
+                    Title = "Champs-Élysées",
+                    Content = "The Champs-Élysées is an avenue in the 8th arrondissement of Paris, France. It is 1.9 kilometres long and is the most famous street in Paris. It connects Place de la Concorde and Place Charles de Gaulle."
+                }
+            };
         }
 
         static async Task CreateSearchIndex()
@@ -320,6 +366,22 @@ Context:
             var chatResponse = JsonSerializer.Deserialize<ChatResponse>(jsonResponse);
 
             return chatResponse.choices[0].message.content;
+        }
+
+        static async Task LoadApplicationConfiguration()
+        {
+            string configPath = "appsettings.json";
+            if (File.Exists(configPath))
+            {
+                string configJson = await File.ReadAllTextAsync(configPath);
+                appConfig = JsonSerializer.Deserialize<AppConfiguration>(configJson) ?? new AppConfiguration();
+                Console.WriteLine($"Loaded configuration: Data source = {appConfig.DataSource.Type}");
+            }
+            else
+            {
+                appConfig = new AppConfiguration();
+                Console.WriteLine("Using default configuration");
+            }
         }
     }
 }

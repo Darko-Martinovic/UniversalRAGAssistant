@@ -1,0 +1,32 @@
+[
+  {
+    "Id": "1",
+    "Title": "Eiffel Tower",
+    "Content": "The Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France. It is named after the engineer Gustave Eiffel. The tower is 330 metres tall and was the world's tallest man-made structure until 1930. Built between 1887 and 1889, it has become a global cultural icon of France and one of the most recognizable structures in the world."
+  },
+  {
+    "Id": "2",
+    "Title": "Louvre Museum",
+    "Content": "The Louvre is the world's largest art museum and a historic monument in Paris, France. It is home to the Mona Lisa and Venus de Milo. The museum is housed in the Louvre Palace, originally built as a fortress in the late 12th century. The Louvre opened as a museum in 1793 and contains over 380,000 objects and 35,000 works of art."
+  },
+  {
+    "Id": "3",
+    "Title": "Notre-Dame Cathedral",
+    "Content": "Notre-Dame de Paris is a medieval Catholic cathedral on the Île de la Cité in the 4th arrondissement of Paris. The cathedral is considered to be one of the finest examples of French Gothic architecture. Construction began in 1163 under Bishop Maurice de Sully and was largely completed by 1260, though it was modified frequently in the following centuries."
+  },
+  {
+    "Id": "4",
+    "Title": "Champs-Élysées",
+    "Content": "The Champs-Élysées is an avenue in the 8th arrondissement of Paris, France. It is 1.9 kilometres long and is the most famous street in Paris. It connects Place de la Concorde and Place Charles de Gaulle. The avenue is known for its theatres, cafés, and luxury shops, and is often called 'the most beautiful avenue in the world'."
+  },
+  {
+    "Id": "5",
+    "Title": "Arc de Triomphe",
+    "Content": "The Arc de Triomphe is one of the most famous monuments in Paris, standing at the centre of the Place Charles de Gaulle. It was commissioned by Napoleon I in 1806 to honor the French army. The monument stands 50 metres tall and offers panoramic views of Paris from its top. It is the focal point of the historic axis running from the Louvre to La Défense."
+  },
+  {
+    "Id": "6",
+    "Title": "Seine River",
+    "Content": "The Seine is a 777-kilometre-long river that flows through Paris and is central to the city's identity. The riverbanks in Paris are a UNESCO World Heritage Site. Many of Paris's most famous landmarks are located along the Seine, including Notre-Dame, the Louvre, and the Eiffel Tower. River cruises on the Seine are popular with tourists."
+  }
+]

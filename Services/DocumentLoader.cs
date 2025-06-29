@@ -1,0 +1,104 @@
+using System.Text.Json;
+using AzureOpenAIConsole.Models;
+
+namespace AzureOpenAIConsole.Services
+{
+    public class DocumentLoader
+    {
+        public async Task<List<DocumentInfo>> LoadDocumentsFromJsonAsync(string filePath)
+        {
+            if (!File.Exists(filePath))
+            {
+                throw new FileNotFoundException($"Document file not found: {filePath}");
+            }
+
+            string jsonContent = await File.ReadAllTextAsync(filePath);
+            var documents = JsonSerializer.Deserialize<List<DocumentInfo>>(jsonContent);
+
+            return documents ?? new List<DocumentInfo>();
+        }
+
+        public async Task<List<DocumentInfo>> LoadDocumentsFromTextFilesAsync(string directoryPath)
+        {
+            if (!Directory.Exists(directoryPath))
+            {
+                throw new DirectoryNotFoundException($"Documents directory not found: {directoryPath}");
+            }
+
+            var documents = new List<DocumentInfo>();
+            var textFiles = Directory.GetFiles(directoryPath, "*.txt");
+
+            for (int i = 0; i < textFiles.Length; i++)
+            {
+                var filePath = textFiles[i];
+                var fileName = Path.GetFileNameWithoutExtension(filePath);
+                var content = await File.ReadAllTextAsync(filePath);
+
+                documents.Add(new DocumentInfo
+                {
+                    Id = (i + 1).ToString(),
+                    Title = fileName.Replace("_", " ").Replace("-", " "), // Clean up filename
+                    Content = content.Trim()
+                });
+            }
+
+            return documents;
+        }
+
+        public async Task<List<DocumentInfo>> LoadDocumentsFromCsvAsync(string filePath)
+        {
+            if (!File.Exists(filePath))
+            {
+                throw new FileNotFoundException($"CSV file not found: {filePath}");
+            }
+
+            var documents = new List<DocumentInfo>();
+            var lines = await File.ReadAllLinesAsync(filePath);
+
+            // Skip header row
+            for (int i = 1; i < lines.Length; i++)
+            {
+                var columns = ParseCsvLine(lines[i]);
+                if (columns.Length >= 3)
+                {
+                    documents.Add(new DocumentInfo
+                    {
+                        Id = columns[0],
+                        Title = columns[1],
+                        Content = columns[2]
+                    });
+                }
+            }
+
+            return documents;
+        }
+
+        private string[] ParseCsvLine(string line)
+        {
+            var result = new List<string>();
+            var current = "";
+            var inQuotes = false;
+
+            for (int i = 0; i < line.Length; i++)
+            {
+                var c = line[i];
+                if (c == '"')
+                {
+                    inQuotes = !inQuotes;
+                }
+                else if (c == ',' && !inQuotes)
+                {
+                    result.Add(current.Trim());
+                    current = "";
+                }
+                else
+                {
+                    current += c;
+                }
+            }
+
+            result.Add(current.Trim());
+            return result.ToArray();
+        }
+    }
+}
