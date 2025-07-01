@@ -668,7 +668,7 @@ namespace UniversalRAGAssistant
         {
             // Determine assistant type based on metadata
             var title = appMetadata?.Title?.ToUpper() ?? "";
-            
+
             if (title.Contains("REAL ESTATE") || title.Contains("PROPERTY"))
             {
                 return new[]
