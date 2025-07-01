@@ -14,10 +14,15 @@ namespace UniversalRAGAssistant.Services
 
             string jsonContent = await File.ReadAllTextAsync(filePath);
 
+            var jsonOptions = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
             // Try to deserialize as new format with metadata
             try
             {
-                var dataConfig = JsonSerializer.Deserialize<DataConfiguration>(jsonContent);
+                var dataConfig = JsonSerializer.Deserialize<DataConfiguration>(jsonContent, jsonOptions);
                 if (dataConfig != null && dataConfig.Documents != null)
                 {
                     return dataConfig;
@@ -26,7 +31,7 @@ namespace UniversalRAGAssistant.Services
             catch (JsonException)
             {
                 // If that fails, try to deserialize as old format (just documents array)
-                var documents = JsonSerializer.Deserialize<List<DocumentInfo>>(jsonContent);
+                var documents = JsonSerializer.Deserialize<List<DocumentInfo>>(jsonContent, jsonOptions);
                 if (documents != null)
                 {
                     return new DataConfiguration
