@@ -5,21 +5,25 @@ This folder contains batch scripts that allow you to instantly switch between di
 ## 📋 **Available Assistants**
 
 ### 🏠 **Real Estate Assistant** (Currently Active)
+
 - **Focus**: Property prices, rental markets, investment opportunities
 - **Coverage**: Brussels, Antwerp, Ghent, coastal areas, luxury markets
 - **Use Cases**: "What are rental prices in Brussels Ixelles?", "Best investment areas in Belgium"
 
 ### 🛒 **Food Pricing Assistant**
+
 - **Focus**: Grocery prices, store comparisons, seasonal deals
 - **Coverage**: Fruits, vegetables, delicatessen, organic products, markets
 - **Use Cases**: "Where can I find cheap apples?", "Compare supermarket prices"
 
 ### 💻 **Technology Assistant**
+
 - **Focus**: Electronics prices, laptop deals, smartphone comparisons
 - **Coverage**: MediaMarkt, Coolblue, Krëfel, warranties, gaming equipment
 - **Use Cases**: "Cheapest MacBook Pro in Belgium?", "Best laptop deals"
 
 ### 🎵 **Entertainment Assistant**
+
 - **Focus**: Concert tickets, streaming services, movie theaters
 - **Coverage**: Festivals, gaming, sports events, comedy shows, nightlife
 - **Use Cases**: "Rock Werchter ticket prices?", "Netflix vs Disney+ pricing"
@@ -29,34 +33,42 @@ This folder contains batch scripts that allow you to instantly switch between di
 ## 🎯 **How to Use**
 
 ### **Option 1: Interactive Menu (Recommended)**
+
 ```bash
 assistant-switcher.bat
 ```
+
 Opens a user-friendly menu where you can:
+
 - ✅ Choose any assistant
 - ✅ View current configuration
 - ✅ Restore from backup
 - ✅ See assistant descriptions
 
 ### **Option 2: Direct Switch Scripts**
+
 Switch and stay in current session:
+
 ```bash
 switch-to-realestate.bat     # 🏠 Real Estate
-switch-to-food.bat           # 🛒 Food Pricing  
+switch-to-food.bat           # 🛒 Food Pricing
 switch-to-technology.bat     # 💻 Technology
 switch-to-entertainment.bat  # 🎵 Entertainment
 ```
 
 ### **Option 3: Quick Run Scripts (Power User)**
+
 Switch and immediately start the assistant:
+
 ```bash
 run-realestate.bat          # 🏠 Switch + Run Real Estate
 run-food.bat                # 🛒 Switch + Run Food Pricing
-run-technology.bat          # 💻 Switch + Run Technology  
+run-technology.bat          # 💻 Switch + Run Technology
 run-entertainment.bat       # 🎵 Switch + Run Entertainment
 ```
 
 ### **Option 4: Utility Scripts**
+
 ```bash
 show-current.bat            # 📄 Show which assistant is active
 restore-backup.bat          # 🔄 Restore previous configuration
@@ -96,6 +108,7 @@ UniversalRAGAssistant/
 ## 💡 **Pro Tips**
 
 ### **Fast Switching Workflow**
+
 ```bash
 # Switch to food pricing and start immediately
 run-food.bat
@@ -108,6 +121,7 @@ switch-to-technology.bat
 ```
 
 ### **Testing Multiple Assistants**
+
 ```bash
 # Try different assistants quickly
 run-realestate.bat       # Ask: "Rental prices in Brussels?"
@@ -118,6 +132,7 @@ run-entertainment.bat    # Ask: "Concert ticket prices?"
 ```
 
 ### **Backup and Restore**
+
 - ✅ Every switch automatically creates a backup
 - ✅ Use `restore-backup.bat` to undo the last switch
 - ✅ Original files are never modified (they're templates)
@@ -127,6 +142,7 @@ run-entertainment.bat    # Ask: "Concert ticket prices?"
 ## 🎯 **Example Usage Scenarios**
 
 ### **Real Estate Research**
+
 ```bash
 run-realestate.bat
 # Ask: "What are rental prices in Brussels Ixelles?"
@@ -135,14 +151,16 @@ run-realestate.bat
 ```
 
 ### **Grocery Shopping**
+
 ```bash
-run-food.bat  
+run-food.bat
 # Ask: "Where can I find the cheapest organic vegetables?"
 # Ask: "Compare Delhaize vs Lidl prices for weekly shopping"
 # Ask: "Best farmers markets for seasonal produce?"
 ```
 
 ### **Tech Shopping**
+
 ```bash
 run-technology.bat
 # Ask: "Where can I find the cheapest MacBook Pro in Belgium?"
@@ -151,6 +169,7 @@ run-technology.bat
 ```
 
 ### **Entertainment Planning**
+
 ```bash
 run-entertainment.bat
 # Ask: "What are Rock Werchter 2025 ticket prices?"
@@ -163,15 +182,18 @@ run-entertainment.bat
 ## 🚨 **Troubleshooting**
 
 ### **If switching doesn't work:**
+
 1. Make sure you're in the project root directory
 2. Check that all `Data/*.json` files exist
 3. Run `show-current.bat` to verify current state
 
 ### **If the app shows old data:**
+
 1. Restart the app completely (`Ctrl+C` then `dotnet run`)
 2. The app regenerates embeddings on startup with new data
 
 ### **To reset everything:**
+
 ```bash
 restore-backup.bat              # Restore previous config
 # OR copy any example file manually:
