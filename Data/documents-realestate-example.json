@@ -1,0 +1,42 @@
+[
+  {
+    "Id": "1",
+    "Title": "Brussels Real Estate - Apartment Rental Prices by District",
+    "Content": "Ixelles rental prices: 1-bedroom €800-1200/month, 2-bedroom €1200-1800/month, 3-bedroom €1600-2400/month. Etterbeek: 1-bedroom €700-1000/month, 2-bedroom €1000-1500/month, 3-bedroom €1400-2000/month. Uccle premium: 1-bedroom €900-1400/month, 2-bedroom €1400-2200/month, 3-bedroom €1800-3000/month. Saint-Gilles trendy: 1-bedroom €750-1100/month, 2-bedroom €1100-1700/month. Best value: Schaerbeek €650-950/month for 1-bedroom, emerging neighborhood with good transport links."
+  },
+  {
+    "Id": "2", 
+    "Title": "Antwerp Housing Market - Rental vs Purchase Comparison",
+    "Content": "Antwerp rental market: City center 1-bedroom €700-1000/month, 2-bedroom €1000-1500/month. Zuid district premium: 1-bedroom €800-1200/month, 2-bedroom €1200-1800/month. Purchase prices: City center €250,000-400,000 for 2-bedroom, €350,000-600,000 for 3-bedroom. Emerging areas: Berchem €200,000-350,000 for 2-bedroom, Deurne €180,000-300,000. Investment tip: Zuid district shows 5-8% annual appreciation, best long-term value."
+  },
+  {
+    "Id": "3",
+    "Title": "Ghent Student Housing - University District Comparison", 
+    "Content": "Student housing near UGent campus: Student rooms €300-500/month including utilities, Student studios €450-700/month, Shared apartments €350-550/month per room. Patershol historic area: Premium student housing €500-800/month, walking distance to campus. Coupure area: Mid-range options €400-600/month, 15-minute bike ride to university. Budget options: Ledeberg district €280-450/month, good public transport. Best deals: University housing €250-400/month, limited availability, apply early."
+  },
+  {
+    "Id": "4",
+    "Title": "Leuven Property Investment - ROI Analysis by Area",
+    "Content": "Leuven investment properties ROI: City center rental yield 4-6% annually, high demand from students and professionals. Near KU Leuven campus: Student housing yields 6-8%, properties €200,000-350,000. Kessel-Lo residential: Family homes yield 4-5%, properties €300,000-500,000, stable long-term growth. Heverlee upscale: Luxury properties yield 3-4%, €400,000-800,000, premium market. Investment strategy: Student housing offers highest yields but requires active management, family homes provide stable appreciation."
+  },
+  {
+    "Id": "5",
+    "Title": "Belgian Coastal Properties - Seaside Real Estate Prices",
+    "Content": "Ostend beachfront apartments: Sea view 2-bedroom €300,000-500,000, inland 2-bedroom €200,000-350,000, seasonal rental yield 8-12%. Knokke luxury market: Beachfront properties €500,000-2,000,000+, exclusive area with international buyers. Blankenberge family market: 2-bedroom apartments €180,000-320,000, popular with Belgian families, rental yield 6-9%. De Panne budget coastal: Properties €150,000-280,000, emerging area near French border. Seasonal strategy: Buy in winter (10-15% lower prices), rent during summer season for maximum ROI."
+  },
+  {
+    "Id": "6",
+    "Title": "Liège Property Market - Affordable Housing Options",
+    "Content": "Liège affordable housing: City center 2-bedroom €120,000-220,000, 3-bedroom €180,000-300,000, excellent value for money. Guillemins station area: Renovated apartments €150,000-280,000, benefit from high-speed rail connectivity to Brussels. Student quarter near ULiège: Investment properties €100,000-200,000, rental yield 7-10%. Angleur suburban: Family homes €200,000-350,000, 20-minute commute to city center. Renovation opportunities: Historic properties €80,000-150,000, potential for 20-30% value increase after renovation."
+  },
+  {
+    "Id": "7", 
+    "Title": "Brussels Luxury Real Estate - Premium Market Analysis",
+    "Content": "Brussels luxury districts: Uccle mansions €800,000-3,000,000+, Woluwé-Saint-Lambert €600,000-1,500,000, Watermael-Boitsfort €500,000-1,200,000. Embassy quarter premium: Properties near embassies €700,000-2,500,000, high demand from diplomats and executives. Penthouse market: Brussels city center penthouses €600,000-2,000,000, panoramic views, luxury amenities. International buyers: EU officials prefer Uccle/Woluwé, multinational executives choose city center, investment funds target rental properties. Market trends: Luxury market stable, 2-4% annual appreciation, strong rental demand €2,000-5,000/month."
+  },
+  {
+    "Id": "8",
+    "Title": "Belgian Property Investment Strategy - Regional Comparison",
+    "Content": "Investment comparison by region: Brussels highest prices but stable demand, rental yields 3-5%. Antwerp balanced market, yields 4-6%, strong economic growth. Ghent university town advantage, student housing yields 6-8%. Coastal areas seasonal but high summer yields 8-12%. Liège and Charleroi affordable entry points, yields 6-9%, urban renewal opportunities. Tax considerations: Registration fees 10-12.5% of property value, rental income taxed as regular income. Financing: Belgian banks offer 80-90% LTV for residents, 70-80% for non-residents, interest rates 2-4% (2025)."
+  }
+]

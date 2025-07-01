@@ -368,6 +368,12 @@ namespace AzureOpenAIConsole
                     continue;
                 }
 
+                if (normalizedInput == "data" || normalizedInput == "customize" || normalizedInput == "config")
+                {
+                    PrintDataSourceInfo();
+                    continue;
+                }
+
                 if (normalizedInput == "stats")
                 {
                     PrintSessionStats(conversationCount, startTime);
@@ -466,6 +472,7 @@ namespace AzureOpenAIConsole
             Console.WriteLine("   • Type 'help' or '?' for example questions");
             Console.WriteLine("   • Type 'history' or 'hist' to see conversation history");
             Console.WriteLine("   • Type 'stats' to see session statistics");
+            Console.WriteLine("   • Type 'data' or 'customize' to see data customization info");
             Console.WriteLine("   • Type 'clear' or 'cls' to refresh the screen");
             Console.WriteLine("   • Type 'quit', 'exit', or 'bye' to end the session");
             Console.ResetColor();
@@ -794,9 +801,7 @@ namespace AzureOpenAIConsole
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine($"\n{encouragement}");
             Console.ResetColor();
-        }
-
-        static void PrintErrorAdvice()
+        }        static void PrintErrorAdvice()
         {
             var advice = new[]
             {
@@ -805,13 +810,85 @@ namespace AzureOpenAIConsole
                 "📝 Be specific about stores, products, or price ranges for better results.",
                 "🛠️  If problems persist, try asking simpler questions first."
             };
-
+            
             var random = new Random();
             var selectedAdvice = advice[random.Next(advice.Length)];
-
+            
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine($"{selectedAdvice}");
             Console.ResetColor();
+        }
+
+        static void PrintDataSourceInfo()
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("\n🗂️  DATA SOURCE & CUSTOMIZATION INFO:");
+            Console.WriteLine("═══════════════════════════════════════");
+            Console.ResetColor();
+            
+            // Current data source info
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"📄 Current Data Source: {appConfig.DataSource.Type}");
+            
+            if (appConfig.DataSource.Type == DataSourceType.Json)
+            {
+                Console.WriteLine($"📁 File: {appConfig.DataSource.FilePath}");
+            }
+            else if (appConfig.DataSource.Type == DataSourceType.Csv)
+            {
+                Console.WriteLine($"📁 File: {appConfig.DataSource.FilePath}");
+            }
+            else if (appConfig.DataSource.Type == DataSourceType.TextFiles)
+            {
+                Console.WriteLine($"📁 Directory: {appConfig.DataSource.DirectoryPath}");
+            }
+            
+            Console.WriteLine($"🔍 Search Index: {appConfig.IndexName}");
+            Console.ResetColor();
+            Console.WriteLine();
+            
+            // Customization instructions
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("🛠️  HOW TO CUSTOMIZE THE APP:");
+            Console.ResetColor();
+            
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("1. 📝 Edit Data/documents.json to change the knowledge base");
+            Console.WriteLine("2. 🔄 Restart the app - it will automatically process your new data");
+            Console.WriteLine("3. 🧠 New AI embeddings will be generated for your content");
+            Console.WriteLine("4. 🤖 The AI will answer questions based on your new information");
+            Console.WriteLine();
+            
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("📚 CUSTOMIZATION IDEAS:");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("   • 🏠 Real estate prices by neighborhood");
+            Console.WriteLine("   • 🚗 Car prices from different dealers");
+            Console.WriteLine("   • 🏨 Hotel rates across Belgian cities");
+            Console.WriteLine("   • 💻 Electronics prices at tech stores");
+            Console.WriteLine("   • 🎓 University course fees and costs");
+            Console.WriteLine("   • 🍕 Restaurant prices and reviews");
+            Console.ResetColor();
+            Console.WriteLine();
+            
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("📄 EXAMPLE DOCUMENT STRUCTURE:");
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine(@"{
+  ""Id"": ""1"",
+  ""Title"": ""Your Topic - Comparison Title"",
+  ""Content"": ""Detailed information with specific prices, locations, 
+             comparisons between options, and helpful recommendations.""
+}");
+            Console.ResetColor();
+            Console.WriteLine();
+            
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("💡 TIP: See DATA-CUSTOMIZATION-GUIDE.md for complete instructions!");
+            Console.ResetColor();
+            Console.WriteLine();
         }
 
         static async Task<SearchResults<KnowledgeDocument>> SearchRelevantDocuments(
