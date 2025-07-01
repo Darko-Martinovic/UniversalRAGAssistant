@@ -33,7 +33,9 @@ namespace AzureOpenAIConsole
             LoadConfiguration();
             SetupSearchClient();
 
-            Console.WriteLine("=== Belgian Food Pricing Assistant - Azure OpenAI + Search RAG Demo ===\n");
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("🚀 Initializing Belgian Food Pricing Assistant...");
+            Console.ResetColor();
 
             // Setup demo data
             await SetupKnowledgeBase();
@@ -85,7 +87,9 @@ namespace AzureOpenAIConsole
 
         static async Task SetupKnowledgeBase()
         {
-            Console.WriteLine("Setting up knowledge base...");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("🔧 Setting up Belgian food pricing knowledge base...");
+            Console.ResetColor();
 
             // Load documents from external source
             var documentLoader = new DocumentLoader();
@@ -96,45 +100,77 @@ namespace AzureOpenAIConsole
                 switch (appConfig.DataSource.Type)
                 {
                     case DataSourceType.Json:
-                        Console.WriteLine($"Loading documents from JSON file: {appConfig.DataSource.FilePath}");
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"📄 Loading pricing data from JSON: {appConfig.DataSource.FilePath}");
+                        Console.ResetColor();
                         documents = await documentLoader.LoadDocumentsFromJsonAsync(appConfig.DataSource.FilePath);
                         break;
 
                     case DataSourceType.Csv:
-                        Console.WriteLine($"Loading documents from CSV file: {appConfig.DataSource.FilePath}");
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"📊 Loading pricing data from CSV: {appConfig.DataSource.FilePath}");
+                        Console.ResetColor();
                         documents = await documentLoader.LoadDocumentsFromCsvAsync(appConfig.DataSource.FilePath);
                         break;
 
                     case DataSourceType.TextFiles:
-                        Console.WriteLine($"Loading documents from text files in: {appConfig.DataSource.DirectoryPath}");
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine($"📁 Loading pricing data from text files: {appConfig.DataSource.DirectoryPath}");
+                        Console.ResetColor();
                         documents = await documentLoader.LoadDocumentsFromTextFilesAsync(appConfig.DataSource.DirectoryPath);
                         break;
 
                     default:
-                        // Fallback to hardcoded documents
-                        Console.WriteLine("Using hardcoded documents (fallback)");
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("⚠️  Using hardcoded documents (fallback)");
+                        Console.ResetColor();
                         documents = GetHardcodedDocuments();
                         break;
                 }
 
-                Console.WriteLine($"Loaded {documents.Count} documents");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"✅ Successfully loaded {documents.Count} pricing documents");
+                Console.ResetColor();
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error loading documents: {ex.Message}");
-                Console.WriteLine("Falling back to hardcoded documents");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"❌ Error loading documents: {ex.Message}");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("🔄 Falling back to hardcoded documents");
+                Console.ResetColor();
                 documents = GetHardcodedDocuments();
             }
 
             // Create or update search index
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("🔍 Creating Azure Cognitive Search index...");
+            Console.ResetColor();
             await CreateSearchIndex();
 
             // Generate embeddings and upload documents
             var knowledgeDocs = new List<KnowledgeDocument>();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("🧠 Generating AI embeddings for smart search...");
+            Console.ResetColor();
 
+            int processed = 0;
             foreach (var doc in documents)
             {
-                Console.WriteLine($"Processing: {doc.Title}");
+                processed++;
+
+                // Enhanced progress display with percentage and progress bar
+                var percentage = (processed * 100) / documents.Count;
+                var progressBar = new string('█', percentage / 5) + new string('░', 20 - (percentage / 5));
+
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.Write($"\r   [{processed}/{documents.Count}] ");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write($"[{progressBar}] {percentage}% ");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write($"Processing: {doc.Title.Substring(0, Math.Min(doc.Title.Length, 40))}...");
+                Console.ResetColor();
+
                 var embedding = await GetEmbedding(doc.Content);
 
                 knowledgeDocs.Add(
@@ -148,9 +184,18 @@ namespace AzureOpenAIConsole
                 );
             }
 
+            Console.WriteLine(); // New line after progress
+
             // Upload to search index
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("📤 Uploading to search index...");
+            Console.ResetColor();
             await UploadDocuments(knowledgeDocs);
-            Console.WriteLine("Knowledge base setup complete!\n");
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("🎉 Knowledge base setup complete!");
+            Console.ResetColor();
+            Console.WriteLine();
         }
 
         static List<DocumentInfo> GetHardcodedDocuments()
@@ -221,11 +266,15 @@ namespace AzureOpenAIConsole
             try
             {
                 await indexClient.CreateOrUpdateIndexAsync(definition);
-                Console.WriteLine("Search index created/updated successfully.");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("✅ Search index created/updated successfully");
+                Console.ResetColor();
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Index creation error: {ex.Message}");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"❌ Index creation error: {ex.Message}");
+                Console.ResetColor();
             }
         }
 
@@ -266,18 +315,73 @@ namespace AzureOpenAIConsole
 
         static async Task InteractiveChatWithRAG()
         {
-            Console.WriteLine("Ask me anything about Belgian food prices - fruits, vegetables, and delicatessen! (type 'quit' to exit)\n");
+            // Set up console for better experience
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.CursorVisible = true;
+
+            PrintStyledHeader();
+            PrintWelcomeMessage();
+            PrintInstructions();
+
+            int conversationCount = 0;
+            var conversationHistory = new List<(string question, string answer)>();
+            var startTime = DateTime.Now;
 
             while (true)
             {
-                Console.Write("You: ");
-                string userQuestion = Console.ReadLine();
+                PrintSeparator();
+                PrintUserPrompt();
 
-                if (string.IsNullOrEmpty(userQuestion) || userQuestion.ToLower() == "quit")
+                string userQuestion = ReadLineWithStyle();
+
+                if (string.IsNullOrEmpty(userQuestion))
+                {
+                    PrintWarning("Please enter a question or type 'quit' to exit.");
+                    continue;
+                }
+
+                string normalizedInput = userQuestion.ToLower().Trim();
+
+                if (normalizedInput == "quit" || normalizedInput == "exit" || normalizedInput == "bye")
+                {
+                    PrintSessionSummary(conversationCount, startTime);
+                    PrintGoodbye();
                     break;
+                }
+
+                if (normalizedInput == "help" || normalizedInput == "?")
+                {
+                    PrintHelpMessage();
+                    continue;
+                }
+
+                if (normalizedInput == "history" || normalizedInput == "hist")
+                {
+                    PrintConversationHistory(conversationHistory);
+                    continue;
+                }
+
+                if (normalizedInput == "clear" || normalizedInput == "cls")
+                {
+                    PrintStyledHeader();
+                    PrintInstructions();
+                    continue;
+                }
+
+                if (normalizedInput == "stats")
+                {
+                    PrintSessionStats(conversationCount, startTime);
+                    continue;
+                }
 
                 try
                 {
+                    var responseStartTime = DateTime.Now;
+                    PrintProcessingMessage();
+
+                    // Show animated loading while processing
+                    var loadingTask = ShowLoadingAnimation("Analyzing your question");
+
                     // 1. Get embedding for user question
                     var questionEmbedding = await GetEmbedding(userQuestion);
 
@@ -295,17 +399,419 @@ namespace AzureOpenAIConsole
                     }
                     string context = string.Join("\n\n", contextParts);
 
+                    // Stop loading animation
+                    loadingTask?.Cancel();
+                    Console.WriteLine(); // New line after loading
+
                     // 4. Generate response with context
                     string response = await GenerateResponseWithContext(userQuestion, context);
 
-                    Console.WriteLine($"\nAI: {response}\n");
-                    Console.WriteLine("---");
+                    conversationCount++;
+                    conversationHistory.Add((userQuestion, response));
+
+                    var responseTime = DateTime.Now - responseStartTime;
+                    PrintAIResponse(response, conversationCount, responseTime);
+
+                    if (conversationCount % 3 == 0)
+                    {
+                        PrintTip();
+                    }
+
+                    if (conversationCount % 5 == 0)
+                    {
+                        PrintSessionEncouragement(conversationCount);
+                    }
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Error: {ex.Message}");
+                    PrintError($"Sorry, I encountered an error: {ex.Message}");
+                    PrintErrorAdvice();
                 }
             }
+        }
+
+        static void PrintStyledHeader()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("╔══════════════════════════════════════════════════════════════════════════════╗");
+            Console.WriteLine("║                    🛒 BELGIAN FOOD PRICING ASSISTANT 🇧🇪                    ║");
+            Console.WriteLine("║                     Powered by Azure OpenAI + RAG                            ║");
+            Console.WriteLine("╚══════════════════════════════════════════════════════════════════════════════╝");
+            Console.ResetColor();
+
+            // Add current time and welcome banner
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine($"                           🕒 Session started: {DateTime.Now:HH:mm:ss}");
+            Console.ResetColor();
+            Console.WriteLine();
+        }
+
+        static void PrintWelcomeMessage()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("🎉 Welcome to your personal Belgian food pricing assistant!");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("💡 I can help you find the best deals on fruits, vegetables, and delicatessen products");
+            Console.WriteLine("📊 Compare prices across different stores and markets in Belgium");
+            Console.ResetColor();
+            Console.WriteLine();
+        }
+
+        static void PrintInstructions()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine("📝 AVAILABLE COMMANDS:");
+            Console.WriteLine("   • Ask any pricing question (e.g., 'Where can I find cheap apples?')");
+            Console.WriteLine("   • Type 'help' or '?' for example questions");
+            Console.WriteLine("   • Type 'history' or 'hist' to see conversation history");
+            Console.WriteLine("   • Type 'stats' to see session statistics");
+            Console.WriteLine("   • Type 'clear' or 'cls' to refresh the screen");
+            Console.WriteLine("   • Type 'quit', 'exit', or 'bye' to end the session");
+            Console.ResetColor();
+            Console.WriteLine();
+        }
+
+        static void PrintUserPrompt()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("🙋 ");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.Write("You");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(": ");
+            Console.ResetColor();
+        }
+
+        static string ReadLineWithStyle()
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            var input = Console.ReadLine();
+            Console.ResetColor();
+            return input ?? "";
+        }
+
+        static void PrintProcessingMessage()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("🔍 Searching through pricing database...");
+            Console.ResetColor();
+        }
+
+        static CancellationTokenSource ShowLoadingAnimation(string message)
+        {
+            var cts = new CancellationTokenSource();
+
+            Task.Run(async () =>
+            {
+                var frames = new[] { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" };
+                int frame = 0;
+
+                while (!cts.Token.IsCancellationRequested)
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.Write($"\r{frames[frame % frames.Length]} {message}...");
+                    Console.ResetColor();
+                    frame++;
+
+                    try
+                    {
+                        await Task.Delay(100, cts.Token);
+                    }
+                    catch (OperationCanceledException)
+                    {
+                        break;
+                    }
+                }
+
+                // Clear the loading line
+                Console.Write("\r" + new string(' ', message.Length + 10) + "\r");
+            }, cts.Token);
+
+            return cts;
+        }
+
+        static void PrintAIResponse(string response, int conversationCount)
+        {
+            PrintAIResponse(response, conversationCount, null);
+        }
+
+        static void PrintAIResponse(string response, int conversationCount, TimeSpan? responseTime)
+        {
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write("🤖 ");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("AI Assistant");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write($" (Response #{conversationCount}");
+
+            if (responseTime.HasValue)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                Console.Write($" • {responseTime.Value.TotalSeconds:F1}s");
+            }
+
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("):");
+
+            // Decorative line under AI header
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("   " + new string('─', 60));
+            Console.ResetColor();
+            Console.WriteLine();
+
+            // Format the response with better structure and text wrapping
+            var lines = response.Split('\n');
+            foreach (var line in lines)
+            {
+                var trimmedLine = line.Trim();
+                if (string.IsNullOrEmpty(trimmedLine)) continue;
+
+                if (trimmedLine.StartsWith("€") || trimmedLine.Contains("/kg") || trimmedLine.Contains("/L"))
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"   💰 {WrapText(trimmedLine, 75, "       ")}");
+                }
+                else if (trimmedLine.Contains("Best") || trimmedLine.Contains("Cheapest") || trimmedLine.Contains("savings"))
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine($"   ⭐ {WrapText(trimmedLine, 75, "       ")}");
+                }
+                else if (trimmedLine.Contains("Premium") || trimmedLine.Contains("expensive"))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"   💎 {WrapText(trimmedLine, 75, "       ")}");
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine($"   {WrapText(trimmedLine, 77, "   ")}");
+                }
+            }
+            Console.ResetColor();
+            Console.WriteLine();
+        }
+
+        static string WrapText(string text, int maxLength, string indent = "")
+        {
+            if (text.Length <= maxLength)
+                return text;
+
+            var words = text.Split(' ');
+            var lines = new List<string>();
+            var currentLine = "";
+
+            foreach (var word in words)
+            {
+                if ((currentLine + " " + word).Length <= maxLength)
+                {
+                    currentLine += (currentLine.Length > 0 ? " " : "") + word;
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(currentLine))
+                        lines.Add(currentLine);
+                    currentLine = word;
+                }
+            }
+
+            if (!string.IsNullOrEmpty(currentLine))
+                lines.Add(currentLine);
+
+            return string.Join("\n" + indent, lines);
+        }
+
+        static void PrintSeparator()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine();
+            var currentTime = DateTime.Now.ToString("HH:mm:ss");
+            var separator = $"───────────────────────── {currentTime} ─────────────────────────";
+            Console.WriteLine(separator);
+            Console.ResetColor();
+        }
+
+        static void PrintHelpMessage()
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("\n💡 EXAMPLE QUESTIONS YOU CAN ASK:");
+            Console.ResetColor();
+
+            var examples = new[]
+            {
+                "🍎 'Where can I find the cheapest apples in Belgium?'",
+                "🥕 'Compare carrot prices at Delhaize vs Lidl'",
+                "🧀 'Which store has the best cheese prices?'",
+                "🛒 'How can I save money on weekly grocery shopping?'",
+                "🌱 'What are organic vegetable prices in Brussels?'",
+                "📅 'What are seasonal price variations for strawberries?'",
+                "🏪 'Compare farmers market vs supermarket prices'",
+                "💰 'Best budget shopping strategy for families'"
+            };
+
+            foreach (var example in examples)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine($"   {example}");
+            }
+            Console.ResetColor();
+            Console.WriteLine();
+        }
+
+        static void PrintConversationHistory(List<(string question, string answer)> history)
+        {
+            if (history.Count == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.DarkYellow;
+                Console.WriteLine("📝 No conversation history yet. Ask me a question!");
+                Console.ResetColor();
+                return;
+            }
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"\n📚 CONVERSATION HISTORY ({history.Count} exchanges):");
+            Console.ResetColor();
+
+            for (int i = 0; i < Math.Min(history.Count, 5); i++) // Show last 5 exchanges
+            {
+                var (question, answer) = history[history.Count - 1 - i];
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine($"\n{history.Count - i}. Q: {question}");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"   A: {answer.Substring(0, Math.Min(answer.Length, 100))}...");
+            }
+            Console.ResetColor();
+            Console.WriteLine();
+        }
+
+        static void PrintTip()
+        {
+            var tips = new[]
+            {
+                "💡 Pro tip: Weekend farmers markets often have the best deals!",
+                "💡 Pro tip: Aldi and Lidl typically offer the lowest prices for basic items.",
+                "💡 Pro tip: Buy seasonal produce to save 20-40% on your grocery bill.",
+                "💡 Pro tip: Compare organic prices - sometimes the premium is worth it!",
+                "💡 Pro tip: Colruyt offers great quality-price balance for most products."
+            };
+
+            var random = new Random();
+            var tip = tips[random.Next(tips.Length)];
+
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine($"\n{tip}");
+            Console.ResetColor();
+        }
+
+        static void PrintWarning(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine($"⚠️  {message}");
+            Console.ResetColor();
+        }
+
+        static void PrintError(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"❌ {message}");
+            Console.ResetColor();
+        }
+
+        static void PrintGoodbye()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\n🙏 Thank you for using Belgian Food Pricing Assistant!");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("💰 Happy shopping and save money on your groceries! 🛒");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("👋 Goodbye!");
+            Console.ResetColor();
+        }
+
+        static void PrintSessionSummary(int conversationCount, DateTime startTime)
+        {
+            var sessionDuration = DateTime.Now - startTime;
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("\n📊 SESSION SUMMARY:");
+            Console.WriteLine("─────────────────────");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine($"💬 Questions asked: {conversationCount}");
+            Console.WriteLine($"⏱️  Session duration: {sessionDuration:mm\\:ss}");
+
+            if (conversationCount > 0)
+            {
+                var avgTime = sessionDuration.TotalSeconds / conversationCount;
+                Console.WriteLine($"⚡ Average response time: ~{avgTime:F1}s per question");
+            }
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("✨ Thanks for exploring Belgian food prices with me!");
+            Console.ResetColor();
+        }
+
+        static void PrintSessionStats(int conversationCount, DateTime startTime)
+        {
+            var sessionDuration = DateTime.Now - startTime;
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("\n📈 CURRENT SESSION STATISTICS:");
+            Console.WriteLine("───────────────────────────────");
+            Console.ResetColor();
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"🗣️  Questions asked: {conversationCount}");
+            Console.WriteLine($"⌚ Session time: {sessionDuration:hh\\:mm\\:ss}");
+            Console.WriteLine($"📅 Started at: {startTime:HH:mm:ss}");
+
+            if (conversationCount > 0)
+            {
+                var efficiency = conversationCount / Math.Max(sessionDuration.TotalMinutes, 1);
+                Console.WriteLine($"🚀 Efficiency: {efficiency:F1} questions per minute");
+            }
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Keep asking questions to discover more savings! 💰");
+            Console.ResetColor();
+            Console.WriteLine();
+        }
+
+        static void PrintSessionEncouragement(int conversationCount)
+        {
+            var encouragements = new[]
+            {
+                $"🎉 Great job! You've asked {conversationCount} questions - you're becoming a savings expert!",
+                $"💪 {conversationCount} questions down! You're really committed to finding the best deals!",
+                $"🌟 Impressive! {conversationCount} queries shows you're serious about smart shopping!",
+                $"🏆 {conversationCount} questions explored! You're mastering Belgian food pricing!",
+                $"🎯 Excellent progress! {conversationCount} questions brings you closer to maximum savings!"
+            };
+
+            var random = new Random();
+            var encouragement = encouragements[random.Next(encouragements.Length)];
+
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine($"\n{encouragement}");
+            Console.ResetColor();
+        }
+
+        static void PrintErrorAdvice()
+        {
+            var advice = new[]
+            {
+                "💡 Try rephrasing your question or ask about specific products.",
+                "🔄 Sometimes trying again helps - the AI learns from each interaction!",
+                "📝 Be specific about stores, products, or price ranges for better results.",
+                "🛠️  If problems persist, try asking simpler questions first."
+            };
+
+            var random = new Random();
+            var selectedAdvice = advice[random.Next(advice.Length)];
+
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine($"{selectedAdvice}");
+            Console.ResetColor();
         }
 
         static async Task<SearchResults<KnowledgeDocument>> SearchRelevantDocuments(
