@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using DotNetEnv;
 using Azure;
 using Azure.Search.Documents;
@@ -32,7 +33,7 @@ namespace AzureOpenAIConsole
             LoadConfiguration();
             SetupSearchClient();
 
-            Console.WriteLine("=== Azure OpenAI + Search RAG Demo ===\n");
+            Console.WriteLine("=== Belgian Food Pricing Assistant - Azure OpenAI + Search RAG Demo ===\n");
 
             // Setup demo data
             await SetupKnowledgeBase();
@@ -265,7 +266,7 @@ namespace AzureOpenAIConsole
 
         static async Task InteractiveChatWithRAG()
         {
-            Console.WriteLine("Ask me anything about Paris attractions! (type 'quit' to exit)\n");
+            Console.WriteLine("Ask me anything about Belgian food prices - fruits, vegetables, and delicatessen! (type 'quit' to exit)\n");
 
             while (true)
             {
@@ -335,8 +336,9 @@ namespace AzureOpenAIConsole
                 $"{endpoint.TrimEnd('/')}/openai/deployments/{chatDeployment}/chat/completions?api-version=2024-02-01";
 
             var systemPrompt =
-                $@"You are a helpful assistant answering questions about Paris attractions. 
+                $@"You are a helpful assistant answering questions about Belgian food prices, including fruits, vegetables, and delicatessen products. 
 Use the following context to answer the user's question. If the context doesn't contain relevant information, say so.
+Be specific about prices, seasonal variations, and provide helpful shopping advice for Belgian consumers.
 
 Context:
 {context}";
@@ -374,7 +376,12 @@ Context:
             if (File.Exists(configPath))
             {
                 string configJson = await File.ReadAllTextAsync(configPath);
-                appConfig = JsonSerializer.Deserialize<AppConfiguration>(configJson) ?? new AppConfiguration();
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true,
+                    Converters = { new JsonStringEnumConverter() }
+                };
+                appConfig = JsonSerializer.Deserialize<AppConfiguration>(configJson, options) ?? new AppConfiguration();
                 Console.WriteLine($"Loaded configuration: Data source = {appConfig.DataSource.Type}");
             }
             else

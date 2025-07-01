@@ -1,12 +1,14 @@
-# Azure OpenAI RAG Console Application
+# Belgian Food Pricing Assistant - Azure OpenAI RAG Console Application
 
-This application demonstrates how to build a Retrieval-Augmented Generation (RAG) system using Azure OpenAI and Azure Cognitive Search.
+This application demonstrates how to build a Retrieval-Augmented Generation (RAG) system using Azure OpenAI and Azure Cognitive Search, specifically focused on Belgian food pricing information including fruits, vegetables, and delicatessen products.
 
 ## Features
 
-- **Flexible Data Sources**: Load documents from JSON files, CSV files, text files, or hardcoded data
-- **Vector Search**: Uses Azure Cognitive Search with vector embeddings for semantic search
-- **Interactive Chat**: Ask questions and get AI responses based on your knowledge base
+- **Belgian Food Price Database**: Comprehensive pricing information for Belgian fruits, vegetables, and deli products
+- **Flexible Data Sources**: Load pricing data from JSON files, CSV files, text files, or hardcoded data
+- **Vector Search**: Uses Azure Cognitive Search with vector embeddings for semantic search of pricing information
+- **Interactive Chat**: Ask questions about Belgian food prices and get AI responses based on the knowledge base
+- **Shopping Advice**: Get recommendations on where to find best prices and seasonal variations
 - **Configurable**: Easy configuration through `appsettings.json`
 
 ## Data Source Configuration
@@ -24,7 +26,7 @@ The application supports multiple data source types configured in `appsettings.j
 }
 ```
 
-The JSON file should contain an array of documents:
+The JSON file contains Belgian food pricing information:
 
 ```json
 [
@@ -122,8 +124,12 @@ Uses predefined documents in the code.
 
 After running the application, you can ask questions like:
 
-- "Tell me about the Eiffel Tower"
-- "What museums are in Paris?"
-- "How tall is the Eiffel Tower?"
+- "What's the price of Belgian apples?"
+- "Where can I find the best prices for vegetables in Brussels?"
+- "How much does Belgian cheese cost?"
+- "What are the seasonal price variations for fruits?"
+- "Compare supermarket vs farmers market prices"
+- "What's the cost of organic vegetables in Belgium?"
+- "Which Belgian delicatessen products offer the best value?"
 
 The AI will respond based on the documents in your configured data source.
