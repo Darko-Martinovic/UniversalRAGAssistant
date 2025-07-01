@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "title": "BELGIAN ENTERTAINMENT PRICING ASSISTANT",
+    "icon": "🎵",
+    "flag": "🇧🇪",
+    "welcomeMessage": "Welcome to your personal Belgian entertainment pricing assistant!",
+    "capabilityDescription": "I can help you find the best deals on concerts, streaming services, movies, and entertainment",
+    "additionalInfo": "Compare prices across different venues and platforms in Belgium"
+  },
+  "documents": [
+    {
+      "Id": "1",
+      "Title": "Concert Ticket Prices Belgium - Major Venues Comparison",
+      "Content": "Forest National: International acts €45-150, Belgian artists €25-80, VIP packages €120-300. Ancienne Belgique: Indie/Alternative €20-60, Jazz €15-45, Electronic €25-70. Palais 12: Pop/Rock €35-120, Metal €30-90, Classical €20-100. Sportpaleis Antwerp: Stadium shows €50-200, Standing €40-80, Seated €60-180. Lotto Arena: Mid-size acts €35-100, Comedy shows €20-50. Best deals: Early bird tickets save 20-30%, student discounts available at AB and Botanique."
+    },
+    {
+      "Id": "2",
+      "Title": "Streaming Services Pricing Belgium - Monthly Subscriptions",
+      "Content": "Spotify: Premium €9.99/month, Family €15.99 (6 accounts), Student €4.99. Apple Music: Individual €9.99/month, Family €14.99 (6 accounts), Student €4.99. Netflix: Basic €8.99/month, Standard €13.49/month, Premium €17.99/month. Amazon Prime Video: €2.99/month (with Prime €49/year). Disney+: €8.99/month or €89.90/year. YouTube Premium: €11.99/month, Family €17.99. Best value: Annual subscriptions save 15-20%, bundle with Telenet/Proximus for discounts."
+    },
+    {
+      "Id": "3",
+      "Title": "Cinema Ticket Prices Belgium - Movie Theater Comparison",
+      "Content": "Kinepolis: Regular €11.50, Student €9.50, Senior €10.50, 4DX €18.50, IMAX €15.50. UGC: Standard €11.00, Reduced €9.00, Premium €14.00. Pathé: Regular €12.00, Student €9.50, Dolby Atmos €15.00. Imagix: Standard €10.50, Student €8.50, VIP €16.00. Rex Cinema: Arthouse €9.00, Student €7.50. Best deals: Tuesday discounts (€7-8), CinéCheque vouchers, unlimited cards €19-25/month."
+    },
+    {
+      "Id": "4",
+      "Title": "Music Festival Tickets Belgium - Summer Festival Pricing",
+      "Content": "Rock Werchter: 4-day pass €260, 1-day €85-95, VIP €450-650. Pukkelpop: 4-day pass €240, 1-day €80-90, Comfort camping €150. Tomorrowland: Weekend €300-400, Dreamlodge packages €2000-5000, DreamVille camping €150-300. Dour Festival: 5-day pass €190, 1-day €65-75, Camping €50. Les Ardentes: 4-day pass €180, 1-day €60-70. Graspop Metal Meeting: 3-day pass €170, 1-day €70-80. Early bird savings: Book in December-January for 25-40% discounts."
+    },
+    {
+      "Id": "5",
+      "Title": "Gaming Entertainment Belgium - Console and PC Gaming Costs",
+      "Content": "PlayStation Plus: Essential €8.99/month, Extra €13.99/month, Premium €16.99/month. Xbox Game Pass: Console €9.99/month, PC €9.99/month, Ultimate €12.99/month. Nintendo Switch Online: Individual €19.99/year, Family €34.99/year. Steam games: AAA titles €59.99 at launch, Indies €15-30, sales up to 90% off. Epic Games Store: Free weekly games, exclusive deals. Game streaming: GeForce Now €9.99/month, Xbox Cloud Gaming included with Ultimate. Best savings: Wait for seasonal sales, bundle subscriptions."
+    },
+    {
+      "Id": "6",
+      "Title": "Sports Entertainment Belgium - TV and Live Events",
+      "Content": "Eleven Sports: €14.99/month for football, €9.99 for cycling/tennis. Play Sports: Included with Telenet packages or €15/month standalone. RTBF Sport: Free for Belgian competitions. ESPN Player: €9.99/month for basketball/hockey. Live football: Standard Club Brugge €15-45, Anderlecht €20-60, Royal Antwerp €12-35. Basketball: Spirou Charleroi €10-25, Oostende €12-30. Tennis: Belgian Open €20-80, Brussels Open €15-60. Season passes save 30-50% vs individual tickets."
+    },
+    {
+      "Id": "7",
+      "Title": "Comedy and Theater Belgium - Live Performance Pricing",
+      "Content": "Théâtre Royal de la Monnaie: Opera €15-120, Ballet €20-100, Student rush tickets €10. Koninklijke Vlaamse Schouwburg: Theater €15-55, Comedy €20-45. Kaaitheater: Contemporary €12-35, Experimental €8-25. Comedy clubs: Comedy Central Live €15-25, LOL Comedy Club €12-20, Laughing Skull €10-18. Flemish theater: NTGent €15-45, toneelgroep €12-35. French theater: Théâtre de Poche €15-30, Rideau de Bruxelles €20-40. Season subscriptions offer 20-30% discounts, under-26 rates widely available."
+    },
+    {
+      "Id": "8",
+      "Title": "Night Entertainment Belgium - Clubs and Nightlife Pricing",
+      "Content": "Brussels nightlife: Fuse €15-25, Culture Club €12-20, Madame Moustache €10-18, The Architect €8-15. Antwerp clubs: Petrol €12-22, Café Local €8-16, Club Vaag €10-18. Ghent venues: Charlatan €8-15, Decadance €10-20, Kompass Klub €12-18. Drinks: Beer €3-6, Cocktails €8-14, Shots €3-7. VIP tables: €200-500 minimum spend. Festival afterparties: €20-35 entry. Student nights offer 50% discounts, guest lists save €5-10 entry, pre-sale tickets cheaper than door prices."
+    }
+  ]
+}

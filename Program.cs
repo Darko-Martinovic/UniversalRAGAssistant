@@ -448,10 +448,10 @@ namespace UniversalRAGAssistant
         {
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("╔══════════════════════════════════════════════════════════════════════════════╗");
-            Console.WriteLine($"║                    {appMetadata?.Icon} {appMetadata?.Title} {appMetadata?.Flag}                    ║");
-            Console.WriteLine("║                     Powered by Azure OpenAI + RAG                            ║");
-            Console.WriteLine("╚══════════════════════════════════════════════════════════════════════════════╝");
+            Console.WriteLine();
+            Console.WriteLine($"                    {appMetadata?.Icon} {appMetadata?.Title} {appMetadata?.Flag}");
+            Console.WriteLine("                     Powered by Azure OpenAI + RAG");
+            Console.WriteLine();
             Console.ResetColor();
 
             // Add current time and welcome banner
@@ -476,7 +476,7 @@ namespace UniversalRAGAssistant
         {
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             Console.WriteLine("📝 AVAILABLE COMMANDS:");
-            Console.WriteLine("   • Ask any pricing question (e.g., 'Where can I find cheap apples?')");
+            Console.WriteLine($"   • Ask any question related to {appMetadata?.CapabilityDescription?.ToLower()}");
             Console.WriteLine("   • Type 'help' or '?' for example questions");
             Console.WriteLine("   • Type 'history' or 'hist' to see conversation history");
             Console.WriteLine("   • Type 'stats' to see session statistics");
@@ -531,7 +531,7 @@ namespace UniversalRAGAssistant
 
                     try
                     {
-                        await Task.Delay(100, cts.Token);
+                        await Task.Delay(200, cts.Token);
                     }
                     catch (OperationCanceledException)
                     {
@@ -653,17 +653,7 @@ namespace UniversalRAGAssistant
             Console.WriteLine("\n💡 EXAMPLE QUESTIONS YOU CAN ASK:");
             Console.ResetColor();
 
-            var examples = new[]
-            {
-                "🍎 'Where can I find the cheapest apples in Belgium?'",
-                "🥕 'Compare carrot prices at Delhaize vs Lidl'",
-                "🧀 'Which store has the best cheese prices?'",
-                "🛒 'How can I save money on weekly grocery shopping?'",
-                "🌱 'What are organic vegetable prices in Brussels?'",
-                "📅 'What are seasonal price variations for strawberries?'",
-                "🏪 'Compare farmers market vs supermarket prices'",
-                "💰 'Best budget shopping strategy for families'"
-            };
+            var examples = GetHelpExamples();
 
             foreach (var example in examples)
             {
@@ -672,6 +662,84 @@ namespace UniversalRAGAssistant
             }
             Console.ResetColor();
             Console.WriteLine();
+        }
+
+        static string[] GetHelpExamples()
+        {
+            // Determine assistant type based on metadata
+            var title = appMetadata?.Title?.ToUpper() ?? "";
+            
+            if (title.Contains("REAL ESTATE") || title.Contains("PROPERTY"))
+            {
+                return new[]
+                {
+                    "🏠 'What are rental prices in Brussels Ixelles?'",
+                    "🏢 'Compare property investment yields in Antwerp vs Ghent'",
+                    "💰 'Best areas for affordable housing in Belgium?'",
+                    "🏘️ 'Student housing prices near KU Leuven?'",
+                    "🏖️ 'Coastal property prices in Ostend vs Knokke'",
+                    "📈 'ROI analysis for Liège property investments'",
+                    "🏛️ 'Luxury real estate market in Brussels embassy quarter'",
+                    "💡 'Best property investment strategy for Belgium'"
+                };
+            }
+            else if (title.Contains("ENTERTAINMENT") || title.Contains("MUSIC") || title.Contains("CONCERT"))
+            {
+                return new[]
+                {
+                    "🎵 'What are Rock Werchter ticket prices this year?'",
+                    "🎬 'Compare movie theater prices in Brussels'",
+                    "📺 'Netflix vs Disney+ pricing in Belgium?'",
+                    "� 'Best gaming console deals in Belgian stores?'",
+                    "🎪 'Upcoming festival prices and lineups'",
+                    "🎭 'Theater ticket prices in Antwerp vs Ghent'",
+                    "🎤 'Comedy show tickets - where to find deals?'",
+                    "🕺 'Nightlife and club entry prices in Brussels'"
+                };
+            }
+            else if (title.Contains("TECHNOLOGY") || title.Contains("TECH") || title.Contains("ELECTRONICS"))
+            {
+                return new[]
+                {
+                    "💻 'Cheapest MacBook Pro prices in Belgium?'",
+                    "📱 'Compare iPhone deals at MediaMarkt vs Coolblue'",
+                    "🖥️ 'Best laptop deals for students?'",
+                    "⌚ 'Smart watch prices and warranty options'",
+                    "🎮 'Gaming PC components - where to buy cheapest?'",
+                    "📷 'Camera equipment prices at Belgian tech stores'",
+                    "🔌 'Best electronics warranty policies comparison'",
+                    "💾 'SSD and storage device price trends'"
+                };
+            }
+            else if (title.Contains("FOOD") || title.Contains("GROCERY") || title.Contains("PRICING"))
+            {
+                return new[]
+                {
+                    "�🍎 'Where can I find the cheapest apples in Belgium?'",
+                    "🥕 'Compare carrot prices at Delhaize vs Lidl'",
+                    "🧀 'Which store has the best cheese prices?'",
+                    "🛒 'How can I save money on weekly grocery shopping?'",
+                    "🌱 'What are organic vegetable prices in Brussels?'",
+                    "📅 'What are seasonal price variations for strawberries?'",
+                    "🏪 'Compare farmers market vs supermarket prices'",
+                    "💰 'Best budget shopping strategy for families'"
+                };
+            }
+            else
+            {
+                // Generic examples
+                return new[]
+                {
+                    "💬 'Tell me about available options and pricing'",
+                    "📊 'Compare different products or services'",
+                    "💰 'What are the best deals and discounts?'",
+                    "🏪 'Where can I find the best prices?'",
+                    "📈 'What are current market trends?'",
+                    "🔍 'Help me find specific information'",
+                    "📋 'Give me a detailed comparison'",
+                    "💡 'What are your recommendations?'"
+                };
+            }
         }
 
         static void PrintConversationHistory(List<(string question, string answer)> history)
