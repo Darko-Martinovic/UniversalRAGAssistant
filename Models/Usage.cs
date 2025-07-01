@@ -1,4 +1,4 @@
-namespace AzureOpenAIConsole.Models
+namespace UniversalRAGAssistant.Models
 {
     public class Usage
     {

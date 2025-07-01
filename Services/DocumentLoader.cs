@@ -1,7 +1,7 @@
 using System.Text.Json;
-using AzureOpenAIConsole.Models;
+using UniversalRAGAssistant.Models;
 
-namespace AzureOpenAIConsole.Services
+namespace UniversalRAGAssistant.Services
 {
     public class DocumentLoader
     {

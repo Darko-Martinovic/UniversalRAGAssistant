@@ -1,11 +1,13 @@
 # 📚 Data Customization Guide - Belgian Food Pricing Assistant
 
 ## 🎯 Overview
+
 The Belgian Food Pricing Assistant is designed to be **highly customizable**. You can easily modify the knowledge base to focus on different topics, regions, or data types by simply changing the data files. The app will automatically adapt to your new content!
 
 ## 📄 How Data Loading Works
 
 ### Current Setup
+
 - **Primary Data Source**: `Data/documents.json`
 - **Configuration**: `appsettings.json` controls which data source to use
 - **Automatic Processing**: The app generates AI embeddings for any content you provide
@@ -21,9 +23,11 @@ The Belgian Food Pricing Assistant is designed to be **highly customizable**. Yo
 ## 🛠️ Customization Options
 
 ### 1. **Topic Customization**
+
 You can change `documents.json` to cover ANY topic:
 
 #### **Food & Restaurants** (Current Theme)
+
 ```json
 {
   "Id": "1",
@@ -33,24 +37,27 @@ You can change `documents.json` to cover ANY topic:
 ```
 
 #### **Real Estate Prices**
+
 ```json
 {
-  "Id": "1", 
+  "Id": "1",
   "Title": "Brussels Apartment Rental Prices",
   "Content": "1-bedroom apartments: Ixelles €800-1200/month, Etterbeek €700-1000/month..."
 }
 ```
 
 #### **Technology Products**
+
 ```json
 {
   "Id": "1",
-  "Title": "Laptop Prices in Belgium Electronics Stores", 
+  "Title": "Laptop Prices in Belgium Electronics Stores",
   "Content": "MacBook Pro M3: MediaMarkt €2299, Coolblue €2249, Krëfel €2399..."
 }
 ```
 
 #### **Travel & Tourism**
+
 ```json
 {
   "Id": "1",
@@ -60,9 +67,11 @@ You can change `documents.json` to cover ANY topic:
 ```
 
 ### 2. **Data Source Flexibility**
+
 Edit `appsettings.json` to use different data sources:
 
 #### **JSON Files** (Recommended)
+
 ```json
 {
   "DataSource": {
@@ -73,16 +82,18 @@ Edit `appsettings.json` to use different data sources:
 ```
 
 #### **CSV Files**
+
 ```json
 {
   "DataSource": {
-    "Type": "Csv", 
+    "Type": "Csv",
     "FilePath": "Data/your-data.csv"
   }
 }
 ```
 
 #### **Text Files**
+
 ```json
 {
   "DataSource": {
@@ -93,6 +104,7 @@ Edit `appsettings.json` to use different data sources:
 ```
 
 ### 3. **Document Structure**
+
 Each document should follow this structure:
 
 ```json
@@ -106,6 +118,7 @@ Each document should follow this structure:
 ## 🎨 Theme Customization Examples
 
 ### Example 1: Belgian Car Prices
+
 ```json
 [
   {
@@ -117,10 +130,11 @@ Each document should follow this structure:
 ```
 
 ### Example 2: Belgian University Costs
+
 ```json
 [
   {
-    "Id": "1", 
+    "Id": "1",
     "Title": "University Tuition Fees Belgium",
     "Content": "KU Leuven: EU students €938/year, Non-EU €4,175/year. UGent: EU €938/year, Non-EU €4,175/year. VUB: EU €938/year, Non-EU €4,175/year..."
   }
@@ -130,15 +144,19 @@ Each document should follow this structure:
 ## 🚀 Quick Customization Steps
 
 ### Step 1: Backup Current Data
+
 ```bash
 cp Data/documents.json Data/documents-backup.json
 ```
 
 ### Step 2: Edit Your Content
+
 Open `Data/documents.json` and replace with your custom data
 
 ### Step 3: Update App Configuration (Optional)
+
 Edit `appsettings.json` to change the index name:
+
 ```json
 {
   "IndexName": "your-custom-topic-index"
@@ -146,11 +164,13 @@ Edit `appsettings.json` to change the index name:
 ```
 
 ### Step 4: Run the App
+
 ```bash
 dotnet run
 ```
 
 The app will automatically:
+
 - ✅ Load your new content
 - ✅ Generate AI embeddings
 - ✅ Create a new search index
@@ -159,17 +179,20 @@ The app will automatically:
 ## 💡 Best Practices
 
 ### Content Writing Tips
+
 1. **Be Specific**: Include exact prices, locations, dates
 2. **Use Comparisons**: "Store A vs Store B pricing"
 3. **Add Context**: Seasonal variations, quality differences
 4. **Include Keywords**: Terms users might search for
 
 ### Performance Optimization
+
 - **Document Size**: Keep individual documents under 2000 characters
 - **Document Count**: 5-20 documents work well for most topics
 - **Content Quality**: Rich, detailed content improves AI responses
 
 ### Data Organization
+
 - Use clear, descriptive titles
 - Group related information in single documents
 - Include cross-references between documents
@@ -177,14 +200,18 @@ The app will automatically:
 ## 🔧 Advanced Customization
 
 ### Custom Data Processing
+
 You can extend the `DocumentLoader` class to handle:
+
 - Different file formats (XML, YAML)
 - Database connections
 - API data sources
 - Real-time data feeds
 
 ### AI Response Customization
+
 Modify the system prompt in `GenerateResponseWithContext()` to change:
+
 - Response tone and style
 - Specific output format
 - Domain-specific guidance
@@ -201,10 +228,11 @@ Modify the system prompt in `GenerateResponseWithContext()` to change:
 ## 📋 Template Documents
 
 ### Generic Price Comparison Template
+
 ```json
 {
   "Id": "template-1",
-  "Title": "[Product Category] Prices in [Location] - Store Comparison", 
+  "Title": "[Product Category] Prices in [Location] - Store Comparison",
   "Content": "[Product A]: Store1 €X.XX, Store2 €Y.YY, Store3 €Z.ZZ. [Product B]: Store1 €A.AA, Store2 €B.BB. Best deals: [specific recommendations]."
 }
 ```
