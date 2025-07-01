@@ -1,52 +1,51 @@
 {
   "metadata": {
-    "title": "BELGIAN SUPERMARKET BUSINESS INTELLIGENCE",
-    "icon": "📊",
+    "title": "BELGIAN FOOD PRICING ASSISTANT",
+    "icon": "🛒",
     "flag": "🇧🇪",
-    "welcomeMessage": "Welcome to your supermarket business intelligence assistant!",
-    "capabilityDescription": "I provide competitive analysis, market insights, and strategic recommendations for supermarket chain management",
-    "additionalInfo": "Optimize pricing strategies, procurement decisions, and market positioning across Belgium"
+    "welcomeMessage": "Welcome to your personal Belgian food pricing assistant!",
+    "capabilityDescription": "I can help you find the best deals on fruits, vegetables, and delicatessen products",
+    "additionalInfo": "Compare prices across different stores and markets in Belgium"
   },
   "documents": [
     {
       "Id": "1",
-      "Title": "Competitive Pricing Intelligence - Market Position Analysis",
-      "Content": "Market positioning by chain: Delhaize (premium, 15-20% above market average, focus on quality and convenience), Carrefour (mainstream, 5-10% above average, hypermarket strategy), Colruyt (value-quality balance, market average pricing, strong loyalty program), Lidl (discount leader, 20-25% below average, limited SKU strategy), Aldi (ultra-discount, 25-30% below average, private label focus). Pricing gaps analysis: Fresh produce shows biggest variance (up to 40% between premium and discount), packaged goods more standardized (10-15% variance). Strategic opportunity: Mid-market positioning between Colruyt and Carrefour shows 8-12% margin potential with proper execution."
+      "Title": "Fresh Fruits Prices in Belgium - Store Comparison",
+      "Content": "Belgian apple prices by retailer: Delhaize €3.20/kg, Carrefour €3.10/kg, Colruyt €2.80/kg, Lidl €2.40/kg, Aldi €2.35/kg, Weekend Markets €2.00-2.50/kg. Pears: Delhaize €3.80/kg, Carrefour €3.60/kg, Colruyt €3.20/kg, Lidl €2.90/kg, Aldi €2.85/kg, Local Markets €2.50-3.00/kg. Bananas: Delhaize €2.10/kg, Carrefour €1.95/kg, Colruyt €1.75/kg, Lidl €1.45/kg, Aldi €1.40/kg. Best deals: Weekend farmers markets for seasonal fruits, Aldi/Lidl for year-round lowest prices."
     },
-    {
-      "Id": "2",
-      "Title": "Procurement Strategy - Supplier Cost Analysis Belgium",
-      "Content": "Wholesale pricing intelligence: Direct farm procurement saves 35-45% vs distributors (seasonal produce), Belgian suppliers offer 10-15% cost advantage over imports (dairy, vegetables), Volume discounts: 5% at €100K monthly, 12% at €500K, 18% at €1M+ monthly purchases. Seasonal procurement windows: Asparagus (April-June, lock prices in February), Strawberries (May-August, contract in March), Apples (September-February, secure storage capacity by July). Private label opportunities: 25-35% higher margins vs national brands, minimum €2M investment for dedicated production lines. Supply chain optimization: Regional distribution centers reduce costs by 8-12%, automated ordering systems cut procurement overhead by 15-20%."
-    },
-    {
-      "Id": "3",
-      "Title": "Regional Market Analysis - Store Performance Optimization",
-      "Content": "Brussels market dynamics: Higher operating costs (rent +40%, labor +25%), premium positioning essential, target demographics favor convenience and quality over price. Average basket: €45-65, frequency 2.1x/week. Antwerp opportunities: Port logistics advantage (-15% distribution costs), mixed demographics allow dual positioning, growing expatriate community values international brands. Average basket: €35-50, frequency 2.4x/week. Ghent student market: Price-sensitive segment, bulk buying patterns, promotional responsiveness +180% vs average. Average basket: €25-35, frequency 3.2x/week. Optimal store formats: Brussels (convenience, 800-1200m²), Antwerp (hypermarket, 2000-3500m²), Ghent (compact super, 1000-1500m²)."
-    },
-    {
-      "Id": "4",
-      "Title": "Inventory Management Intelligence - Category Performance",
-      "Content": "High-velocity categories: Fresh produce (35% of traffic, 18% margin, 2-day turnover), Dairy (28% of baskets, 22% margin, 4-day turnover), Bread/Bakery (45% of visits, 35% margin, daily turnover). Margin optimization opportunities: Prepared foods (45-60% margin, growing 12% annually), Organic lines (35-50% margin, premium positioning), Private label expansion (25-40% higher margins vs national brands). Seasonal inventory planning: Summer (frozen foods +40%, BBQ items +200%, ice cream +180%), Winter (soups +85%, comfort foods +60%, vitamin supplements +45%). Dead stock reduction: Implement dynamic pricing algorithms (reduce waste by 25%), cross-category bundling strategies, supplier return agreements for slow-moving items."
-    },
-    {
-      "Id": "5",
-      "Title": "Customer Analytics - Shopping Behavior Intelligence",
-      "Content": "Shopping pattern analysis: Peak hours (Thursday 17-19h, Friday 16-20h, Saturday 9-12h, Sunday 15-18h), Basket composition: Planned purchases 65%, impulse purchases 35% (opportunity for strategic placement). Customer segmentation: Price-sensitive (35%, focus on promotions and private label), Quality-focused (25%, premium positioning and fresh categories), Convenience-oriented (40%, ready meals and extended hours). Loyalty program effectiveness: Colruyt Xtra (85% participation, +22% basket value), Carrefour stamps (60% participation, +15% frequency), Delhaize Plus (+18% retention, premium tier activation). Cross-selling opportunities: Fresh produce → prepared foods (conversion rate 28%), Dairy → bread/bakery (45% correlation), Wine → cheese/delicatessen (65% premium basket uplift)."
-    },
-    {
-      "Id": "6",
-      "Title": "Promotional Strategy - ROI Analysis and Optimization",
-      "Content": "Promotional effectiveness by category: Fresh produce (25% volume increase, 12% margin reduction, net positive ROI), Packaged goods (40% volume increase, 18% margin reduction, break-even ROI), Electronics (60% volume increase, 8% margin reduction, high ROI). Timing optimization: End-of-month promotions (+35% effectiveness due to payroll cycles), Pre-weekend fresh promotions (Thursday-Friday, +28% produce sales), Back-to-school period (August-September, +45% stationery/household items). Competitive response analysis: Lidl promotions trigger 15-20% temporary traffic loss, Aldi leaflet distribution impacts sales within 3km radius by 8-12%. Bundle strategy: Meal solutions increase basket value by €12-18, Cross-category promotions (buy 2 get 1 free across departments) improve basket diversity by 25%."
-    },
-    {
-      "Id": "7",
-      "Title": "Store Operations - Efficiency and Profitability Metrics",
-      "Content": "Staffing optimization: Peak coverage ratios (1 cashier per 25 customers/hour), Fresh departments require 30% higher staffing vs packaged goods, Self-checkout adoption reduces labor costs by 18-25%. Space utilization: Fresh perimeter generates 40% of revenue in 25% of space, High-margin categories (bakery, delicatessen) should occupy 15-20% of sales floor, End-cap displays increase category sales by 35-50%. Technology ROI: Electronic shelf labels reduce labor by 40 hours/week, Inventory management systems cut stock-outs by 30%, Energy-efficient refrigeration saves €15K-25K annually per store. Shrinkage control: Fresh produce (2.5-4% acceptable loss), Theft prevention systems reduce losses by 35-45%, Employee training programs decrease shrinkage by 20-30%."
-    },
-    {
+  {
+    "Id": "2",
+    "Title": "Belgian Delicatessen Prices - Premium vs Budget Options",
+    "Content": "Belgian ham pricing by store type: Premium Delicatessens €22-28/kg (highest quality), Delhaize €18-22/kg, Carrefour €16-20/kg, Colruyt €15-18/kg, Lidl €12-15/kg, Aldi €11-14/kg. Aged Gouda cheese: Specialty Cheese Shops €25-35/kg, Delhaize €20-25/kg, Carrefour €18-22/kg, Colruyt €16-20/kg, Lidl €12-16/kg, Aldi €11-15/kg. Belgian chocolate: Leonidas €35-45/kg, Neuhaus €40-50/kg, Godiva €45-60/kg, Supermarket brands €15-25/kg. Best value: Colruyt for quality-price balance, Aldi/Lidl for budget options."
+  },
+  {
+    "Id": "3",
+    "Title": "Vegetable Market Prices Belgium - Detailed Store Comparison",
+    "Content": "Potato prices across Belgium: Delhaize €1.65/kg, Carrefour €1.55/kg, Colruyt €1.35/kg, Lidl €1.15/kg, Aldi €1.10/kg, Local Markets €0.90-1.20/kg. Carrots: Delhaize €2.10/kg, Carrefour €1.95/kg, Colruyt €1.70/kg, Lidl €1.45/kg, Aldi €1.40/kg, Markets €1.20-1.50/kg. Belgian endives: Delhaize €3.90/kg, Carrefour €3.70/kg, Colruyt €3.30/kg, Lidl €2.90/kg, Aldi €2.80/kg, Local Farmers €2.20-2.80/kg. Brussels sprouts: Delhaize €3.50/kg, Carrefour €3.20/kg, Colruyt €2.80/kg, Lidl €2.40/kg, Aldi €2.30/kg, Weekend Markets €1.80-2.20/kg."
+  },
+  {
+    "Id": "4",
+    "Title": "Organic Food Prices Belgium - Store Price Comparison",
+    "Content": "Organic apples by retailer: Bio Planet €4.80/kg, Delhaize Bio €4.50/kg, Carrefour Bio €4.30/kg, Colruyt Bio €4.10/kg, Lidl Bio €3.70/kg, Aldi Bio €3.60/kg, Organic Markets €3.20-3.80/kg. Organic carrots: Bio Planet €3.40/kg, Delhaize Bio €3.20/kg, Carrefour Bio €3.00/kg, Colruyt Bio €2.85/kg, Lidl Bio €2.60/kg, Aldi Bio €2.55/kg, Farm Direct €2.20-2.60/kg. Organic milk: Bio Planet €1.75/L, Delhaize Bio €1.65/L, Carrefour Bio €1.55/L, Colruyt Bio €1.45/L, Lidl Bio €1.35/L, Aldi Bio €1.30/L. Best organic deals: Direct from organic farms, Aldi/Lidl bio lines."
+  },
+  {
+    "Id": "5",
+    "Title": "Seasonal Price Variations Belgium - Market Intelligence",
+    "Content": "Summer strawberry prices by location: Premium Markets €5.50/500g, Delhaize €4.80/500g, Carrefour €4.50/500g, Colruyt €4.20/500g, Lidl €3.50/500g, Aldi €3.30/500g, Pick-Your-Own Farms €2.50-3.00/500g. Asparagus season pricing: Specialty Stores €14-16/kg, Delhaize €11-13/kg, Carrefour €10-12/kg, Colruyt €9-11/kg, Lidl €8-10/kg, Aldi €7-9/kg, Local Farms €6-8/kg. Winter cabbage: All supermarkets €1.50-2.20/kg, Markets €1.20-1.80/kg. Planning tip: Buy seasonal produce directly from farms for 40-60% savings."
+  },
+  {
+    "Id": "6",
+    "Title": "Belgium Regional Price Comparison - Brussels vs Antwerp vs Ghent",
+    "Content": "Brussels pricing: Premium due to capital status, Delhaize/Carrefour 5-10% higher than national average. Best Brussels deals: Marché du Midi (Sunday), Place Sainte-Catherine (Saturday), Aldi Ixelles, Lidl Etterbeek. Antwerp pricing: Port city advantages, 3-5% below Brussels prices. Best Antwerp deals: Saturday Market (Grote Markt), Lidl/Aldi multiple locations, Turkish markets for vegetables. Ghent pricing: University city, competitive prices, 5-8% below Brussels. Best Ghent deals: Friday/Saturday Groenten-en-Fruitmarkt, Aldi/Lidl student discounts. Cross-city shopping tip: Antwerp markets offer best overall value for bulk purchases."
+  },
+  {
+    "Id": "7",
+    "Title": "Weekly Shopping Budget Optimization - Best Deal Combinations",
+    "Content": "Optimal weekly shopping strategy for family of 4: Fruits at weekend markets (save 25%), vegetables at Lidl/Aldi (save 20%), organic items at farm shops (save 30%), delicatessen at Colruyt (quality-price balance). Sample weekly savings: Markets €15-20, Discount chains €25-35, Direct farms €10-15, Total potential savings €50-70 per week. Best shopping days: Saturday morning markets for fresh produce, Sunday Aldi/Lidl for restocking, Wednesday Colruyt for mid-week specials. Store loyalty programs: Colruyt Xtra points, Carrefour savings stamps, Delhaize Plus card - combine for maximum savings."
+  },    {
       "Id": "8",
-      "Title": "Market Expansion Strategy - Location and Format Intelligence",
-      "Content": "Site selection criteria: Population density >2000 people/km² (urban stores), Household income €35K+ (premium positioning), Competitor distance >800m (market saturation analysis), Parking availability (suburban locations require 3-4 spaces per 100m² sales floor). Format optimization: Express stores (400-800m², high-traffic locations, 25-30% higher profit per m²), Hypermarkets (3000-5000m², suburban, require €2M+ weekly turnover for profitability), Neighborhood stores (1000-2000m², residential areas, focus on convenience and fresh). Investment analysis: ROI targets (15-20% for new stores, 12-15% for renovations), Payback period (3-4 years urban, 4-5 years suburban), Market penetration: Brussels (oversaturated, focus on format optimization), Flemish suburbs (expansion opportunities, 12-15% growth potential), Wallonia (underserved markets, higher risk but 20-25% growth potential)."
+      "Title": "Belgian Specialty Food Stores - Premium vs Value Comparison",
+      "Content": "Cheese specialists: Fromagerie Laurent (premium €20-40/kg), Kaasmakerij Van Tricht (artisanal €15-30/kg), vs Supermarket counters (€8-20/kg). Butcher shops: Premium butchers €18-35/kg for steaks, Local butchers €12-25/kg, vs Supermarket €8-18/kg. Bread: Artisan bakeries €3-6/loaf, Chain bakeries €2-4/loaf, Supermarket €1-3/loaf. Fish markets: Fresh fish markets €15-25/kg, Supermarket fish counter €12-20/kg, Frozen section €6-12/kg. Value assessment: Specialty stores offer 20-30% better quality for 40-60% higher price - choose based on occasion and budget."
     }
   ]
 }
