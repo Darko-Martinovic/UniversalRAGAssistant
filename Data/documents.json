@@ -1,52 +1,52 @@
 {
   "metadata": {
-    "title": "BELGIAN TECH PRICING ASSISTANT",
-    "icon": "💻",
+    "title": "BELGIAN ENTERTAINMENT PRICING ASSISTANT",
+    "icon": "🎵",
     "flag": "🇧🇪",
-    "welcomeMessage": "Welcome to your personal Belgian technology pricing assistant!",
-    "capabilityDescription": "I can help you find the best deals on electronics, laptops, smartphones, and tech gadgets",
-    "additionalInfo": "Compare prices across different electronics retailers in Belgium"
+    "welcomeMessage": "Welcome to your personal Belgian entertainment pricing assistant!",
+    "capabilityDescription": "I can help you find the best deals on concerts, streaming services, movies, and entertainment",
+    "additionalInfo": "Compare prices across different venues and platforms in Belgium"
   },
   "documents": [
     {
       "Id": "1",
-      "Title": "Laptop Prices Belgium - Major Electronics Retailers",
-      "Content": "MacBook Pro M3 14-inch: MediaMarkt €2299, Coolblue €2249, Krëfel €2399, Apple Store €2329, Alternate €2279. Dell XPS 13: MediaMarkt €1199, Coolblue €1149, Krëfel €1249, Alternate €1179, Azerty €1159. Lenovo ThinkPad T14: MediaMarkt €1099, Coolblue €1049, Alternate €1029, Azerty €999. HP Spectre x360: MediaMarkt €1299, Coolblue €1249, Krëfel €1349. Best deals: Alternate for business laptops, Coolblue for consumer models, Azerty for best overall prices."
+      "Title": "Concert Ticket Prices Belgium - Major Venues Comparison",
+      "Content": "Forest National: International acts €45-150, Belgian artists €25-80, VIP packages €120-300. Ancienne Belgique: Indie/Alternative €20-60, Jazz €15-45, Electronic €25-70. Palais 12: Pop/Rock €35-120, Metal €30-90, Classical €20-100. Sportpaleis Antwerp: Stadium shows €50-200, Standing €40-80, Seated €60-180. Lotto Arena: Mid-size acts €35-100, Comedy shows €20-50. Best deals: Early bird tickets save 20-30%, student discounts available at AB and Botanique."
     },
     {
       "Id": "2",
-      "Title": "Smartphone Prices Belgium - Carrier vs Unlocked Comparison",
-      "Content": "iPhone 15 Pro unlocked: MediaMarkt €1329, Coolblue €1299, Krëfel €1359, Apple Store €1329. With Proximus contract: €899 + €65/month (24 months). With Orange: €949 + €60/month (24 months). With Base: €999 + €55/month (24 months). Samsung Galaxy S24 Ultra unlocked: MediaMarkt €1299, Coolblue €1249, Saturn €1349. Contract deals: Proximus €799 + €70/month, Orange €849 + €65/month. Best strategy: Unlocked phones from Coolblue + SIM-only plans save 15-25% over 2 years."
+      "Title": "Streaming Services Pricing Belgium - Monthly Subscriptions",
+      "Content": "Spotify: Premium €9.99/month, Family €15.99 (6 accounts), Student €4.99. Apple Music: Individual €9.99/month, Family €14.99 (6 accounts), Student €4.99. Netflix: Basic €8.99/month, Standard €13.49/month, Premium €17.99/month. Amazon Prime Video: €2.99/month (with Prime €49/year). Disney+: €8.99/month or €89.90/year. YouTube Premium: €11.99/month, Family €17.99. Best value: Annual subscriptions save 15-20%, bundle with Telenet/Proximus for discounts."
     },
     {
       "Id": "3",
-      "Title": "Gaming Setup Prices Belgium - PC Components and Consoles",
-      "Content": "PlayStation 5: MediaMarkt €549, Coolblue €499, Krëfel €579, Game Mania €529. Xbox Series X: MediaMarkt €499, Coolblue €469, Krëfel €519, Game Mania €489. Gaming PC components: RTX 4080 Super €1099-1249, RTX 4070 €649-749, AMD RX 7800 XT €549-649. Intel i7-14700K: €419-459, AMD Ryzen 7 7800X3D: €449-499. Complete gaming PC builds: Budget €800-1200, Mid-range €1200-2000, High-end €2000-3500. Best places: Alternate for components, Coolblue for consoles, Game Mania for exclusive bundles."
+      "Title": "Cinema Ticket Prices Belgium - Movie Theater Comparison",
+      "Content": "Kinepolis: Regular €11.50, Student €9.50, Senior €10.50, 4DX €18.50, IMAX €15.50. UGC: Standard €11.00, Reduced €9.00, Premium €14.00. Pathé: Regular €12.00, Student €9.50, Dolby Atmos €15.00. Imagix: Standard €10.50, Student €8.50, VIP €16.00. Rex Cinema: Arthouse €9.00, Student €7.50. Best deals: Tuesday discounts (€7-8), CinéCheque vouchers, unlimited cards €19-25/month."
     },
     {
       "Id": "4",
-      "Title": "Television Prices Belgium - 4K and OLED Comparison",
-      "Content": "Samsung 65-inch QLED 4K: MediaMarkt €1299, Coolblue €1199, Krëfel €1399, Vanden Borre €1249. LG 65-inch OLED C3: MediaMarkt €1599, Coolblue €1499, Krëfel €1699, Vanden Borre €1549. Sony 65-inch Bravia XR: MediaMarkt €1399, Coolblue €1299, Krëfel €1499. TCL 65-inch QLED budget: MediaMarkt €699, Coolblue €649, Krëfel €749. Installation services: Coolblue €149, MediaMarkt €179, Krëfel €199. Best value: Coolblue for pricing and service, MediaMarkt for selection, seasonal sales save 20-30%."
+      "Title": "Music Festival Tickets Belgium - Summer Festival Pricing",
+      "Content": "Rock Werchter: 4-day pass €260, 1-day €85-95, VIP €450-650. Pukkelpop: 4-day pass €240, 1-day €80-90, Comfort camping €150. Tomorrowland: Weekend €300-400, Dreamlodge packages €2000-5000, DreamVille camping €150-300. Dour Festival: 5-day pass €190, 1-day €65-75, Camping €50. Les Ardentes: 4-day pass €180, 1-day €60-70. Graspop Metal Meeting: 3-day pass €170, 1-day €70-80. Early bird savings: Book in December-January for 25-40% discounts."
     },
     {
       "Id": "5",
-      "Title": "Home Audio Systems Belgium - Speakers and Soundbars",
-      "Content": "Sonos Arc soundbar: MediaMarkt €799, Coolblue €749, Krëfel €849, Hi-Fi Corner €779. Bose QuietComfort headphones: MediaMarkt €329, Coolblue €299, Krëfel €359, FNAC €319. KEF LS50 Meta speakers: Hi-Fi Corner €1299, Son-Video €1249, Coolblue €1349. Audio-Technica turntables: Coolblue €249-699, Hi-Fi Corner €199-599, FNAC €279-749. High-end audio: Son-Video and Hi-Fi Corner for audiophile equipment, Coolblue and MediaMarkt for mainstream brands. Installation: Professional audio stores include setup, big box retailers charge extra €100-200."
+      "Title": "Gaming Entertainment Belgium - Console and PC Gaming Costs",
+      "Content": "PlayStation Plus: Essential €8.99/month, Extra €13.99/month, Premium €16.99/month. Xbox Game Pass: Console €9.99/month, PC €9.99/month, Ultimate €12.99/month. Nintendo Switch Online: Individual €19.99/year, Family €34.99/year. Steam games: AAA titles €59.99 at launch, Indies €15-30, sales up to 90% off. Epic Games Store: Free weekly games, exclusive deals. Game streaming: GeForce Now €9.99/month, Xbox Cloud Gaming included with Ultimate. Best savings: Wait for seasonal sales, bundle subscriptions."
     },
     {
       "Id": "6",
-      "Title": "Computer Accessories Belgium - Peripherals and Office Setup",
-      "Content": "Mechanical keyboards: Logitech MX Keys €149, Coolblue €139, MediaMarkt €159. Gaming keyboards: Razer BlackWidow €179, SteelSeries Apex €199, Corsair K95 €229. Monitor prices: Dell 27-inch 4K €399, LG UltraWide €449, Samsung Odyssey gaming €599. Mouse options: Logitech MX Master 3S €109, Razer DeathAdder €79, SteelSeries Rival €89. Webcams: Logitech C920 €89, C922 Pro €129, Brio 4K €199. Best places: Alternate for professional gear, MediaMarkt for mainstream, Coolblue for balanced selection and service."
+      "Title": "Sports Entertainment Belgium - TV and Live Events",
+      "Content": "Eleven Sports: €14.99/month for football, €9.99 for cycling/tennis. Play Sports: Included with Telenet packages or €15/month standalone. RTBF Sport: Free for Belgian competitions. ESPN Player: €9.99/month for basketball/hockey. Live football: Standard Club Brugge €15-45, Anderlecht €20-60, Royal Antwerp €12-35. Basketball: Spirou Charleroi €10-25, Oostende €12-30. Tennis: Belgian Open €20-80, Brussels Open €15-60. Season passes save 30-50% vs individual tickets."
     },
     {
       "Id": "7",
-      "Title": "Home Office Technology Belgium - Work From Home Setup Costs",
-      "Content": "Complete home office setup costs: Budget €800-1200 (basic laptop, monitor, chair), Mid-range €1200-2500 (quality peripherals, ergonomic furniture), Premium €2500-5000+ (high-end equipment, multiple monitors). Standing desks: IKEA BEKANT €199-349, Herman Miller €1200-2000, FlexiSpot €399-699. Office chairs: IKEA Markus €179, Steelcase Series 1 €415, Herman Miller Aeron €1400. Monitors: Budget 24-inch €149-249, Professional 27-inch €299-499, Ultra-wide €449-899. Lighting: Philips Hue setup €199-499, basic LED desk lamps €29-89."
+      "Title": "Comedy and Theater Belgium - Live Performance Pricing",
+      "Content": "Théâtre Royal de la Monnaie: Opera €15-120, Ballet €20-100, Student rush tickets €10. Koninklijke Vlaamse Schouwburg: Theater €15-55, Comedy €20-45. Kaaitheater: Contemporary €12-35, Experimental €8-25. Comedy clubs: Comedy Central Live €15-25, LOL Comedy Club €12-20, Laughing Skull €10-18. Flemish theater: NTGent €15-45, toneelgroep €12-35. French theater: Théâtre de Poche €15-30, Rideau de Bruxelles €20-40. Season subscriptions offer 20-30% discounts, under-26 rates widely available."
     },
     {
       "Id": "8",
-      "Title": "Technology Warranty and Support Belgium - Extended Coverage Options",
-      "Content": "Extended warranty costs: Coolblue Care 2-year extension €99-299 depending on product value, MediaMarkt warranty €79-249, Krëfel coverage €89-199. Apple Care+: MacBook €229 for 3 years, iPhone €149 for 2 years, available at Apple Store and authorized resellers. Manufacturer warranties: Most electronics include 2-year EU warranty, premium brands offer 3-5 years. Repair services: Apple Store Genius Bar, MediaMarkt Tech Center, Coolblue repair service €89-199 diagnostic fee. Insurance: Home insurance typically covers electronics theft/damage, specialized tech insurance €5-15/month for high-value equipment."
+      "Title": "Night Entertainment Belgium - Clubs and Nightlife Pricing",
+      "Content": "Brussels nightlife: Fuse €15-25, Culture Club €12-20, Madame Moustache €10-18, The Architect €8-15. Antwerp clubs: Petrol €12-22, Café Local €8-16, Club Vaag €10-18. Ghent venues: Charlatan €8-15, Decadance €10-20, Kompass Klub €12-18. Drinks: Beer €3-6, Cocktails €8-14, Shots €3-7. VIP tables: €200-500 minimum spend. Festival afterparties: €20-35 entry. Student nights offer 50% discounts, guest lists save €5-10 entry, pre-sale tickets cheaper than door prices."
     }
   ]
 }
