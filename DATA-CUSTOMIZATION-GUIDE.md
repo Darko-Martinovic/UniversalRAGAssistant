@@ -1,8 +1,8 @@
-# 📚 Data Customization Guide - Belgian Food Pricing Assistant
+# 📚 Data Customization Guide - Universal RAG Assistant
 
 ## 🎯 Overview
 
-The Belgian Food Pricing Assistant is designed to be **highly customizable**. You can easily modify the knowledge base to focus on different topics, regions, or data types by simply changing the data files. The app will automatically adapt to your new content!
+The Universal RAG Assistant is designed to be **highly customizable**. You can easily modify the knowledge base to focus on different topics, regions, or data types by simply changing the data files. The app will automatically adapt to your new content and display the appropriate title, icon, and welcome messages!
 
 ## 📄 How Data Loading Works
 
@@ -12,37 +12,63 @@ The Belgian Food Pricing Assistant is designed to be **highly customizable**. Yo
 - **Configuration**: `appsettings.json` controls which data source to use
 - **Automatic Processing**: The app generates AI embeddings for any content you provide
 - **Smart Search**: Azure Cognitive Search indexes your data for intelligent retrieval
+- **Dynamic UI**: App title, icon, and messages automatically change based on metadata
 
 ### What Happens When You Change documents.json?
 
 1. **🔄 Automatic Reload**: Next time you run the app, it will load your new content
-2. **🧠 AI Embeddings**: New embeddings are generated for your updated content
-3. **🔍 Search Index**: The search index is recreated with your new data
-4. **💬 AI Responses**: The AI will answer questions based on your new content
+2. **🎨 UI Update**: Title, icon, and welcome messages update automatically
+3. **🧠 AI Embeddings**: New embeddings are generated for your updated content
+4. **🔍 Search Index**: The search index is recreated with your new data
+5. **💬 AI Responses**: The AI will answer questions based on your new content
 
 ## 🛠️ Customization Options
 
-### 1. **Topic Customization**
+### 1. **Topic Customization with Metadata**
 
-You can change `documents.json` to cover ANY topic:
+You can change `documents.json` to cover ANY topic with proper branding:
 
-#### **Food & Restaurants** (Current Theme)
+#### **Real Estate** (Current Theme)
 
 ```json
 {
-  "Id": "1",
-  "Title": "Restaurant Prices in Brussels",
-  "Content": "Fine dining: €80-150 per person, Mid-range: €25-45, Budget: €8-20..."
+  "metadata": {
+    "title": "BELGIAN REAL ESTATE ASSISTANT",
+    "icon": "🏠",
+    "flag": "🇧🇪",
+    "welcomeMessage": "Welcome to your personal Belgian real estate assistant!",
+    "capabilityDescription": "I can help you find the best property deals, rental prices, and investment opportunities",
+    "additionalInfo": "Compare prices across different cities and districts in Belgium"
+  },
+  "documents": [
+    {
+      "Id": "1",
+      "Title": "Brussels Real Estate - Apartment Rental Prices",
+      "Content": "Ixelles rental prices: 1-bedroom €800-1200/month..."
+    }
+  ]
 }
 ```
 
-#### **Real Estate Prices**
+#### **Food & Restaurants**
 
 ```json
 {
-  "Id": "1",
-  "Title": "Brussels Apartment Rental Prices",
-  "Content": "1-bedroom apartments: Ixelles €800-1200/month, Etterbeek €700-1000/month..."
+  "metadata": {
+    "title": "BELGIAN FOOD PRICING ASSISTANT",
+    "icon": "🛒",
+    "flag": "🇧🇪",
+    "welcomeMessage": "Welcome to your personal Belgian food pricing assistant!",
+    "capabilityDescription": "I can help you find the best deals on fruits, vegetables, and delicatessen products",
+    "additionalInfo": "Compare prices across different stores and markets in Belgium"
+  },
+  "documents": [
+    {
+      "Id": "1",
+      "Title": "Restaurant Prices in Brussels",
+      "Content": "Fine dining: €80-150 per person, Mid-range: €25-45, Budget: €8-20..."
+    }
+  ]
 }
 ```
 

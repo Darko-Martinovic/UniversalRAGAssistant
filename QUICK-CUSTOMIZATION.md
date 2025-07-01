@@ -2,7 +2,7 @@
 
 ## What You Can Do
 
-Your Belgian Food Pricing Assistant is **incredibly flexible**! You can transform it into ANY comparison or information tool by simply changing the data files.
+Your Universal RAG Assistant is **incredibly flexible**! You can transform it into ANY comparison or information tool by simply changing the data files.
 
 ## 🚀 Instant Customization
 
@@ -10,8 +10,10 @@ Your Belgian Food Pricing Assistant is **incredibly flexible**! You can transfor
 
 The app can become an expert in ANY field:
 
+- 🛒 **Food Pricing**: Grocery stores, market prices
 - 🏠 **Real Estate**: Property prices, rental markets
 - 💻 **Technology**: Electronics pricing, product comparisons
+- 🎵 **Entertainment**: Concerts, streaming, movies
 - 🚗 **Automotive**: Car prices, dealer comparisons
 - 🏨 **Travel**: Hotel rates, restaurant prices
 - 🎓 **Education**: Course fees, university costs
@@ -21,23 +23,47 @@ The app can become an expert in ANY field:
 
 Simply edit `Data/documents.json` with your content:
 
-**Current**: Belgian food pricing
+**Current**: Belgian real estate
 
 ```json
 {
-  "Id": "1",
-  "Title": "Fresh Fruits Prices in Belgium - Store Comparison",
-  "Content": "Belgian apple prices by retailer: Delhaize €3.20/kg..."
+  "metadata": {
+    "title": "BELGIAN REAL ESTATE ASSISTANT",
+    "icon": "🏠",
+    "flag": "🇧🇪",
+    "welcomeMessage": "Welcome to your personal Belgian real estate assistant!",
+    "capabilityDescription": "I can help you find the best property deals...",
+    "additionalInfo": "Compare prices across different cities..."
+  },
+  "documents": [
+    {
+      "Id": "1",
+      "Title": "Brussels Real Estate - Apartment Rental Prices by District",
+      "Content": "Ixelles rental prices: 1-bedroom €800-1200/month..."
+    }
+  ]
 }
 ```
 
-**Transform to Real Estate**:
+**Transform to Food Pricing**:
 
 ```json
 {
-  "Id": "1",
-  "Title": "Brussels Apartment Rental Prices by District",
-  "Content": "Ixelles rental prices: 1-bedroom €800-1200/month..."
+  "metadata": {
+    "title": "BELGIAN FOOD PRICING ASSISTANT",
+    "icon": "🛒",
+    "flag": "🇧🇪",
+    "welcomeMessage": "Welcome to your personal Belgian food pricing assistant!",
+    "capabilityDescription": "I can help you find the best deals on fruits, vegetables...",
+    "additionalInfo": "Compare prices across different stores..."
+  },
+  "documents": [
+    {
+      "Id": "1",
+      "Title": "Fresh Fruits Prices in Belgium - Store Comparison",
+      "Content": "Belgian apple prices by retailer: Delhaize €3.20/kg..."
+    }
+  ]
 }
 ```
 

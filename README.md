@@ -4,14 +4,15 @@
 
 **Project Name**: `UniversalRAGAssistant`
 
-This application demonstrates how to build a powerful Retrieval-Augmented Generation (RAG) system using Azure OpenAI and Azure Cognitive Search. **Currently configured as a Belgian Food Pricing Assistant, but can be instantly transformed into ANY domain expert by replacing the data files.**
+This application demonstrates how to build a powerful Retrieval-Augmented Generation (RAG) system using Azure OpenAI and Azure Cognitive Search. **Currently configured as a Belgian Real Estate Assistant, but can be instantly transformed into ANY domain expert by replacing the data files.**
 
 ## 🌟 **Key Concept: Universal Customization**
 
-**This is NOT just a food pricing app** - it's a **universal AI assistant platform**. The current Belgian food pricing theme is just one example. You can transform it into:
+**This is NOT just a real estate app** - it's a **universal AI assistant platform**. The current Belgian real estate theme is just one example. You can transform it into:
 
-- 🏠 **Real Estate Assistant** - Property prices, rental markets
+- 🛒 **Food Pricing Assistant** - Grocery stores, markets, product comparison
 - 💻 **Technology Pricing Guide** - Electronics, gadgets, tech products
+- 🎵 **Entertainment Guide** - Concerts, streaming, movies, festivals
 - 🚗 **Automotive Advisor** - Car prices, dealer comparisons
 - 🏨 **Travel Consultant** - Hotels, restaurants, tourist attractions
 - 🎓 **Education Guide** - Course fees, university information
@@ -23,26 +24,26 @@ This application demonstrates how to build a powerful Retrieval-Augmented Genera
 
 ## 🚀 **Quick Topic Switch Demo**
 
-### Current: Belgian Food Pricing
+### Current: Belgian Real Estate
 
 ```bash
-# Ask: "Where can I find cheap apples in Belgium?"
+# Ask: "What are rental prices in Brussels Ixelles?"
 dotnet run
 ```
 
-### Switch to Real Estate in 30 seconds:
+### Switch to Food Pricing in 30 seconds:
 
 ```bash
 # 1. Backup current data
-cp Data/documents.json Data/documents-food-backup.json
+cp Data/documents.json Data/documents-realestate-backup.json
 
-# 2. Switch to real estate data
-cp Data/documents-realestate-example.json Data/documents.json
+# 2. Switch to food pricing data
+cp Data/documents.json.backup Data/documents.json
 
 # 3. Restart app
 dotnet run
 
-# 4. Ask: "What are rental prices in Brussels Ixelles?"
+# 4. Ask: "Where can I find cheap apples in Belgium?"
 ```
 
 ### Switch to Technology Pricing:
@@ -55,21 +56,35 @@ cp Data/documents-technology-example.json Data/documents.json
 dotnet run
 ```
 
+### Switch to Entertainment Guide:
+
+```bash
+# Switch to entertainment data
+cp Data/documents-entertainment-example.json Data/documents.json
+
+# Restart and ask: "What are ticket prices for Rock Werchter?"
+dotnet run
+```
+
 **The AI instantly becomes an expert in your new domain!** ✨
 
 ## 📋 **Example Data Files Included**
 
-### 1. **Food Pricing** (Default) - `documents.json`
-
-Belgian food prices, store comparisons, seasonal variations
-
-### 2. **Real Estate** - `documents-realestate-example.json`
+### 1. **Real Estate** (Current) - `documents.json`
 
 Property prices, rental markets, investment analysis across Belgian cities
+
+### 2. **Food Pricing** - `documents.json.backup`
+
+Belgian food prices, store comparisons, seasonal variations
 
 ### 3. **Technology** - `documents-technology-example.json`
 
 Electronics pricing, store comparisons, warranty information
+
+### 4. **Entertainment** - `documents-entertainment-example.json`
+
+Concert tickets, streaming services, movie theaters, festivals
 
 ## 🎯 **How Universal Customization Works**
 
@@ -84,18 +99,28 @@ Electronics pricing, store comparisons, warranty information
 ### Document Structure (Universal):
 
 ```json
-[
-  {
-    "Id": "1",
-    "Title": "Your Topic - Comparison or Information Title",
-    "Content": "Rich, detailed content with specific information, prices, comparisons, recommendations, and context that users will ask about."
-  }
-]
+{
+  "metadata": {
+    "title": "YOUR ASSISTANT TITLE",
+    "icon": "🏠",
+    "flag": "🇧🇪",
+    "welcomeMessage": "Welcome to your personal assistant!",
+    "capabilityDescription": "I can help you with...",
+    "additionalInfo": "Additional information..."
+  },
+  "documents": [
+    {
+      "Id": "1",
+      "Title": "Your Topic - Comparison or Information Title",
+      "Content": "Rich, detailed content with specific information, prices, comparisons, recommendations, and context that users will ask about."
+    }
+  ]
+}
 ```
 
 ### What Stays the Same:
 
-- ✅ **Beautiful Console Styling** - Colors, emojis, formatting
+- ✅ **Beautiful Console Styling** - Colors, emojis, formatting (auto-adapts to your theme)
 - ✅ **All Commands** - help, history, stats, data customization info
 - ✅ **AI Intelligence** - Smart search, relevant responses
 - ✅ **Session Features** - Progress tracking, tips, conversation history

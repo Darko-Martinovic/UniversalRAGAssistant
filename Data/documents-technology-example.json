@@ -1,42 +1,52 @@
-[
-  {
-    "Id": "1",
-    "Title": "Laptop Prices Belgium - Major Electronics Retailers",
-    "Content": "MacBook Pro M3 14-inch: MediaMarkt €2299, Coolblue €2249, Krëfel €2399, Apple Store €2329, Alternate €2279. Dell XPS 13: MediaMarkt €1199, Coolblue €1149, Krëfel €1249, Alternate €1179, Azerty €1159. Lenovo ThinkPad T14: MediaMarkt €1099, Coolblue €1049, Alternate €1029, Azerty €999. HP Spectre x360: MediaMarkt €1299, Coolblue €1249, Krëfel €1349. Best deals: Alternate for business laptops, Coolblue for consumer models, Azerty for best overall prices."
+{
+  "metadata": {
+    "title": "BELGIAN TECH PRICING ASSISTANT",
+    "icon": "💻",
+    "flag": "🇧🇪",
+    "welcomeMessage": "Welcome to your personal Belgian technology pricing assistant!",
+    "capabilityDescription": "I can help you find the best deals on electronics, laptops, smartphones, and tech gadgets",
+    "additionalInfo": "Compare prices across different electronics retailers in Belgium"
   },
-  {
-    "Id": "2",
-    "Title": "Smartphone Prices Belgium - Carrier vs Unlocked Comparison",
-    "Content": "iPhone 15 Pro unlocked: MediaMarkt €1329, Coolblue €1299, Krëfel €1359, Apple Store €1329. With Proximus contract: €899 + €65/month (24 months). With Orange: €949 + €60/month (24 months). With Base: €999 + €55/month (24 months). Samsung Galaxy S24 Ultra unlocked: MediaMarkt €1299, Coolblue €1249, Saturn €1349. Contract deals: Proximus €799 + €70/month, Orange €849 + €65/month. Best strategy: Unlocked phones from Coolblue + SIM-only plans save 15-25% over 2 years."
-  },
-  {
-    "Id": "3",
-    "Title": "Gaming Setup Prices Belgium - PC Components and Consoles",
-    "Content": "PlayStation 5: MediaMarkt €549, Coolblue €499, Krëfel €579, Game Mania €529. Xbox Series X: MediaMarkt €499, Coolblue €469, Krëfel €519, Game Mania €489. Gaming PC components: RTX 4080 Super €1099-1249, RTX 4070 €649-749, AMD RX 7800 XT €549-649. Intel i7-14700K: €419-459, AMD Ryzen 7 7800X3D: €449-499. Complete gaming PC builds: Budget €800-1200, Mid-range €1200-2000, High-end €2000-3500. Best places: Alternate for components, Coolblue for consoles, Game Mania for exclusive bundles."
-  },
-  {
-    "Id": "4",
-    "Title": "Television Prices Belgium - 4K and OLED Comparison",
-    "Content": "Samsung 65-inch QLED 4K: MediaMarkt €1299, Coolblue €1199, Krëfel €1399, Vanden Borre €1249. LG 65-inch OLED C3: MediaMarkt €1599, Coolblue €1499, Krëfel €1699, Vanden Borre €1549. Sony 65-inch Bravia XR: MediaMarkt €1399, Coolblue €1299, Krëfel €1499. TCL 65-inch QLED budget: MediaMarkt €699, Coolblue €649, Krëfel €749. Installation services: Coolblue €149, MediaMarkt €179, Krëfel €199. Best value: Coolblue for pricing and service, MediaMarkt for selection, seasonal sales save 20-30%."
-  },
-  {
-    "Id": "5",
-    "Title": "Home Audio Systems Belgium - Speakers and Soundbars",
-    "Content": "Sonos Arc soundbar: MediaMarkt €799, Coolblue €749, Krëfel €849, Hi-Fi Corner €779. Bose QuietComfort headphones: MediaMarkt €329, Coolblue €299, Krëfel €359, FNAC €319. KEF LS50 Meta speakers: Hi-Fi Corner €1299, Son-Video €1249, Coolblue €1349. Audio-Technica turntables: Coolblue €249-699, Hi-Fi Corner €199-599, FNAC €279-749. High-end audio: Son-Video and Hi-Fi Corner for audiophile equipment, Coolblue and MediaMarkt for mainstream brands. Installation: Professional audio stores include setup, big box retailers charge extra €100-200."
-  },
-  {
-    "Id": "6",
-    "Title": "Computer Accessories Belgium - Peripherals and Office Setup",
-    "Content": "Mechanical keyboards: Logitech MX Keys €149, Coolblue €139, MediaMarkt €159. Gaming keyboards: Razer BlackWidow €179, SteelSeries Apex €199, Corsair K95 €229. Monitor prices: Dell 27-inch 4K €399, LG UltraWide €449, Samsung Odyssey gaming €599. Mouse options: Logitech MX Master 3S €109, Razer DeathAdder €79, SteelSeries Rival €89. Webcams: Logitech C920 €89, C922 Pro €129, Brio 4K €199. Best places: Alternate for professional gear, MediaMarkt for mainstream, Coolblue for balanced selection and service."
-  },
-  {
-    "Id": "7",
-    "Title": "Home Office Technology Belgium - Work From Home Setup Costs",
-    "Content": "Complete home office setup costs: Budget €800-1200 (basic laptop, monitor, chair), Mid-range €1200-2500 (quality peripherals, ergonomic furniture), Premium €2500-5000+ (high-end equipment, multiple monitors). Standing desks: IKEA BEKANT €199-349, Herman Miller €1200-2000, FlexiSpot €399-699. Office chairs: IKEA Markus €179, Steelcase Series 1 €415, Herman Miller Aeron €1400. Monitors: Budget 24-inch €149-249, Professional 27-inch €299-499, Ultra-wide €449-899. Lighting: Philips Hue setup €199-499, basic LED desk lamps €29-89."
-  },
-  {
-    "Id": "8",
-    "Title": "Technology Warranty and Support Belgium - Extended Coverage Options",
-    "Content": "Extended warranty costs: Coolblue Care 2-year extension €99-299 depending on product value, MediaMarkt warranty €79-249, Krëfel coverage €89-199. Apple Care+: MacBook €229 for 3 years, iPhone €149 for 2 years, available at Apple Store and authorized resellers. Manufacturer warranties: Most electronics include 2-year EU warranty, premium brands offer 3-5 years. Repair services: Apple Store Genius Bar, MediaMarkt Tech Center, Coolblue repair service €89-199 diagnostic fee. Insurance: Home insurance typically covers electronics theft/damage, specialized tech insurance €5-15/month for high-value equipment."
-  }
-]
+  "documents": [
+    {
+      "Id": "1",
+      "Title": "Laptop Prices Belgium - Major Electronics Retailers",
+      "Content": "MacBook Pro M3 14-inch: MediaMarkt €2299, Coolblue €2249, Krëfel €2399, Apple Store €2329, Alternate €2279. Dell XPS 13: MediaMarkt €1199, Coolblue €1149, Krëfel €1249, Alternate €1179, Azerty €1159. Lenovo ThinkPad T14: MediaMarkt €1099, Coolblue €1049, Alternate €1029, Azerty €999. HP Spectre x360: MediaMarkt €1299, Coolblue €1249, Krëfel €1349. Best deals: Alternate for business laptops, Coolblue for consumer models, Azerty for best overall prices."
+    },
+    {
+      "Id": "2",
+      "Title": "Smartphone Prices Belgium - Carrier vs Unlocked Comparison",
+      "Content": "iPhone 15 Pro unlocked: MediaMarkt €1329, Coolblue €1299, Krëfel €1359, Apple Store €1329. With Proximus contract: €899 + €65/month (24 months). With Orange: €949 + €60/month (24 months). With Base: €999 + €55/month (24 months). Samsung Galaxy S24 Ultra unlocked: MediaMarkt €1299, Coolblue €1249, Saturn €1349. Contract deals: Proximus €799 + €70/month, Orange €849 + €65/month. Best strategy: Unlocked phones from Coolblue + SIM-only plans save 15-25% over 2 years."
+    },
+    {
+      "Id": "3",
+      "Title": "Gaming Setup Prices Belgium - PC Components and Consoles",
+      "Content": "PlayStation 5: MediaMarkt €549, Coolblue €499, Krëfel €579, Game Mania €529. Xbox Series X: MediaMarkt €499, Coolblue €469, Krëfel €519, Game Mania €489. Gaming PC components: RTX 4080 Super €1099-1249, RTX 4070 €649-749, AMD RX 7800 XT €549-649. Intel i7-14700K: €419-459, AMD Ryzen 7 7800X3D: €449-499. Complete gaming PC builds: Budget €800-1200, Mid-range €1200-2000, High-end €2000-3500. Best places: Alternate for components, Coolblue for consoles, Game Mania for exclusive bundles."
+    },
+    {
+      "Id": "4",
+      "Title": "Television Prices Belgium - 4K and OLED Comparison",
+      "Content": "Samsung 65-inch QLED 4K: MediaMarkt €1299, Coolblue €1199, Krëfel €1399, Vanden Borre €1249. LG 65-inch OLED C3: MediaMarkt €1599, Coolblue €1499, Krëfel €1699, Vanden Borre €1549. Sony 65-inch Bravia XR: MediaMarkt €1399, Coolblue €1299, Krëfel €1499. TCL 65-inch QLED budget: MediaMarkt €699, Coolblue €649, Krëfel €749. Installation services: Coolblue €149, MediaMarkt €179, Krëfel €199. Best value: Coolblue for pricing and service, MediaMarkt for selection, seasonal sales save 20-30%."
+    },
+    {
+      "Id": "5",
+      "Title": "Home Audio Systems Belgium - Speakers and Soundbars",
+      "Content": "Sonos Arc soundbar: MediaMarkt €799, Coolblue €749, Krëfel €849, Hi-Fi Corner €779. Bose QuietComfort headphones: MediaMarkt €329, Coolblue €299, Krëfel €359, FNAC €319. KEF LS50 Meta speakers: Hi-Fi Corner €1299, Son-Video €1249, Coolblue €1349. Audio-Technica turntables: Coolblue €249-699, Hi-Fi Corner €199-599, FNAC €279-749. High-end audio: Son-Video and Hi-Fi Corner for audiophile equipment, Coolblue and MediaMarkt for mainstream brands. Installation: Professional audio stores include setup, big box retailers charge extra €100-200."
+    },
+    {
+      "Id": "6",
+      "Title": "Computer Accessories Belgium - Peripherals and Office Setup",
+      "Content": "Mechanical keyboards: Logitech MX Keys €149, Coolblue €139, MediaMarkt €159. Gaming keyboards: Razer BlackWidow €179, SteelSeries Apex €199, Corsair K95 €229. Monitor prices: Dell 27-inch 4K €399, LG UltraWide €449, Samsung Odyssey gaming €599. Mouse options: Logitech MX Master 3S €109, Razer DeathAdder €79, SteelSeries Rival €89. Webcams: Logitech C920 €89, C922 Pro €129, Brio 4K €199. Best places: Alternate for professional gear, MediaMarkt for mainstream, Coolblue for balanced selection and service."
+    },
+    {
+      "Id": "7",
+      "Title": "Home Office Technology Belgium - Work From Home Setup Costs",
+      "Content": "Complete home office setup costs: Budget €800-1200 (basic laptop, monitor, chair), Mid-range €1200-2500 (quality peripherals, ergonomic furniture), Premium €2500-5000+ (high-end equipment, multiple monitors). Standing desks: IKEA BEKANT €199-349, Herman Miller €1200-2000, FlexiSpot €399-699. Office chairs: IKEA Markus €179, Steelcase Series 1 €415, Herman Miller Aeron €1400. Monitors: Budget 24-inch €149-249, Professional 27-inch €299-499, Ultra-wide €449-899. Lighting: Philips Hue setup €199-499, basic LED desk lamps €29-89."
+    },
+    {
+      "Id": "8",
+      "Title": "Technology Warranty and Support Belgium - Extended Coverage Options",
+      "Content": "Extended warranty costs: Coolblue Care 2-year extension €99-299 depending on product value, MediaMarkt warranty €79-249, Krëfel coverage €89-199. Apple Care+: MacBook €229 for 3 years, iPhone €149 for 2 years, available at Apple Store and authorized resellers. Manufacturer warranties: Most electronics include 2-year EU warranty, premium brands offer 3-5 years. Repair services: Apple Store Genius Bar, MediaMarkt Tech Center, Coolblue repair service €89-199 diagnostic fee. Insurance: Home insurance typically covers electronics theft/damage, specialized tech insurance €5-15/month for high-value equipment."
+    }
+  ]
+}

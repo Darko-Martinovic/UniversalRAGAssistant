@@ -21,6 +21,7 @@ namespace UniversalRAGAssistant
         private static string embeddingDeployment;
         private static SearchClient searchClient;
         private static AppConfiguration appConfig;
+        private static AppMetadata appMetadata;
 
         static async Task Main(string[] args)
         {
@@ -34,7 +35,7 @@ namespace UniversalRAGAssistant
             SetupSearchClient();
 
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("🚀 Initializing Belgian Food Pricing Assistant...");
+            Console.WriteLine("🚀 Initializing Universal RAG Assistant...");
             Console.ResetColor();
 
             // Setup demo data
@@ -88,7 +89,7 @@ namespace UniversalRAGAssistant
         static async Task SetupKnowledgeBase()
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("🔧 Setting up Belgian food pricing knowledge base...");
+            Console.WriteLine("🔧 Setting up knowledge base...");
             Console.ResetColor();
 
             // Load documents from external source
@@ -101,23 +102,29 @@ namespace UniversalRAGAssistant
                 {
                     case DataSourceType.Json:
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine($"📄 Loading pricing data from JSON: {appConfig.DataSource.FilePath}");
+                        Console.WriteLine($"📄 Loading data from JSON: {appConfig.DataSource.FilePath}");
                         Console.ResetColor();
-                        documents = await documentLoader.LoadDocumentsFromJsonAsync(appConfig.DataSource.FilePath);
+
+                        // Load both documents and metadata
+                        var dataConfig = await documentLoader.LoadDataConfigurationAsync(appConfig.DataSource.FilePath);
+                        documents = dataConfig.Documents;
+                        appMetadata = dataConfig.Metadata;
                         break;
 
                     case DataSourceType.Csv:
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine($"📊 Loading pricing data from CSV: {appConfig.DataSource.FilePath}");
+                        Console.WriteLine($"📊 Loading data from CSV: {appConfig.DataSource.FilePath}");
                         Console.ResetColor();
                         documents = await documentLoader.LoadDocumentsFromCsvAsync(appConfig.DataSource.FilePath);
+                        appMetadata = new AppMetadata(); // Use default metadata for CSV
                         break;
 
                     case DataSourceType.TextFiles:
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine($"📁 Loading pricing data from text files: {appConfig.DataSource.DirectoryPath}");
+                        Console.WriteLine($"📁 Loading data from text files: {appConfig.DataSource.DirectoryPath}");
                         Console.ResetColor();
                         documents = await documentLoader.LoadDocumentsFromTextFilesAsync(appConfig.DataSource.DirectoryPath);
+                        appMetadata = new AppMetadata(); // Use default metadata for text files
                         break;
 
                     default:
@@ -125,11 +132,12 @@ namespace UniversalRAGAssistant
                         Console.WriteLine("⚠️  Using hardcoded documents (fallback)");
                         Console.ResetColor();
                         documents = GetHardcodedDocuments();
+                        appMetadata = new AppMetadata(); // Use default metadata for fallback
                         break;
                 }
 
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"✅ Successfully loaded {documents.Count} pricing documents");
+                Console.WriteLine($"✅ Successfully loaded {documents.Count} documents");
                 Console.ResetColor();
             }
             catch (Exception ex)
@@ -441,7 +449,7 @@ namespace UniversalRAGAssistant
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("╔══════════════════════════════════════════════════════════════════════════════╗");
-            Console.WriteLine("║                    🛒 BELGIAN FOOD PRICING ASSISTANT 🇧🇪                    ║");
+            Console.WriteLine($"║                    {appMetadata?.Icon} {appMetadata?.Title} {appMetadata?.Flag}                    ║");
             Console.WriteLine("║                     Powered by Azure OpenAI + RAG                            ║");
             Console.WriteLine("╚══════════════════════════════════════════════════════════════════════════════╝");
             Console.ResetColor();
@@ -456,10 +464,10 @@ namespace UniversalRAGAssistant
         static void PrintWelcomeMessage()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("🎉 Welcome to your personal Belgian food pricing assistant!");
+            Console.WriteLine($"🎉 {appMetadata?.WelcomeMessage}");
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("💡 I can help you find the best deals on fruits, vegetables, and delicatessen products");
-            Console.WriteLine("📊 Compare prices across different stores and markets in Belgium");
+            Console.WriteLine($"💡 {appMetadata?.CapabilityDescription}");
+            Console.WriteLine($"📊 {appMetadata?.AdditionalInfo}");
             Console.ResetColor();
             Console.WriteLine();
         }
@@ -728,7 +736,7 @@ namespace UniversalRAGAssistant
         static void PrintGoodbye()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("\n🙏 Thank you for using Belgian Food Pricing Assistant!");
+            Console.WriteLine($"\n🙏 Thank you for using {appMetadata?.Title}!");
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("💰 Happy shopping and save money on your groceries! 🛒");
             Console.ForegroundColor = ConsoleColor.Cyan;

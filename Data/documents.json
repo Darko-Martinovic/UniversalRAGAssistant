@@ -1,42 +1,52 @@
-[
-  {
-    "Id": "1",
-    "Title": "Fresh Fruits Prices in Belgium - Store Comparison",
-    "Content": "Belgian apple prices by retailer: Delhaize €3.20/kg, Carrefour €3.10/kg, Colruyt €2.80/kg, Lidl €2.40/kg, Aldi €2.35/kg, Weekend Markets €2.00-2.50/kg. Pears: Delhaize €3.80/kg, Carrefour €3.60/kg, Colruyt €3.20/kg, Lidl €2.90/kg, Aldi €2.85/kg, Local Markets €2.50-3.00/kg. Bananas: Delhaize €2.10/kg, Carrefour €1.95/kg, Colruyt €1.75/kg, Lidl €1.45/kg, Aldi €1.40/kg. Best deals: Weekend farmers markets for seasonal fruits, Aldi/Lidl for year-round lowest prices."
+{
+  "metadata": {
+    "title": "BELGIAN REAL ESTATE ASSISTANT",
+    "icon": "🏠",
+    "flag": "🇧🇪",
+    "welcomeMessage": "Welcome to your personal Belgian real estate assistant!",
+    "capabilityDescription": "I can help you find the best property deals, rental prices, and investment opportunities",
+    "additionalInfo": "Compare prices across different cities and districts in Belgium"
   },
+  "documents": [
+    {
+      "Id": "1",
+      "Title": "Brussels Real Estate - Apartment Rental Prices by District",
+      "Content": "Ixelles rental prices: 1-bedroom €800-1200/month, 2-bedroom €1200-1800/month, 3-bedroom €1600-2400/month. Etterbeek: 1-bedroom €700-1000/month, 2-bedroom €1000-1500/month, 3-bedroom €1400-2000/month. Uccle premium: 1-bedroom €900-1400/month, 2-bedroom €1400-2200/month, 3-bedroom €1800-3000/month. Saint-Gilles trendy: 1-bedroom €750-1100/month, 2-bedroom €1100-1700/month. Best value: Schaerbeek €650-950/month for 1-bedroom, emerging neighborhood with good transport links."
+    },
   {
     "Id": "2",
-    "Title": "Belgian Delicatessen Prices - Premium vs Budget Options",
-    "Content": "Belgian ham pricing by store type: Premium Delicatessens €22-28/kg (highest quality), Delhaize €18-22/kg, Carrefour €16-20/kg, Colruyt €15-18/kg, Lidl €12-15/kg, Aldi €11-14/kg. Aged Gouda cheese: Specialty Cheese Shops €25-35/kg, Delhaize €20-25/kg, Carrefour €18-22/kg, Colruyt €16-20/kg, Lidl €12-16/kg, Aldi €11-15/kg. Belgian chocolate: Leonidas €35-45/kg, Neuhaus €40-50/kg, Godiva €45-60/kg, Supermarket brands €15-25/kg. Best value: Colruyt for quality-price balance, Aldi/Lidl for budget options."
+    "Title": "Antwerp Housing Market - Rental vs Purchase Comparison",
+    "Content": "Antwerp rental market: City center 1-bedroom €700-1000/month, 2-bedroom €1000-1500/month. Zuid district premium: 1-bedroom €800-1200/month, 2-bedroom €1200-1800/month. Purchase prices: City center €250,000-400,000 for 2-bedroom, €350,000-600,000 for 3-bedroom. Emerging areas: Berchem €200,000-350,000 for 2-bedroom, Deurne €180,000-300,000. Investment tip: Zuid district shows 5-8% annual appreciation, best long-term value."
   },
   {
     "Id": "3",
-    "Title": "Vegetable Market Prices Belgium - Detailed Store Comparison",
-    "Content": "Potato prices across Belgium: Delhaize €1.65/kg, Carrefour €1.55/kg, Colruyt €1.35/kg, Lidl €1.15/kg, Aldi €1.10/kg, Local Markets €0.90-1.20/kg. Carrots: Delhaize €2.10/kg, Carrefour €1.95/kg, Colruyt €1.70/kg, Lidl €1.45/kg, Aldi €1.40/kg, Markets €1.20-1.50/kg. Belgian endives: Delhaize €3.90/kg, Carrefour €3.70/kg, Colruyt €3.30/kg, Lidl €2.90/kg, Aldi €2.80/kg, Local Farmers €2.20-2.80/kg. Brussels sprouts: Delhaize €3.50/kg, Carrefour €3.20/kg, Colruyt €2.80/kg, Lidl €2.40/kg, Aldi €2.30/kg, Weekend Markets €1.80-2.20/kg."
+    "Title": "Ghent Student Housing - University District Comparison",
+    "Content": "Student housing near UGent campus: Student rooms €300-500/month including utilities, Student studios €450-700/month, Shared apartments €350-550/month per room. Patershol historic area: Premium student housing €500-800/month, walking distance to campus. Coupure area: Mid-range options €400-600/month, 15-minute bike ride to university. Budget options: Ledeberg district €280-450/month, good public transport. Best deals: University housing €250-400/month, limited availability, apply early."
   },
   {
     "Id": "4",
-    "Title": "Organic Food Prices Belgium - Store Price Comparison",
-    "Content": "Organic apples by retailer: Bio Planet €4.80/kg, Delhaize Bio €4.50/kg, Carrefour Bio €4.30/kg, Colruyt Bio €4.10/kg, Lidl Bio €3.70/kg, Aldi Bio €3.60/kg, Organic Markets €3.20-3.80/kg. Organic carrots: Bio Planet €3.40/kg, Delhaize Bio €3.20/kg, Carrefour Bio €3.00/kg, Colruyt Bio €2.85/kg, Lidl Bio €2.60/kg, Aldi Bio €2.55/kg, Farm Direct €2.20-2.60/kg. Organic milk: Bio Planet €1.75/L, Delhaize Bio €1.65/L, Carrefour Bio €1.55/L, Colruyt Bio €1.45/L, Lidl Bio €1.35/L, Aldi Bio €1.30/L. Best organic deals: Direct from organic farms, Aldi/Lidl bio lines."
+    "Title": "Leuven Property Investment - ROI Analysis by Area",
+    "Content": "Leuven investment properties ROI: City center rental yield 4-6% annually, high demand from students and professionals. Near KU Leuven campus: Student housing yields 6-8%, properties €200,000-350,000. Kessel-Lo residential: Family homes yield 4-5%, properties €300,000-500,000, stable long-term growth. Heverlee upscale: Luxury properties yield 3-4%, €400,000-800,000, premium market. Investment strategy: Student housing offers highest yields but requires active management, family homes provide stable appreciation."
   },
   {
     "Id": "5",
-    "Title": "Seasonal Price Variations Belgium - Market Intelligence",
-    "Content": "Summer strawberry prices by location: Premium Markets €5.50/500g, Delhaize €4.80/500g, Carrefour €4.50/500g, Colruyt €4.20/500g, Lidl €3.50/500g, Aldi €3.30/500g, Pick-Your-Own Farms €2.50-3.00/500g. Asparagus season pricing: Specialty Stores €14-16/kg, Delhaize €11-13/kg, Carrefour €10-12/kg, Colruyt €9-11/kg, Lidl €8-10/kg, Aldi €7-9/kg, Local Farms €6-8/kg. Winter cabbage: All supermarkets €1.50-2.20/kg, Markets €1.20-1.80/kg. Planning tip: Buy seasonal produce directly from farms for 40-60% savings."
+    "Title": "Belgian Coastal Properties - Seaside Real Estate Prices",
+    "Content": "Ostend beachfront apartments: Sea view 2-bedroom €300,000-500,000, inland 2-bedroom €200,000-350,000, seasonal rental yield 8-12%. Knokke luxury market: Beachfront properties €500,000-2,000,000+, exclusive area with international buyers. Blankenberge family market: 2-bedroom apartments €180,000-320,000, popular with Belgian families, rental yield 6-9%. De Panne budget coastal: Properties €150,000-280,000, emerging area near French border. Seasonal strategy: Buy in winter (10-15% lower prices), rent during summer season for maximum ROI."
   },
   {
     "Id": "6",
-    "Title": "Belgium Regional Price Comparison - Brussels vs Antwerp vs Ghent",
-    "Content": "Brussels pricing: Premium due to capital status, Delhaize/Carrefour 5-10% higher than national average. Best Brussels deals: Marché du Midi (Sunday), Place Sainte-Catherine (Saturday), Aldi Ixelles, Lidl Etterbeek. Antwerp pricing: Port city advantages, 3-5% below Brussels prices. Best Antwerp deals: Saturday Market (Grote Markt), Lidl/Aldi multiple locations, Turkish markets for vegetables. Ghent pricing: University city, competitive prices, 5-8% below Brussels. Best Ghent deals: Friday/Saturday Groenten-en-Fruitmarkt, Aldi/Lidl student discounts. Cross-city shopping tip: Antwerp markets offer best overall value for bulk purchases."
+    "Title": "Liège Property Market - Affordable Housing Options",
+    "Content": "Liège affordable housing: City center 2-bedroom €120,000-220,000, 3-bedroom €180,000-300,000, excellent value for money. Guillemins station area: Renovated apartments €150,000-280,000, benefit from high-speed rail connectivity to Brussels. Student quarter near ULiège: Investment properties €100,000-200,000, rental yield 7-10%. Angleur suburban: Family homes €200,000-350,000, 20-minute commute to city center. Renovation opportunities: Historic properties €80,000-150,000, potential for 20-30% value increase after renovation."
   },
   {
     "Id": "7",
-    "Title": "Weekly Shopping Budget Optimization - Best Deal Combinations",
-    "Content": "Optimal weekly shopping strategy for family of 4: Fruits at weekend markets (save 25%), vegetables at Lidl/Aldi (save 20%), organic items at farm shops (save 30%), delicatessen at Colruyt (quality-price balance). Sample weekly savings: Markets €15-20, Discount chains €25-35, Direct farms €10-15, Total potential savings €50-70 per week. Best shopping days: Saturday morning markets for fresh produce, Sunday Aldi/Lidl for restocking, Wednesday Colruyt for mid-week specials. Store loyalty programs: Colruyt Xtra points, Carrefour savings stamps, Delhaize Plus card - combine for maximum savings."
-  },
-  {
-    "Id": "8",
-    "Title": "Belgian Specialty Food Stores - Premium vs Value Comparison",
-    "Content": "Cheese specialists: Fromagerie Laurent (premium €20-40/kg), Kaasmakerij Van Tricht (artisanal €15-30/kg), vs Supermarket counters (€8-20/kg). Butcher shops: Premium butchers €18-35/kg for steaks, Local butchers €12-25/kg, vs Supermarket €8-18/kg. Bread: Artisan bakeries €3-6/loaf, Chain bakeries €2-4/loaf, Supermarket €1-3/loaf. Fish markets: Fresh fish markets €15-25/kg, Supermarket fish counter €12-20/kg, Frozen section €6-12/kg. Value assessment: Specialty stores offer 20-30% better quality for 40-60% higher price - choose based on occasion and budget."
-  }
-]
+    "Title": "Brussels Luxury Real Estate - Premium Market Analysis",
+    "Content": "Brussels luxury districts: Uccle mansions €800,000-3,000,000+, Woluwé-Saint-Lambert €600,000-1,500,000, Watermael-Boitsfort €500,000-1,200,000. Embassy quarter premium: Properties near embassies €700,000-2,500,000, high demand from diplomats and executives. Penthouse market: Brussels city center penthouses €600,000-2,000,000, panoramic views, luxury amenities. International buyers: EU officials prefer Uccle/Woluwé, multinational executives choose city center, investment funds target rental properties. Market trends: Luxury market stable, 2-4% annual appreciation, strong rental demand €2,000-5,000/month."
+    },
+    {
+      "Id": "8",
+      "Title": "Belgian Property Investment Strategy - Regional Comparison",
+      "Content": "Investment comparison by region: Brussels highest prices but stable demand, rental yields 3-5%. Antwerp balanced market, yields 4-6%, strong economic growth. Ghent university town advantage, student housing yields 6-8%. Coastal areas seasonal but high summer yields 8-12%. Liège and Charleroi affordable entry points, yields 6-9%, urban renewal opportunities. Tax considerations: Registration fees 10-12.5% of property value, rental income taxed as regular income. Financing: Belgian banks offer 80-90% LTV for residents, 70-80% for non-residents, interest rates 2-4% (2025)."
+    }
+  ]
+}

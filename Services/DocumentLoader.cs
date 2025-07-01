@@ -5,7 +5,7 @@ namespace UniversalRAGAssistant.Services
 {
     public class DocumentLoader
     {
-        public async Task<List<DocumentInfo>> LoadDocumentsFromJsonAsync(string filePath)
+        public async Task<DataConfiguration> LoadDataConfigurationAsync(string filePath)
         {
             if (!File.Exists(filePath))
             {
@@ -13,9 +13,37 @@ namespace UniversalRAGAssistant.Services
             }
 
             string jsonContent = await File.ReadAllTextAsync(filePath);
-            var documents = JsonSerializer.Deserialize<List<DocumentInfo>>(jsonContent);
 
-            return documents ?? new List<DocumentInfo>();
+            // Try to deserialize as new format with metadata
+            try
+            {
+                var dataConfig = JsonSerializer.Deserialize<DataConfiguration>(jsonContent);
+                if (dataConfig != null && dataConfig.Documents != null)
+                {
+                    return dataConfig;
+                }
+            }
+            catch (JsonException)
+            {
+                // If that fails, try to deserialize as old format (just documents array)
+                var documents = JsonSerializer.Deserialize<List<DocumentInfo>>(jsonContent);
+                if (documents != null)
+                {
+                    return new DataConfiguration
+                    {
+                        Metadata = new AppMetadata(), // Use default metadata
+                        Documents = documents
+                    };
+                }
+            }
+
+            return new DataConfiguration(); // Return empty configuration if all else fails
+        }
+
+        public async Task<List<DocumentInfo>> LoadDocumentsFromJsonAsync(string filePath)
+        {
+            var dataConfig = await LoadDataConfigurationAsync(filePath);
+            return dataConfig.Documents;
         }
 
         public async Task<List<DocumentInfo>> LoadDocumentsFromTextFilesAsync(string directoryPath)
