@@ -683,6 +683,20 @@ namespace UniversalRAGAssistant
                     "💡 'Best property investment strategy for Belgium'"
                 };
             }
+            else if (title.Contains("SUPERMARKET") || title.Contains("BUSINESS") || title.Contains("INTELLIGENCE"))
+            {
+                return new[]
+                {
+                    "📊 'What is Lidl vs Aldi competitive positioning strategy?'",
+                    "💰 'Optimal procurement timing for seasonal produce'",
+                    "🎯 'Customer segmentation analysis for Belgian markets'",
+                    "📈 'ROI analysis for promotional campaigns'",
+                    "🏪 'Store format optimization for different regions'",
+                    "📦 'Inventory turnover rates by product category'",
+                    "🔍 'Market expansion opportunities in Wallonia'",
+                    "💼 'Private label margin optimization strategies'"
+                };
+            }
             else if (title.Contains("ENTERTAINMENT") || title.Contains("MUSIC") || title.Contains("CONCERT"))
             {
                 return new[]

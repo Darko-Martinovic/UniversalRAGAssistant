@@ -13,12 +13,13 @@ echo    [1] 🏠 Real Estate Assistant     - Property prices, rentals, investmen
 echo    [2] 🛒 Food Pricing Assistant    - Grocery stores, markets, food deals  
 echo    [3] 💻 Technology Assistant      - Electronics, laptops, tech gadgets
 echo    [4] 🎵 Entertainment Assistant   - Concerts, movies, streaming services
+echo    [5] 📊 Supermarket Business      - Business intelligence for retailers
 echo.
-echo    [5] 📄 Show current configuration
-echo    [6] 🔄 Restore from backup
+echo    [6] 📄 Show current configuration
+echo    [7] 🔄 Restore from backup
 echo    [0] ❌ Exit
 echo.
-set /p choice=🔸 Enter your choice (0-6): 
+set /p choice=🔸 Enter your choice (0-7): 
 
 if "%choice%"=="1" (
     call switch-to-realestate.bat
@@ -37,10 +38,14 @@ if "%choice%"=="4" (
     goto menu
 )
 if "%choice%"=="5" (
-    call show-current.bat
+    call switch-to-supermarket-business.bat
     goto menu
 )
 if "%choice%"=="6" (
+    call show-current.bat
+    goto menu
+)
+if "%choice%"=="7" (
     call restore-backup.bat
     goto menu
 )

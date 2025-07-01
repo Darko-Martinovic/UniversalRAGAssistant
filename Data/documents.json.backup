@@ -1,0 +1,51 @@
+{
+  "metadata": {
+    "title": "BELGIAN FOOD PRICING ASSISTANT",
+    "icon": "🛒",
+    "flag": "🇧🇪",
+    "welcomeMessage": "Welcome to your personal Belgian food pricing assistant!",
+    "capabilityDescription": "I can help you find the best deals on fruits, vegetables, and delicatessen products",
+    "additionalInfo": "Compare prices across different stores and markets in Belgium"
+  },
+  "documents": [
+    {
+      "Id": "1",
+      "Title": "Fresh Fruits Prices in Belgium - Store Comparison",
+      "Content": "Belgian apple prices by retailer: Delhaize €3.20/kg, Carrefour €3.10/kg, Colruyt €2.80/kg, Lidl €2.40/kg, Aldi €2.35/kg, Weekend Markets €2.00-2.50/kg. Pears: Delhaize €3.80/kg, Carrefour €3.60/kg, Colruyt €3.20/kg, Lidl €2.90/kg, Aldi €2.85/kg, Local Markets €2.50-3.00/kg. Bananas: Delhaize €2.10/kg, Carrefour €1.95/kg, Colruyt €1.75/kg, Lidl €1.45/kg, Aldi €1.40/kg. Best deals: Weekend farmers markets for seasonal fruits, Aldi/Lidl for year-round lowest prices."
+    },
+  {
+    "Id": "2",
+    "Title": "Belgian Delicatessen Prices - Premium vs Budget Options",
+    "Content": "Belgian ham pricing by store type: Premium Delicatessens €22-28/kg (highest quality), Delhaize €18-22/kg, Carrefour €16-20/kg, Colruyt €15-18/kg, Lidl €12-15/kg, Aldi €11-14/kg. Aged Gouda cheese: Specialty Cheese Shops €25-35/kg, Delhaize €20-25/kg, Carrefour €18-22/kg, Colruyt €16-20/kg, Lidl €12-16/kg, Aldi €11-15/kg. Belgian chocolate: Leonidas €35-45/kg, Neuhaus €40-50/kg, Godiva €45-60/kg, Supermarket brands €15-25/kg. Best value: Colruyt for quality-price balance, Aldi/Lidl for budget options."
+  },
+  {
+    "Id": "3",
+    "Title": "Vegetable Market Prices Belgium - Detailed Store Comparison",
+    "Content": "Potato prices across Belgium: Delhaize €1.65/kg, Carrefour €1.55/kg, Colruyt €1.35/kg, Lidl €1.15/kg, Aldi €1.10/kg, Local Markets €0.90-1.20/kg. Carrots: Delhaize €2.10/kg, Carrefour €1.95/kg, Colruyt €1.70/kg, Lidl €1.45/kg, Aldi €1.40/kg, Markets €1.20-1.50/kg. Belgian endives: Delhaize €3.90/kg, Carrefour €3.70/kg, Colruyt €3.30/kg, Lidl €2.90/kg, Aldi €2.80/kg, Local Farmers €2.20-2.80/kg. Brussels sprouts: Delhaize €3.50/kg, Carrefour €3.20/kg, Colruyt €2.80/kg, Lidl €2.40/kg, Aldi €2.30/kg, Weekend Markets €1.80-2.20/kg."
+  },
+  {
+    "Id": "4",
+    "Title": "Organic Food Prices Belgium - Store Price Comparison",
+    "Content": "Organic apples by retailer: Bio Planet €4.80/kg, Delhaize Bio €4.50/kg, Carrefour Bio €4.30/kg, Colruyt Bio €4.10/kg, Lidl Bio €3.70/kg, Aldi Bio €3.60/kg, Organic Markets €3.20-3.80/kg. Organic carrots: Bio Planet €3.40/kg, Delhaize Bio €3.20/kg, Carrefour Bio €3.00/kg, Colruyt Bio €2.85/kg, Lidl Bio €2.60/kg, Aldi Bio €2.55/kg, Farm Direct €2.20-2.60/kg. Organic milk: Bio Planet €1.75/L, Delhaize Bio €1.65/L, Carrefour Bio €1.55/L, Colruyt Bio €1.45/L, Lidl Bio €1.35/L, Aldi Bio €1.30/L. Best organic deals: Direct from organic farms, Aldi/Lidl bio lines."
+  },
+  {
+    "Id": "5",
+    "Title": "Seasonal Price Variations Belgium - Market Intelligence",
+    "Content": "Summer strawberry prices by location: Premium Markets €5.50/500g, Delhaize €4.80/500g, Carrefour €4.50/500g, Colruyt €4.20/500g, Lidl €3.50/500g, Aldi €3.30/500g, Pick-Your-Own Farms €2.50-3.00/500g. Asparagus season pricing: Specialty Stores €14-16/kg, Delhaize €11-13/kg, Carrefour €10-12/kg, Colruyt €9-11/kg, Lidl €8-10/kg, Aldi €7-9/kg, Local Farms €6-8/kg. Winter cabbage: All supermarkets €1.50-2.20/kg, Markets €1.20-1.80/kg. Planning tip: Buy seasonal produce directly from farms for 40-60% savings."
+  },
+  {
+    "Id": "6",
+    "Title": "Belgium Regional Price Comparison - Brussels vs Antwerp vs Ghent",
+    "Content": "Brussels pricing: Premium due to capital status, Delhaize/Carrefour 5-10% higher than national average. Best Brussels deals: Marché du Midi (Sunday), Place Sainte-Catherine (Saturday), Aldi Ixelles, Lidl Etterbeek. Antwerp pricing: Port city advantages, 3-5% below Brussels prices. Best Antwerp deals: Saturday Market (Grote Markt), Lidl/Aldi multiple locations, Turkish markets for vegetables. Ghent pricing: University city, competitive prices, 5-8% below Brussels. Best Ghent deals: Friday/Saturday Groenten-en-Fruitmarkt, Aldi/Lidl student discounts. Cross-city shopping tip: Antwerp markets offer best overall value for bulk purchases."
+  },
+  {
+    "Id": "7",
+    "Title": "Weekly Shopping Budget Optimization - Best Deal Combinations",
+    "Content": "Optimal weekly shopping strategy for family of 4: Fruits at weekend markets (save 25%), vegetables at Lidl/Aldi (save 20%), organic items at farm shops (save 30%), delicatessen at Colruyt (quality-price balance). Sample weekly savings: Markets €15-20, Discount chains €25-35, Direct farms €10-15, Total potential savings €50-70 per week. Best shopping days: Saturday morning markets for fresh produce, Sunday Aldi/Lidl for restocking, Wednesday Colruyt for mid-week specials. Store loyalty programs: Colruyt Xtra points, Carrefour savings stamps, Delhaize Plus card - combine for maximum savings."
+  },    {
+      "Id": "8",
+      "Title": "Belgian Specialty Food Stores - Premium vs Value Comparison",
+      "Content": "Cheese specialists: Fromagerie Laurent (premium €20-40/kg), Kaasmakerij Van Tricht (artisanal €15-30/kg), vs Supermarket counters (€8-20/kg). Butcher shops: Premium butchers €18-35/kg for steaks, Local butchers €12-25/kg, vs Supermarket €8-18/kg. Bread: Artisan bakeries €3-6/loaf, Chain bakeries €2-4/loaf, Supermarket €1-3/loaf. Fish markets: Fresh fish markets €15-25/kg, Supermarket fish counter €12-20/kg, Frozen section €6-12/kg. Value assessment: Specialty stores offer 20-30% better quality for 40-60% higher price - choose based on occasion and budget."
+    }
+  ]
+}
