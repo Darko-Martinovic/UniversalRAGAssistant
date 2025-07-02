@@ -42,10 +42,21 @@
     "Id": "7",
     "Title": "Weekly Shopping Budget Optimization - Best Deal Combinations",
     "Content": "Optimal weekly shopping strategy for family of 4: Fruits at weekend markets (save 25%), vegetables at Lidl/Aldi (save 20%), organic items at farm shops (save 30%), delicatessen at Colruyt (quality-price balance). Sample weekly savings: Markets €15-20, Discount chains €25-35, Direct farms €10-15, Total potential savings €50-70 per week. Best shopping days: Saturday morning markets for fresh produce, Sunday Aldi/Lidl for restocking, Wednesday Colruyt for mid-week specials. Store loyalty programs: Colruyt Xtra points, Carrefour savings stamps, Delhaize Plus card - combine for maximum savings."
-  },    {
-      "Id": "8",
-      "Title": "Belgian Specialty Food Stores - Premium vs Value Comparison",
-      "Content": "Cheese specialists: Fromagerie Laurent (premium €20-40/kg), Kaasmakerij Van Tricht (artisanal €15-30/kg), vs Supermarket counters (€8-20/kg). Butcher shops: Premium butchers €18-35/kg for steaks, Local butchers €12-25/kg, vs Supermarket €8-18/kg. Bread: Artisan bakeries €3-6/loaf, Chain bakeries €2-4/loaf, Supermarket €1-3/loaf. Fish markets: Fresh fish markets €15-25/kg, Supermarket fish counter €12-20/kg, Frozen section €6-12/kg. Value assessment: Specialty stores offer 20-30% better quality for 40-60% higher price - choose based on occasion and budget."
-    }
+  },
+  {
+    "Id": "8",
+    "Title": "Belgian Specialty Food Stores - Premium vs Value Comparison",
+    "Content": "Cheese specialists: Fromagerie Laurent (premium €20-40/kg), Kaasmakerij Van Tricht (artisanal €15-30/kg), vs Supermarket counters (€8-20/kg). Butcher shops: Premium butchers €18-35/kg for steaks, Local butchers €12-25/kg, vs Supermarket €8-18/kg. Bread: Artisan bakeries €3-6/loaf, Chain bakeries €2-4/loaf, Supermarket €1-3/loaf. Fish markets: Fresh fish markets €15-25/kg, Supermarket fish counter €12-20/kg, Frozen section €6-12/kg. Value assessment: Specialty stores offer 20-30% better quality for 40-60% higher price - choose based on occasion and budget."
+  },
+  {
+    "Id": "9",
+    "Title": "Belgian Culinary Industry Analytics - Restaurant & Food Service Trends 2025",
+    "Content": "Belgian Food Service Market Intelligence: Market Size: €18.5B revenue (+7.2% YoY), 85,000 food service establishments, 380,000 employees sector-wide. Restaurant Categories: Fine dining €45-85 average spend, Casual dining €25-45, Fast casual €12-25, Quick service €8-15. Growth Segments: Plant-based restaurants +45% growth, ghost kitchens +67%, food trucks +23%, specialty coffee shops +18%. Consumer Trends: 68% prefer local sourcing, 52% seek sustainable options, 41% order online weekly, 34% use food delivery apps. Regional Specialization: Brussels international cuisine hub (120+ nationalities), Flemish beer tourism restaurants +15%, Wallonia farm-to-table movement. Technology Adoption: 78% restaurants use digital ordering, 45% implement kitchen automation, 67% offer delivery, QR code menus 89% adoption. Investment Opportunities: Michelin-starred restaurants €500K-2M investment, franchise concepts €150K-500K, food tech startups €50K-300K. Market Challenges: Staff shortage 35% of positions unfilled, food cost inflation +12%, energy costs +18%, regulatory compliance costs."
+  },
+  {
+    "Id": "10",
+    "Title": "Belgian Food Innovation & Sustainability Trends - Professional Market Analysis",
+    "Content": "Food Innovation Ecosystem Belgium: AgriTech Investment: €340M invested in food tech startups, 180+ agritech companies, vertical farming initiatives, precision agriculture adoption +34%. Alternative Proteins: €85M market size, 45 plant-based companies, insect protein pilot projects, cultured meat research at universities. Sustainable Packaging: €1.2B market, biodegradable solutions +56% adoption, zero-waste initiatives, circular economy models in food retail. Local Food Networks: Short supply chains +28% growth, community-supported agriculture, direct farmer sales €450M annually, urban farming projects in Brussels/Antwerp. Organic Market: €1.8B market size (+11% YoY), 23% organic farmland conversion, consumer willingness to pay 15-25% premium. Food Waste Reduction: €2.1B food waste annually, 34% reduction target by 2030, Too Good To Go app saves 2.3M meals, surplus food redistribution networks. Smart Agriculture: IoT sensors on 45% of large farms, AI-driven crop monitoring, drone technology adoption, automated greenhouse systems. Export Opportunities: Belgian chocolate €3.2B exports, beer €1.8B, processed foods €4.1B, specialty foods growing in Asian markets +22%. Future Trends: Personalized nutrition services, blockchain food traceability, lab-grown ingredients, climate-resilient crop varieties, subscription meal services targeting health-conscious consumers."
+  }
   ]
 }

@@ -1,62 +1,62 @@
 {
   "metadata": {
-    "title": "BELGIAN TECH PRICING ASSISTANT",
-    "icon": "💻",
+    "title": "BELGIAN FOOD PRICING ASSISTANT",
+    "icon": "🛒",
     "flag": "🇧🇪",
-    "welcomeMessage": "Welcome to your personal Belgian technology pricing assistant!",
-    "capabilityDescription": "I can help you find the best deals on electronics, laptops, smartphones, and tech gadgets",
-    "additionalInfo": "Compare prices across different electronics retailers in Belgium"
+    "welcomeMessage": "Welcome to your personal Belgian food pricing assistant!",
+    "capabilityDescription": "I can help you find the best deals on fruits, vegetables, and delicatessen products",
+    "additionalInfo": "Compare prices across different stores and markets in Belgium"
   },
   "documents": [
     {
       "Id": "1",
-      "Title": "Laptop Prices Belgium - Major Electronics Retailers",
-      "Content": "MacBook Pro M3 14-inch: MediaMarkt €2299, Coolblue €2249, Krëfel €2399, Apple Store €2329, Alternate €2279. Dell XPS 13: MediaMarkt €1199, Coolblue €1149, Krëfel €1249, Alternate €1179, Azerty €1159. Lenovo ThinkPad T14: MediaMarkt €1099, Coolblue €1049, Alternate €1029, Azerty €999. HP Spectre x360: MediaMarkt €1299, Coolblue €1249, Krëfel €1349. Best deals: Alternate for business laptops, Coolblue for consumer models, Azerty for best overall prices."
+      "Title": "Fresh Fruits Prices in Belgium - Store Comparison",
+      "Content": "Belgian apple prices by retailer: Delhaize €3.20/kg, Carrefour €3.10/kg, Colruyt €2.80/kg, Lidl €2.40/kg, Aldi €2.35/kg, Weekend Markets €2.00-2.50/kg. Pears: Delhaize €3.80/kg, Carrefour €3.60/kg, Colruyt €3.20/kg, Lidl €2.90/kg, Aldi €2.85/kg, Local Markets €2.50-3.00/kg. Bananas: Delhaize €2.10/kg, Carrefour €1.95/kg, Colruyt €1.75/kg, Lidl €1.45/kg, Aldi €1.40/kg. Best deals: Weekend farmers markets for seasonal fruits, Aldi/Lidl for year-round lowest prices."
     },
-    {
-      "Id": "2",
-      "Title": "Smartphone Prices Belgium - Carrier vs Unlocked Comparison",
-      "Content": "iPhone 15 Pro unlocked: MediaMarkt €1329, Coolblue €1299, Krëfel €1359, Apple Store €1329. With Proximus contract: €899 + €65/month (24 months). With Orange: €949 + €60/month (24 months). With Base: €999 + €55/month (24 months). Samsung Galaxy S24 Ultra unlocked: MediaMarkt €1299, Coolblue €1249, Saturn €1349. Contract deals: Proximus €799 + €70/month, Orange €849 + €65/month. Best strategy: Unlocked phones from Coolblue + SIM-only plans save 15-25% over 2 years."
-    },
-    {
-      "Id": "3",
-      "Title": "Gaming Setup Prices Belgium - PC Components and Consoles",
-      "Content": "PlayStation 5: MediaMarkt €549, Coolblue €499, Krëfel €579, Game Mania €529. Xbox Series X: MediaMarkt €499, Coolblue €469, Krëfel €519, Game Mania €489. Gaming PC components: RTX 4080 Super €1099-1249, RTX 4070 €649-749, AMD RX 7800 XT €549-649. Intel i7-14700K: €419-459, AMD Ryzen 7 7800X3D: €449-499. Complete gaming PC builds: Budget €800-1200, Mid-range €1200-2000, High-end €2000-3500. Best places: Alternate for components, Coolblue for consoles, Game Mania for exclusive bundles."
-    },
-    {
-      "Id": "4",
-      "Title": "Television Prices Belgium - 4K and OLED Comparison",
-      "Content": "Samsung 65-inch QLED 4K: MediaMarkt €1299, Coolblue €1199, Krëfel €1399, Vanden Borre €1249. LG 65-inch OLED C3: MediaMarkt €1599, Coolblue €1499, Krëfel €1699, Vanden Borre €1549. Sony 65-inch Bravia XR: MediaMarkt €1399, Coolblue €1299, Krëfel €1499. TCL 65-inch QLED budget: MediaMarkt €699, Coolblue €649, Krëfel €749. Installation services: Coolblue €149, MediaMarkt €179, Krëfel €199. Best value: Coolblue for pricing and service, MediaMarkt for selection, seasonal sales save 20-30%."
-    },
-    {
-      "Id": "5",
-      "Title": "Home Audio Systems Belgium - Speakers and Soundbars",
-      "Content": "Sonos Arc soundbar: MediaMarkt €799, Coolblue €749, Krëfel €849, Hi-Fi Corner €779. Bose QuietComfort headphones: MediaMarkt €329, Coolblue €299, Krëfel €359, FNAC €319. KEF LS50 Meta speakers: Hi-Fi Corner €1299, Son-Video €1249, Coolblue €1349. Audio-Technica turntables: Coolblue €249-699, Hi-Fi Corner €199-599, FNAC €279-749. High-end audio: Son-Video and Hi-Fi Corner for audiophile equipment, Coolblue and MediaMarkt for mainstream brands. Installation: Professional audio stores include setup, big box retailers charge extra €100-200."
-    },
-    {
-      "Id": "6",
-      "Title": "Computer Accessories Belgium - Peripherals and Office Setup",
-      "Content": "Mechanical keyboards: Logitech MX Keys €149, Coolblue €139, MediaMarkt €159. Gaming keyboards: Razer BlackWidow €179, SteelSeries Apex €199, Corsair K95 €229. Monitor prices: Dell 27-inch 4K €399, LG UltraWide €449, Samsung Odyssey gaming €599. Mouse options: Logitech MX Master 3S €109, Razer DeathAdder €79, SteelSeries Rival €89. Webcams: Logitech C920 €89, C922 Pro €129, Brio 4K €199. Best places: Alternate for professional gear, MediaMarkt for mainstream, Coolblue for balanced selection and service."
-    },
-    {
-      "Id": "7",
-      "Title": "Home Office Technology Belgium - Work From Home Setup Costs",
-      "Content": "Complete home office setup costs: Budget €800-1200 (basic laptop, monitor, chair), Mid-range €1200-2500 (quality peripherals, ergonomic furniture), Premium €2500-5000+ (high-end equipment, multiple monitors). Standing desks: IKEA BEKANT €199-349, Herman Miller €1200-2000, FlexiSpot €399-699. Office chairs: IKEA Markus €179, Steelcase Series 1 €415, Herman Miller Aeron €1400. Monitors: Budget 24-inch €149-249, Professional 27-inch €299-499, Ultra-wide €449-899. Lighting: Philips Hue setup €199-499, basic LED desk lamps €29-89."
-    },
-    {
-      "Id": "8",
-      "Title": "Technology Warranty and Support Belgium - Extended Coverage Options",
-      "Content": "Extended warranty costs: Coolblue Care 2-year extension €99-299 depending on product value, MediaMarkt warranty €79-249, Krëfel coverage €89-199. Apple Care+: MacBook €229 for 3 years, iPhone €149 for 2 years, available at Apple Store and authorized resellers. Manufacturer warranties: Most electronics include 2-year EU warranty, premium brands offer 3-5 years. Repair services: Apple Store Genius Bar, MediaMarkt Tech Center, Coolblue repair service €89-199 diagnostic fee. Insurance: Home insurance typically covers electronics theft/damage, specialized tech insurance €5-15/month for high-value equipment."
-    },
-    {
-      "Id": "9",
-      "Title": "Belgian Tech Industry Analytics - AI & Digital Transformation 2025",
-      "Content": "Belgian AI Market Intelligence: Market Size: €2.8B in 2025 (+34% YoY), leading sectors healthcare (28%), finance (24%), manufacturing (19%), logistics (15%). AI Startup Ecosystem: 340+ AI companies, €450M venture funding in 2025, Brussels AI hub with 120 companies, Antwerp fintech focus 45 companies, Ghent health-tech specialization. Enterprise AI Adoption: 67% of large enterprises implement AI solutions, 43% SMEs exploring AI tools, average implementation cost €150K-500K, ROI achieved in 18 months average. Tech Talent Market: 12,000 AI/ML professionals nationwide, 25% salary increase YoY, average AI engineer salary €65K-95K, data scientist €55K-80K, 4,500 open positions. Government Initiatives: €1.2B Digital Belgium plan, AI ethics framework established, GDPR-compliant AI solutions mandatory, 30% tax incentive for AI R&D. International Competition: Netherlands leads EU in AI investment per capita, Germany dominates industrial AI, Belgium excels in multilingual AI applications. Investment Opportunities: Computer vision startups show 40% growth, NLP companies targeting EU market, AI-healthcare partnerships with hospitals, fintech AI solutions for SMEs."
-    },
-    {
-      "Id": "10",
-      "Title": "Belgium Tech Innovation & Future Trends 2025 - Professional Analysis",
-      "Content": "Tech Innovation Landscape Belgium: Quantum Computing: Imec leads EU quantum research, €85M investment in quantum infrastructure, partnerships with Google and IBM, 15 quantum startups, commercial applications by 2027. Blockchain & Web3: 180+ blockchain companies, €320M crypto trading volume, NFT marketplace growth +67%, DeFi protocols developed by Belgian teams, central bank digital euro pilot program. Cybersecurity Market: €890M market size (+22% YoY), 450 cybersecurity companies, EU cybersecurity regulation drives demand, average CISO salary €95K-140K, 2,800 open security positions. Green Tech Innovation: €1.5B cleantech investment, energy management software +45% adoption, smart grid technologies deployed nationwide, carbon tracking platforms for SMEs, sustainable computing initiatives. 5G & IoT Deployment: 85% 5G coverage achieved, 45M IoT devices deployed, smart city projects in Brussels/Antwerp, industrial IoT adoption 78% in manufacturing, edge computing infrastructure expansion. Future Technologies: AR/VR market €240M (+89% growth), autonomous vehicle testing approved, digital twin technology in construction, metaverse applications for training, neuromorphic computing research at universities. Market Disruptions: Traditional software licensing challenged by SaaS models, low-code platforms reduce development costs 40%, AI democratization enables SME automation, quantum-safe cryptography preparation begins."
-    }
+  {
+    "Id": "2",
+    "Title": "Belgian Delicatessen Prices - Premium vs Budget Options",
+    "Content": "Belgian ham pricing by store type: Premium Delicatessens €22-28/kg (highest quality), Delhaize €18-22/kg, Carrefour €16-20/kg, Colruyt €15-18/kg, Lidl €12-15/kg, Aldi €11-14/kg. Aged Gouda cheese: Specialty Cheese Shops €25-35/kg, Delhaize €20-25/kg, Carrefour €18-22/kg, Colruyt €16-20/kg, Lidl €12-16/kg, Aldi €11-15/kg. Belgian chocolate: Leonidas €35-45/kg, Neuhaus €40-50/kg, Godiva €45-60/kg, Supermarket brands €15-25/kg. Best value: Colruyt for quality-price balance, Aldi/Lidl for budget options."
+  },
+  {
+    "Id": "3",
+    "Title": "Vegetable Market Prices Belgium - Detailed Store Comparison",
+    "Content": "Potato prices across Belgium: Delhaize €1.65/kg, Carrefour €1.55/kg, Colruyt €1.35/kg, Lidl €1.15/kg, Aldi €1.10/kg, Local Markets €0.90-1.20/kg. Carrots: Delhaize €2.10/kg, Carrefour €1.95/kg, Colruyt €1.70/kg, Lidl €1.45/kg, Aldi €1.40/kg, Markets €1.20-1.50/kg. Belgian endives: Delhaize €3.90/kg, Carrefour €3.70/kg, Colruyt €3.30/kg, Lidl €2.90/kg, Aldi €2.80/kg, Local Farmers €2.20-2.80/kg. Brussels sprouts: Delhaize €3.50/kg, Carrefour €3.20/kg, Colruyt €2.80/kg, Lidl €2.40/kg, Aldi €2.30/kg, Weekend Markets €1.80-2.20/kg."
+  },
+  {
+    "Id": "4",
+    "Title": "Organic Food Prices Belgium - Store Price Comparison",
+    "Content": "Organic apples by retailer: Bio Planet €4.80/kg, Delhaize Bio €4.50/kg, Carrefour Bio €4.30/kg, Colruyt Bio €4.10/kg, Lidl Bio €3.70/kg, Aldi Bio €3.60/kg, Organic Markets €3.20-3.80/kg. Organic carrots: Bio Planet €3.40/kg, Delhaize Bio €3.20/kg, Carrefour Bio €3.00/kg, Colruyt Bio €2.85/kg, Lidl Bio €2.60/kg, Aldi Bio €2.55/kg, Farm Direct €2.20-2.60/kg. Organic milk: Bio Planet €1.75/L, Delhaize Bio €1.65/L, Carrefour Bio €1.55/L, Colruyt Bio €1.45/L, Lidl Bio €1.35/L, Aldi Bio €1.30/L. Best organic deals: Direct from organic farms, Aldi/Lidl bio lines."
+  },
+  {
+    "Id": "5",
+    "Title": "Seasonal Price Variations Belgium - Market Intelligence",
+    "Content": "Summer strawberry prices by location: Premium Markets €5.50/500g, Delhaize €4.80/500g, Carrefour €4.50/500g, Colruyt €4.20/500g, Lidl €3.50/500g, Aldi €3.30/500g, Pick-Your-Own Farms €2.50-3.00/500g. Asparagus season pricing: Specialty Stores €14-16/kg, Delhaize €11-13/kg, Carrefour €10-12/kg, Colruyt €9-11/kg, Lidl €8-10/kg, Aldi €7-9/kg, Local Farms €6-8/kg. Winter cabbage: All supermarkets €1.50-2.20/kg, Markets €1.20-1.80/kg. Planning tip: Buy seasonal produce directly from farms for 40-60% savings."
+  },
+  {
+    "Id": "6",
+    "Title": "Belgium Regional Price Comparison - Brussels vs Antwerp vs Ghent",
+    "Content": "Brussels pricing: Premium due to capital status, Delhaize/Carrefour 5-10% higher than national average. Best Brussels deals: Marché du Midi (Sunday), Place Sainte-Catherine (Saturday), Aldi Ixelles, Lidl Etterbeek. Antwerp pricing: Port city advantages, 3-5% below Brussels prices. Best Antwerp deals: Saturday Market (Grote Markt), Lidl/Aldi multiple locations, Turkish markets for vegetables. Ghent pricing: University city, competitive prices, 5-8% below Brussels. Best Ghent deals: Friday/Saturday Groenten-en-Fruitmarkt, Aldi/Lidl student discounts. Cross-city shopping tip: Antwerp markets offer best overall value for bulk purchases."
+  },
+  {
+    "Id": "7",
+    "Title": "Weekly Shopping Budget Optimization - Best Deal Combinations",
+    "Content": "Optimal weekly shopping strategy for family of 4: Fruits at weekend markets (save 25%), vegetables at Lidl/Aldi (save 20%), organic items at farm shops (save 30%), delicatessen at Colruyt (quality-price balance). Sample weekly savings: Markets €15-20, Discount chains €25-35, Direct farms €10-15, Total potential savings €50-70 per week. Best shopping days: Saturday morning markets for fresh produce, Sunday Aldi/Lidl for restocking, Wednesday Colruyt for mid-week specials. Store loyalty programs: Colruyt Xtra points, Carrefour savings stamps, Delhaize Plus card - combine for maximum savings."
+  },
+  {
+    "Id": "8",
+    "Title": "Belgian Specialty Food Stores - Premium vs Value Comparison",
+    "Content": "Cheese specialists: Fromagerie Laurent (premium €20-40/kg), Kaasmakerij Van Tricht (artisanal €15-30/kg), vs Supermarket counters (€8-20/kg). Butcher shops: Premium butchers €18-35/kg for steaks, Local butchers €12-25/kg, vs Supermarket €8-18/kg. Bread: Artisan bakeries €3-6/loaf, Chain bakeries €2-4/loaf, Supermarket €1-3/loaf. Fish markets: Fresh fish markets €15-25/kg, Supermarket fish counter €12-20/kg, Frozen section €6-12/kg. Value assessment: Specialty stores offer 20-30% better quality for 40-60% higher price - choose based on occasion and budget."
+  },
+  {
+    "Id": "9",
+    "Title": "Belgian Culinary Industry Analytics - Restaurant & Food Service Trends 2025",
+    "Content": "Belgian Food Service Market Intelligence: Market Size: €18.5B revenue (+7.2% YoY), 85,000 food service establishments, 380,000 employees sector-wide. Restaurant Categories: Fine dining €45-85 average spend, Casual dining €25-45, Fast casual €12-25, Quick service €8-15. Growth Segments: Plant-based restaurants +45% growth, ghost kitchens +67%, food trucks +23%, specialty coffee shops +18%. Consumer Trends: 68% prefer local sourcing, 52% seek sustainable options, 41% order online weekly, 34% use food delivery apps. Regional Specialization: Brussels international cuisine hub (120+ nationalities), Flemish beer tourism restaurants +15%, Wallonia farm-to-table movement. Technology Adoption: 78% restaurants use digital ordering, 45% implement kitchen automation, 67% offer delivery, QR code menus 89% adoption. Investment Opportunities: Michelin-starred restaurants €500K-2M investment, franchise concepts €150K-500K, food tech startups €50K-300K. Market Challenges: Staff shortage 35% of positions unfilled, food cost inflation +12%, energy costs +18%, regulatory compliance costs."
+  },
+  {
+    "Id": "10",
+    "Title": "Belgian Food Innovation & Sustainability Trends - Professional Market Analysis",
+    "Content": "Food Innovation Ecosystem Belgium: AgriTech Investment: €340M invested in food tech startups, 180+ agritech companies, vertical farming initiatives, precision agriculture adoption +34%. Alternative Proteins: €85M market size, 45 plant-based companies, insect protein pilot projects, cultured meat research at universities. Sustainable Packaging: €1.2B market, biodegradable solutions +56% adoption, zero-waste initiatives, circular economy models in food retail. Local Food Networks: Short supply chains +28% growth, community-supported agriculture, direct farmer sales €450M annually, urban farming projects in Brussels/Antwerp. Organic Market: €1.8B market size (+11% YoY), 23% organic farmland conversion, consumer willingness to pay 15-25% premium. Food Waste Reduction: €2.1B food waste annually, 34% reduction target by 2030, Too Good To Go app saves 2.3M meals, surplus food redistribution networks. Smart Agriculture: IoT sensors on 45% of large farms, AI-driven crop monitoring, drone technology adoption, automated greenhouse systems. Export Opportunities: Belgian chocolate €3.2B exports, beer €1.8B, processed foods €4.1B, specialty foods growing in Asian markets +22%. Future Trends: Personalized nutrition services, blockchain food traceability, lab-grown ingredients, climate-resilient crop varieties, subscription meal services targeting health-conscious consumers."
+  }
   ]
 }
