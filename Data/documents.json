@@ -1,62 +1,62 @@
 {
   "metadata": {
-    "title": "BELGIAN REAL ESTATE ASSISTANT",
-    "icon": "🏠",
+    "title": "BELGIAN TECH PRICING ASSISTANT",
+    "icon": "💻",
     "flag": "🇧🇪",
-    "welcomeMessage": "Welcome to your personal Belgian real estate assistant!",
-    "capabilityDescription": "I can help you find the best property deals, rental prices, and investment opportunities",
-    "additionalInfo": "Compare prices across different cities and districts in Belgium"
+    "welcomeMessage": "Welcome to your personal Belgian technology pricing assistant!",
+    "capabilityDescription": "I can help you find the best deals on electronics, laptops, smartphones, and tech gadgets",
+    "additionalInfo": "Compare prices across different electronics retailers in Belgium"
   },
   "documents": [
     {
       "Id": "1",
-      "Title": "Brussels Real Estate - Apartment Rental Prices by District",
-      "Content": "Ixelles rental prices: 1-bedroom €800-1200/month, 2-bedroom €1200-1800/month, 3-bedroom €1600-2400/month. Etterbeek: 1-bedroom €700-1000/month, 2-bedroom €1000-1500/month, 3-bedroom €1400-2000/month. Uccle premium: 1-bedroom €900-1400/month, 2-bedroom €1400-2200/month, 3-bedroom €1800-3000/month. Saint-Gilles trendy: 1-bedroom €750-1100/month, 2-bedroom €1100-1700/month. Best value: Schaerbeek €650-950/month for 1-bedroom, emerging neighborhood with good transport links."
+      "Title": "Laptop Prices Belgium - Major Electronics Retailers",
+      "Content": "MacBook Pro M3 14-inch: MediaMarkt €2299, Coolblue €2249, Krëfel €2399, Apple Store €2329, Alternate €2279. Dell XPS 13: MediaMarkt €1199, Coolblue €1149, Krëfel €1249, Alternate €1179, Azerty €1159. Lenovo ThinkPad T14: MediaMarkt €1099, Coolblue €1049, Alternate €1029, Azerty €999. HP Spectre x360: MediaMarkt €1299, Coolblue €1249, Krëfel €1349. Best deals: Alternate for business laptops, Coolblue for consumer models, Azerty for best overall prices."
     },
     {
       "Id": "2",
-      "Title": "Antwerp Housing Market - Rental vs Purchase Comparison",
-      "Content": "Antwerp rental market: City center 1-bedroom €700-1000/month, 2-bedroom €1000-1500/month. Zuid district premium: 1-bedroom €800-1200/month, 2-bedroom €1200-1800/month. Purchase prices: City center €250,000-400,000 for 2-bedroom, €350,000-600,000 for 3-bedroom. Emerging areas: Berchem €200,000-350,000 for 2-bedroom, Deurne €180,000-300,000. Investment tip: Zuid district shows 5-8% annual appreciation, best long-term value."
+      "Title": "Smartphone Prices Belgium - Carrier vs Unlocked Comparison",
+      "Content": "iPhone 15 Pro unlocked: MediaMarkt €1329, Coolblue €1299, Krëfel €1359, Apple Store €1329. With Proximus contract: €899 + €65/month (24 months). With Orange: €949 + €60/month (24 months). With Base: €999 + €55/month (24 months). Samsung Galaxy S24 Ultra unlocked: MediaMarkt €1299, Coolblue €1249, Saturn €1349. Contract deals: Proximus €799 + €70/month, Orange €849 + €65/month. Best strategy: Unlocked phones from Coolblue + SIM-only plans save 15-25% over 2 years."
     },
     {
       "Id": "3",
-      "Title": "Ghent Student Housing - University District Comparison",
-      "Content": "Student housing near UGent campus: Student rooms €300-500/month including utilities, Student studios €450-700/month, Shared apartments €350-550/month per room. Patershol historic area: Premium student housing €500-800/month, walking distance to campus. Coupure area: Mid-range options €400-600/month, 15-minute bike ride to university. Budget options: Ledeberg district €280-450/month, good public transport. Best deals: University housing €250-400/month, limited availability, apply early."
+      "Title": "Gaming Setup Prices Belgium - PC Components and Consoles",
+      "Content": "PlayStation 5: MediaMarkt €549, Coolblue €499, Krëfel €579, Game Mania €529. Xbox Series X: MediaMarkt €499, Coolblue €469, Krëfel €519, Game Mania €489. Gaming PC components: RTX 4080 Super €1099-1249, RTX 4070 €649-749, AMD RX 7800 XT €549-649. Intel i7-14700K: €419-459, AMD Ryzen 7 7800X3D: €449-499. Complete gaming PC builds: Budget €800-1200, Mid-range €1200-2000, High-end €2000-3500. Best places: Alternate for components, Coolblue for consoles, Game Mania for exclusive bundles."
     },
     {
       "Id": "4",
-      "Title": "Leuven Property Investment - ROI Analysis by Area",
-      "Content": "Leuven investment properties ROI: City center rental yield 4-6% annually, high demand from students and professionals. Near KU Leuven campus: Student housing yields 6-8%, properties €200,000-350,000. Kessel-Lo residential: Family homes yield 4-5%, properties €300,000-500,000, stable long-term growth. Heverlee upscale: Luxury properties yield 3-4%, €400,000-800,000, premium market. Investment strategy: Student housing offers highest yields but requires active management, family homes provide stable appreciation."
+      "Title": "Television Prices Belgium - 4K and OLED Comparison",
+      "Content": "Samsung 65-inch QLED 4K: MediaMarkt €1299, Coolblue €1199, Krëfel €1399, Vanden Borre €1249. LG 65-inch OLED C3: MediaMarkt €1599, Coolblue €1499, Krëfel €1699, Vanden Borre €1549. Sony 65-inch Bravia XR: MediaMarkt €1399, Coolblue €1299, Krëfel €1499. TCL 65-inch QLED budget: MediaMarkt €699, Coolblue €649, Krëfel €749. Installation services: Coolblue €149, MediaMarkt €179, Krëfel €199. Best value: Coolblue for pricing and service, MediaMarkt for selection, seasonal sales save 20-30%."
     },
     {
       "Id": "5",
-      "Title": "Belgian Coastal Properties - Seaside Real Estate Prices",
-      "Content": "Ostend beachfront apartments: Sea view 2-bedroom €300,000-500,000, inland 2-bedroom €200,000-350,000, seasonal rental yield 8-12%. Knokke luxury market: Beachfront properties €500,000-2,000,000+, exclusive area with international buyers. Blankenberge family market: 2-bedroom apartments €180,000-320,000, popular with Belgian families, rental yield 6-9%. De Panne budget coastal: Properties €150,000-280,000, emerging area near French border. Seasonal strategy: Buy in winter (10-15% lower prices), rent during summer season for maximum ROI."
+      "Title": "Home Audio Systems Belgium - Speakers and Soundbars",
+      "Content": "Sonos Arc soundbar: MediaMarkt €799, Coolblue €749, Krëfel €849, Hi-Fi Corner €779. Bose QuietComfort headphones: MediaMarkt €329, Coolblue €299, Krëfel €359, FNAC €319. KEF LS50 Meta speakers: Hi-Fi Corner €1299, Son-Video €1249, Coolblue €1349. Audio-Technica turntables: Coolblue €249-699, Hi-Fi Corner €199-599, FNAC €279-749. High-end audio: Son-Video and Hi-Fi Corner for audiophile equipment, Coolblue and MediaMarkt for mainstream brands. Installation: Professional audio stores include setup, big box retailers charge extra €100-200."
     },
     {
       "Id": "6",
-      "Title": "Liège Property Market - Affordable Housing Options",
-      "Content": "Liège affordable housing: City center 2-bedroom €120,000-220,000, 3-bedroom €180,000-300,000, excellent value for money. Guillemins station area: Renovated apartments €150,000-280,000, benefit from high-speed rail connectivity to Brussels. Student quarter near ULiège: Investment properties €100,000-200,000, rental yield 7-10%. Angleur suburban: Family homes €200,000-350,000, 20-minute commute to city center. Renovation opportunities: Historic properties €80,000-150,000, potential for 20-30% value increase after renovation."
+      "Title": "Computer Accessories Belgium - Peripherals and Office Setup",
+      "Content": "Mechanical keyboards: Logitech MX Keys €149, Coolblue €139, MediaMarkt €159. Gaming keyboards: Razer BlackWidow €179, SteelSeries Apex €199, Corsair K95 €229. Monitor prices: Dell 27-inch 4K €399, LG UltraWide €449, Samsung Odyssey gaming €599. Mouse options: Logitech MX Master 3S €109, Razer DeathAdder €79, SteelSeries Rival €89. Webcams: Logitech C920 €89, C922 Pro €129, Brio 4K €199. Best places: Alternate for professional gear, MediaMarkt for mainstream, Coolblue for balanced selection and service."
     },
     {
       "Id": "7",
-      "Title": "Brussels Luxury Real Estate - Premium Market Analysis",
-      "Content": "Brussels luxury districts: Uccle mansions €800,000-3,000,000+, Woluwé-Saint-Lambert €600,000-1,500,000, Watermael-Boitsfort €500,000-1,200,000. Embassy quarter premium: Properties near embassies €700,000-2,500,000, high demand from diplomats and executives. Penthouse market: Brussels city center penthouses €600,000-2,000,000, panoramic views, luxury amenities. International buyers: EU officials prefer Uccle/Woluwé, multinational executives choose city center, investment funds target rental properties. Market trends: Luxury market stable, 2-4% annual appreciation, strong rental demand €2,000-5,000/month."
+      "Title": "Home Office Technology Belgium - Work From Home Setup Costs",
+      "Content": "Complete home office setup costs: Budget €800-1200 (basic laptop, monitor, chair), Mid-range €1200-2500 (quality peripherals, ergonomic furniture), Premium €2500-5000+ (high-end equipment, multiple monitors). Standing desks: IKEA BEKANT €199-349, Herman Miller €1200-2000, FlexiSpot €399-699. Office chairs: IKEA Markus €179, Steelcase Series 1 €415, Herman Miller Aeron €1400. Monitors: Budget 24-inch €149-249, Professional 27-inch €299-499, Ultra-wide €449-899. Lighting: Philips Hue setup €199-499, basic LED desk lamps €29-89."
     },
     {
       "Id": "8",
-      "Title": "Belgian Property Investment Strategy - Regional Comparison",
-      "Content": "Investment comparison by region: Brussels highest prices but stable demand, rental yields 3-5%. Antwerp balanced market, yields 4-6%, strong economic growth. Ghent university town advantage, student housing yields 6-8%. Coastal areas seasonal but high summer yields 8-12%. Liège and Charleroi affordable entry points, yields 6-9%, urban renewal opportunities. Tax considerations: Registration fees 10-12.5% of property value, rental income taxed as regular income. Financing: Belgian banks offer 80-90% LTV for residents, 70-80% for non-residents, interest rates 2-4% (2025)."
+      "Title": "Technology Warranty and Support Belgium - Extended Coverage Options",
+      "Content": "Extended warranty costs: Coolblue Care 2-year extension €99-299 depending on product value, MediaMarkt warranty €79-249, Krëfel coverage €89-199. Apple Care+: MacBook €229 for 3 years, iPhone €149 for 2 years, available at Apple Store and authorized resellers. Manufacturer warranties: Most electronics include 2-year EU warranty, premium brands offer 3-5 years. Repair services: Apple Store Genius Bar, MediaMarkt Tech Center, Coolblue repair service €89-199 diagnostic fee. Insurance: Home insurance typically covers electronics theft/damage, specialized tech insurance €5-15/month for high-value equipment."
     },
     {
       "Id": "9",
-      "Title": "Belgian Real Estate Market Analytics - Q2 2025 Professional Report",
-      "Content": "Q2 2025 Market Intelligence: Transaction Volume: +12.3% vs Q1, +8.7% YoY, Brussels leads with 2,847 transactions. Price Evolution: National average +4.2% YoY, Brussels +5.1%, Antwerp +3.8%, Ghent +6.2%, coastal regions +2.9%. Professional Investor Activity: Institutional purchases +23% (€1.2B), REIT acquisitions focus on Brussels office conversion to residential. International Buyers: +15% from Netherlands, +8% from France, EU expats drive luxury segment. Mortgage Market: Average rate 3.2% (10-year fixed), 85% average LTV, approval rate 78% (down from 82% in 2024). Market Outlook: Supply shortage drives prices, 15,000 unit deficit nationwide, new construction permits +18%. Professional Opportunities: Office-to-residential conversions yield 15-25% IRR, co-living spaces show 12% annual growth, sustainable renovations qualify for 30% tax credits. Risk Factors: Interest rate sensitivity, regulatory changes in short-term rentals, construction material cost inflation +8%."
+      "Title": "Belgian Tech Industry Analytics - AI & Digital Transformation 2025",
+      "Content": "Belgian AI Market Intelligence: Market Size: €2.8B in 2025 (+34% YoY), leading sectors healthcare (28%), finance (24%), manufacturing (19%), logistics (15%). AI Startup Ecosystem: 340+ AI companies, €450M venture funding in 2025, Brussels AI hub with 120 companies, Antwerp fintech focus 45 companies, Ghent health-tech specialization. Enterprise AI Adoption: 67% of large enterprises implement AI solutions, 43% SMEs exploring AI tools, average implementation cost €150K-500K, ROI achieved in 18 months average. Tech Talent Market: 12,000 AI/ML professionals nationwide, 25% salary increase YoY, average AI engineer salary €65K-95K, data scientist €55K-80K, 4,500 open positions. Government Initiatives: €1.2B Digital Belgium plan, AI ethics framework established, GDPR-compliant AI solutions mandatory, 30% tax incentive for AI R&D. International Competition: Netherlands leads EU in AI investment per capita, Germany dominates industrial AI, Belgium excels in multilingual AI applications. Investment Opportunities: Computer vision startups show 40% growth, NLP companies targeting EU market, AI-healthcare partnerships with hospitals, fintech AI solutions for SMEs."
     },
     {
       "Id": "10",
-      "Title": "Belgian Property Technology & Innovation Trends 2025",
-      "Content": "PropTech Evolution Belgium: Digital Property Platforms: 67% of buyers start search online, virtual tours increase viewings by 34%, AI-powered valuation accuracy improved to 92%. Smart Building Integration: IoT adoption in premium properties +45%, energy management systems reduce costs 25%, smart security increases property value 3-8%. Sustainable Technology: Heat pump installations +67%, solar panel ROI 8-12 years, green mortgages offer 0.3% rate reduction. Blockchain Applications: Property tokenization pilot projects launched, smart contracts reduce transaction time by 40%, digital identity verification streamlines processes. Investment Technology: Crowdfunding platforms raised €145M for Belgian projects, robo-advisors manage €890M in property investments, algorithmic trading in REIT markets. Professional Tools: CRM adoption by agencies +28%, 3D scanning for accurate measurements, drone surveys for large properties. Market Disruption: Traditional agency model challenged by low-cost platforms, subscription-based property management services growing 22% annually. Future Trends: Metaverse property showcasing, AI-driven market predictions with 89% accuracy, automated property management systems reducing costs 35%."
+      "Title": "Belgium Tech Innovation & Future Trends 2025 - Professional Analysis",
+      "Content": "Tech Innovation Landscape Belgium: Quantum Computing: Imec leads EU quantum research, €85M investment in quantum infrastructure, partnerships with Google and IBM, 15 quantum startups, commercial applications by 2027. Blockchain & Web3: 180+ blockchain companies, €320M crypto trading volume, NFT marketplace growth +67%, DeFi protocols developed by Belgian teams, central bank digital euro pilot program. Cybersecurity Market: €890M market size (+22% YoY), 450 cybersecurity companies, EU cybersecurity regulation drives demand, average CISO salary €95K-140K, 2,800 open security positions. Green Tech Innovation: €1.5B cleantech investment, energy management software +45% adoption, smart grid technologies deployed nationwide, carbon tracking platforms for SMEs, sustainable computing initiatives. 5G & IoT Deployment: 85% 5G coverage achieved, 45M IoT devices deployed, smart city projects in Brussels/Antwerp, industrial IoT adoption 78% in manufacturing, edge computing infrastructure expansion. Future Technologies: AR/VR market €240M (+89% growth), autonomous vehicle testing approved, digital twin technology in construction, metaverse applications for training, neuromorphic computing research at universities. Market Disruptions: Traditional software licensing challenged by SaaS models, low-code platforms reduce development costs 40%, AI democratization enables SME automation, quantum-safe cryptography preparation begins."
     }
   ]
 }
