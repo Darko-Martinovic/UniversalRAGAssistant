@@ -1,62 +1,62 @@
 {
   "metadata": {
-    "title": "BELGIAN FOOD PRICING ASSISTANT",
-    "icon": "🛒",
+    "title": "BELGIAN ENTERTAINMENT PRICING ASSISTANT",
+    "icon": "🎵",
     "flag": "🇧🇪",
-    "welcomeMessage": "Welcome to your personal Belgian food pricing assistant!",
-    "capabilityDescription": "I can help you find the best deals on fruits, vegetables, and delicatessen products",
-    "additionalInfo": "Compare prices across different stores and markets in Belgium"
+    "welcomeMessage": "Welcome to your personal Belgian entertainment pricing assistant!",
+    "capabilityDescription": "I can help you find the best deals on concerts, streaming services, movies, and entertainment",
+    "additionalInfo": "Compare prices across different venues and platforms in Belgium"
   },
   "documents": [
     {
       "Id": "1",
-      "Title": "Fresh Fruits Prices in Belgium - Store Comparison",
-      "Content": "Belgian apple prices by retailer: Delhaize €3.20/kg, Carrefour €3.10/kg, Colruyt €2.80/kg, Lidl €2.40/kg, Aldi €2.35/kg, Weekend Markets €2.00-2.50/kg. Pears: Delhaize €3.80/kg, Carrefour €3.60/kg, Colruyt €3.20/kg, Lidl €2.90/kg, Aldi €2.85/kg, Local Markets €2.50-3.00/kg. Bananas: Delhaize €2.10/kg, Carrefour €1.95/kg, Colruyt €1.75/kg, Lidl €1.45/kg, Aldi €1.40/kg. Best deals: Weekend farmers markets for seasonal fruits, Aldi/Lidl for year-round lowest prices."
+      "Title": "Concert Ticket Prices Belgium - Major Venues Comparison",
+      "Content": "Forest National: International acts €45-150, Belgian artists €25-80, VIP packages €120-300. Ancienne Belgique: Indie/Alternative €20-60, Jazz €15-45, Electronic €25-70. Palais 12: Pop/Rock €35-120, Metal €30-90, Classical €20-100. Sportpaleis Antwerp: Stadium shows €50-200, Standing €40-80, Seated €60-180. Lotto Arena: Mid-size acts €35-100, Comedy shows €20-50. Best deals: Early bird tickets save 20-30%, student discounts available at AB and Botanique."
     },
-  {
-    "Id": "2",
-    "Title": "Belgian Delicatessen Prices - Premium vs Budget Options",
-    "Content": "Belgian ham pricing by store type: Premium Delicatessens €22-28/kg (highest quality), Delhaize €18-22/kg, Carrefour €16-20/kg, Colruyt €15-18/kg, Lidl €12-15/kg, Aldi €11-14/kg. Aged Gouda cheese: Specialty Cheese Shops €25-35/kg, Delhaize €20-25/kg, Carrefour €18-22/kg, Colruyt €16-20/kg, Lidl €12-16/kg, Aldi €11-15/kg. Belgian chocolate: Leonidas €35-45/kg, Neuhaus €40-50/kg, Godiva €45-60/kg, Supermarket brands €15-25/kg. Best value: Colruyt for quality-price balance, Aldi/Lidl for budget options."
-  },
-  {
-    "Id": "3",
-    "Title": "Vegetable Market Prices Belgium - Detailed Store Comparison",
-    "Content": "Potato prices across Belgium: Delhaize €1.65/kg, Carrefour €1.55/kg, Colruyt €1.35/kg, Lidl €1.15/kg, Aldi €1.10/kg, Local Markets €0.90-1.20/kg. Carrots: Delhaize €2.10/kg, Carrefour €1.95/kg, Colruyt €1.70/kg, Lidl €1.45/kg, Aldi €1.40/kg, Markets €1.20-1.50/kg. Belgian endives: Delhaize €3.90/kg, Carrefour €3.70/kg, Colruyt €3.30/kg, Lidl €2.90/kg, Aldi €2.80/kg, Local Farmers €2.20-2.80/kg. Brussels sprouts: Delhaize €3.50/kg, Carrefour €3.20/kg, Colruyt €2.80/kg, Lidl €2.40/kg, Aldi €2.30/kg, Weekend Markets €1.80-2.20/kg."
-  },
-  {
-    "Id": "4",
-    "Title": "Organic Food Prices Belgium - Store Price Comparison",
-    "Content": "Organic apples by retailer: Bio Planet €4.80/kg, Delhaize Bio €4.50/kg, Carrefour Bio €4.30/kg, Colruyt Bio €4.10/kg, Lidl Bio €3.70/kg, Aldi Bio €3.60/kg, Organic Markets €3.20-3.80/kg. Organic carrots: Bio Planet €3.40/kg, Delhaize Bio €3.20/kg, Carrefour Bio €3.00/kg, Colruyt Bio €2.85/kg, Lidl Bio €2.60/kg, Aldi Bio €2.55/kg, Farm Direct €2.20-2.60/kg. Organic milk: Bio Planet €1.75/L, Delhaize Bio €1.65/L, Carrefour Bio €1.55/L, Colruyt Bio €1.45/L, Lidl Bio €1.35/L, Aldi Bio €1.30/L. Best organic deals: Direct from organic farms, Aldi/Lidl bio lines."
-  },
-  {
-    "Id": "5",
-    "Title": "Seasonal Price Variations Belgium - Market Intelligence",
-    "Content": "Summer strawberry prices by location: Premium Markets €5.50/500g, Delhaize €4.80/500g, Carrefour €4.50/500g, Colruyt €4.20/500g, Lidl €3.50/500g, Aldi €3.30/500g, Pick-Your-Own Farms €2.50-3.00/500g. Asparagus season pricing: Specialty Stores €14-16/kg, Delhaize €11-13/kg, Carrefour €10-12/kg, Colruyt €9-11/kg, Lidl €8-10/kg, Aldi €7-9/kg, Local Farms €6-8/kg. Winter cabbage: All supermarkets €1.50-2.20/kg, Markets €1.20-1.80/kg. Planning tip: Buy seasonal produce directly from farms for 40-60% savings."
-  },
-  {
-    "Id": "6",
-    "Title": "Belgium Regional Price Comparison - Brussels vs Antwerp vs Ghent",
-    "Content": "Brussels pricing: Premium due to capital status, Delhaize/Carrefour 5-10% higher than national average. Best Brussels deals: Marché du Midi (Sunday), Place Sainte-Catherine (Saturday), Aldi Ixelles, Lidl Etterbeek. Antwerp pricing: Port city advantages, 3-5% below Brussels prices. Best Antwerp deals: Saturday Market (Grote Markt), Lidl/Aldi multiple locations, Turkish markets for vegetables. Ghent pricing: University city, competitive prices, 5-8% below Brussels. Best Ghent deals: Friday/Saturday Groenten-en-Fruitmarkt, Aldi/Lidl student discounts. Cross-city shopping tip: Antwerp markets offer best overall value for bulk purchases."
-  },
-  {
-    "Id": "7",
-    "Title": "Weekly Shopping Budget Optimization - Best Deal Combinations",
-    "Content": "Optimal weekly shopping strategy for family of 4: Fruits at weekend markets (save 25%), vegetables at Lidl/Aldi (save 20%), organic items at farm shops (save 30%), delicatessen at Colruyt (quality-price balance). Sample weekly savings: Markets €15-20, Discount chains €25-35, Direct farms €10-15, Total potential savings €50-70 per week. Best shopping days: Saturday morning markets for fresh produce, Sunday Aldi/Lidl for restocking, Wednesday Colruyt for mid-week specials. Store loyalty programs: Colruyt Xtra points, Carrefour savings stamps, Delhaize Plus card - combine for maximum savings."
-  },
-  {
-    "Id": "8",
-    "Title": "Belgian Specialty Food Stores - Premium vs Value Comparison",
-    "Content": "Cheese specialists: Fromagerie Laurent (premium €20-40/kg), Kaasmakerij Van Tricht (artisanal €15-30/kg), vs Supermarket counters (€8-20/kg). Butcher shops: Premium butchers €18-35/kg for steaks, Local butchers €12-25/kg, vs Supermarket €8-18/kg. Bread: Artisan bakeries €3-6/loaf, Chain bakeries €2-4/loaf, Supermarket €1-3/loaf. Fish markets: Fresh fish markets €15-25/kg, Supermarket fish counter €12-20/kg, Frozen section €6-12/kg. Value assessment: Specialty stores offer 20-30% better quality for 40-60% higher price - choose based on occasion and budget."
-  },
-  {
-    "Id": "9",
-    "Title": "Belgian Culinary Industry Analytics - Restaurant & Food Service Trends 2025",
-    "Content": "Belgian Food Service Market Intelligence: Market Size: €18.5B revenue (+7.2% YoY), 85,000 food service establishments, 380,000 employees sector-wide. Restaurant Categories: Fine dining €45-85 average spend, Casual dining €25-45, Fast casual €12-25, Quick service €8-15. Growth Segments: Plant-based restaurants +45% growth, ghost kitchens +67%, food trucks +23%, specialty coffee shops +18%. Consumer Trends: 68% prefer local sourcing, 52% seek sustainable options, 41% order online weekly, 34% use food delivery apps. Regional Specialization: Brussels international cuisine hub (120+ nationalities), Flemish beer tourism restaurants +15%, Wallonia farm-to-table movement. Technology Adoption: 78% restaurants use digital ordering, 45% implement kitchen automation, 67% offer delivery, QR code menus 89% adoption. Investment Opportunities: Michelin-starred restaurants €500K-2M investment, franchise concepts €150K-500K, food tech startups €50K-300K. Market Challenges: Staff shortage 35% of positions unfilled, food cost inflation +12%, energy costs +18%, regulatory compliance costs."
-  },
-  {
-    "Id": "10",
-    "Title": "Belgian Food Innovation & Sustainability Trends - Professional Market Analysis",
-    "Content": "Food Innovation Ecosystem Belgium: AgriTech Investment: €340M invested in food tech startups, 180+ agritech companies, vertical farming initiatives, precision agriculture adoption +34%. Alternative Proteins: €85M market size, 45 plant-based companies, insect protein pilot projects, cultured meat research at universities. Sustainable Packaging: €1.2B market, biodegradable solutions +56% adoption, zero-waste initiatives, circular economy models in food retail. Local Food Networks: Short supply chains +28% growth, community-supported agriculture, direct farmer sales €450M annually, urban farming projects in Brussels/Antwerp. Organic Market: €1.8B market size (+11% YoY), 23% organic farmland conversion, consumer willingness to pay 15-25% premium. Food Waste Reduction: €2.1B food waste annually, 34% reduction target by 2030, Too Good To Go app saves 2.3M meals, surplus food redistribution networks. Smart Agriculture: IoT sensors on 45% of large farms, AI-driven crop monitoring, drone technology adoption, automated greenhouse systems. Export Opportunities: Belgian chocolate €3.2B exports, beer €1.8B, processed foods €4.1B, specialty foods growing in Asian markets +22%. Future Trends: Personalized nutrition services, blockchain food traceability, lab-grown ingredients, climate-resilient crop varieties, subscription meal services targeting health-conscious consumers."
-  }
+    {
+      "Id": "2",
+      "Title": "Streaming Services Pricing Belgium - Monthly Subscriptions",
+      "Content": "Spotify: Premium €9.99/month, Family €15.99 (6 accounts), Student €4.99. Apple Music: Individual €9.99/month, Family €14.99 (6 accounts), Student €4.99. Netflix: Basic €8.99/month, Standard €13.49/month, Premium €17.99/month. Amazon Prime Video: €2.99/month (with Prime €49/year). Disney+: €8.99/month or €89.90/year. YouTube Premium: €11.99/month, Family €17.99. Best value: Annual subscriptions save 15-20%, bundle with Telenet/Proximus for discounts."
+    },
+    {
+      "Id": "3",
+      "Title": "Cinema Ticket Prices Belgium - Movie Theater Comparison",
+      "Content": "Kinepolis: Regular €11.50, Student €9.50, Senior €10.50, 4DX €18.50, IMAX €15.50. UGC: Standard €11.00, Reduced €9.00, Premium €14.00. Pathé: Regular €12.00, Student €9.50, Dolby Atmos €15.00. Imagix: Standard €10.50, Student €8.50, VIP €16.00. Rex Cinema: Arthouse €9.00, Student €7.50. Best deals: Tuesday discounts (€7-8), CinéCheque vouchers, unlimited cards €19-25/month."
+    },
+    {
+      "Id": "4",
+      "Title": "Music Festival Tickets Belgium - Summer Festival Pricing",
+      "Content": "Rock Werchter: 4-day pass €260, 1-day €85-95, VIP €450-650. Pukkelpop: 4-day pass €240, 1-day €80-90, Comfort camping €150. Tomorrowland: Weekend €300-400, Dreamlodge packages €2000-5000, DreamVille camping €150-300. Dour Festival: 5-day pass €190, 1-day €65-75, Camping €50. Les Ardentes: 4-day pass €180, 1-day €60-70. Graspop Metal Meeting: 3-day pass €170, 1-day €70-80. Early bird savings: Book in December-January for 25-40% discounts."
+    },
+    {
+      "Id": "5",
+      "Title": "Gaming Entertainment Belgium - Console and PC Gaming Costs",
+      "Content": "PlayStation Plus: Essential €8.99/month, Extra €13.99/month, Premium €16.99/month. Xbox Game Pass: Console €9.99/month, PC €9.99/month, Ultimate €12.99/month. Nintendo Switch Online: Individual €19.99/year, Family €34.99/year. Steam games: AAA titles €59.99 at launch, Indies €15-30, sales up to 90% off. Epic Games Store: Free weekly games, exclusive deals. Game streaming: GeForce Now €9.99/month, Xbox Cloud Gaming included with Ultimate. Best savings: Wait for seasonal sales, bundle subscriptions."
+    },
+    {
+      "Id": "6",
+      "Title": "Sports Entertainment Belgium - TV and Live Events",
+      "Content": "Eleven Sports: €14.99/month for football, €9.99 for cycling/tennis. Play Sports: Included with Telenet packages or €15/month standalone. RTBF Sport: Free for Belgian competitions. ESPN Player: €9.99/month for basketball/hockey. Live football: Standard Club Brugge €15-45, Anderlecht €20-60, Royal Antwerp €12-35. Basketball: Spirou Charleroi €10-25, Oostende €12-30. Tennis: Belgian Open €20-80, Brussels Open €15-60. Season passes save 30-50% vs individual tickets."
+    },
+    {
+      "Id": "7",
+      "Title": "Comedy and Theater Belgium - Live Performance Pricing",
+      "Content": "Théâtre Royal de la Monnaie: Opera €15-120, Ballet €20-100, Student rush tickets €10. Koninklijke Vlaamse Schouwburg: Theater €15-55, Comedy €20-45. Kaaitheater: Contemporary €12-35, Experimental €8-25. Comedy clubs: Comedy Central Live €15-25, LOL Comedy Club €12-20, Laughing Skull €10-18. Flemish theater: NTGent €15-45, toneelgroep €12-35. French theater: Théâtre de Poche €15-30, Rideau de Bruxelles €20-40. Season subscriptions offer 20-30% discounts, under-26 rates widely available."
+    },
+    {
+      "Id": "8",
+      "Title": "Night Entertainment Belgium - Clubs and Nightlife Pricing",
+      "Content": "Brussels nightlife: Fuse €15-25, Culture Club €12-20, Madame Moustache €10-18, The Architect €8-15. Antwerp clubs: Petrol €12-22, Café Local €8-16, Club Vaag €10-18. Ghent venues: Charlatan €8-15, Decadance €10-20, Kompass Klub €12-18. Drinks: Beer €3-6, Cocktails €8-14, Shots €3-7. VIP tables: €200-500 minimum spend. Festival afterparties: €20-35 entry. Student nights offer 50% discounts, guest lists save €5-10 entry, pre-sale tickets cheaper than door prices."
+    },
+    {
+      "Id": "9",
+      "Title": "Belgian Entertainment Industry Analytics - Market Trends & Performance 2025",
+      "Content": "Belgian Entertainment Market Intelligence: Market Size: €4.2B total entertainment sector (+8.5% YoY), Live Events €890M, Streaming €650M, Gaming €780M, Cinema €420M. Music Industry: 2,300+ live venues nationwide, 450 festivals annually, €340M ticket sales, 28% international artist bookings. Festival Economy: Tomorrowland €250M economic impact, Rock Werchter €85M, Graspop €45M, Pukkelpop €35M, 2.1M festival attendees annually. Digital Entertainment: Netflix 3.2M subscribers, Disney+ 1.8M, Prime Video 2.1M, Spotify 4.5M users, gaming market €780M (+12% YoY). Cultural Venues: 1,200+ theaters/concert halls, 85% occupancy rate, €45 average ticket price, 67% subsidized venues. Employment: 89,000 entertainment sector jobs, creative industries 3.2% of GDP, 23% freelance workforce. Investment Trends: €180M venture capital in entertainment startups, 45+ music tech companies, virtual reality entertainment +67% growth. Tourism Impact: Culture tourism accounts for 34% of international visitors, music festivals attract 890K foreign visitors annually, €1.2B cultural tourism revenue."
+    },
+    {
+      "Id": "10",
+      "Title": "Belgian Creative Industries Innovation - Future Entertainment Trends 2025",
+      "Content": "Creative Innovation Ecosystem Belgium: Digital Content Creation: 340+ content creation companies, YouTube creators earn €15K-150K annually, TikTok influencer market €45M, streaming platform investments €120M. Gaming Industry: 180 game development studios, €780M market revenue, indie games success rate 23%, VR/AR gaming +89% growth, esports viewership 1.2M. Film & Media Production: €320M film industry revenue, 67 production companies, tax shelter attracts international productions, documentary sector +34% growth, animation studios gain EU recognition. Music Technology: 45 music tech startups, AI composition tools adoption 34%, virtual concert platforms, blockchain music rights management, NFT art market €25M. Virtual Events Evolution: Hybrid events +156% growth, virtual reality concerts, metaverse entertainment platforms, digital venue capacities unlimited, 78% cost reduction vs physical events. Cultural Digitalization: Museum VR experiences, digital art galleries, NFT cultural collections, virtual theater performances, online cultural education +67% enrollment. Entertainment Technology: Motion capture studios, 360-degree video production, AI-powered content personalization, real-time translation for international content, facial recognition for venue security. Investment Opportunities: Content creation platforms, music streaming technology, virtual reality entertainment, cultural preservation digital projects, live streaming infrastructure, entertainment data analytics, cross-platform content distribution systems."
+    }
   ]
 }
