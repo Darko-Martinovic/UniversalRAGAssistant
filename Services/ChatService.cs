@@ -1,5 +1,6 @@
 using UniversalRAGAssistant.Models;
 using UniversalRAGAssistant.Interfaces;
+using UniversalRAGAssistant.Services;
 
 namespace UniversalRAGAssistant.Services
 {
@@ -64,6 +65,45 @@ namespace UniversalRAGAssistant.Services
                 else if (lowerInput == "info")
                 {
                     _uiService.PrintDataSourceInfo(appConfig);
+                    continue;
+                }
+                else if (lowerInput == "lineage" || lowerInput == "trace")
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("\n🔍 Enter a question to analyze document lineage:");
+                    Console.ResetColor();
+
+                    var lineageQuestion = _uiService.ReadLineWithStyle();
+                    if (!string.IsNullOrWhiteSpace(lineageQuestion))
+                    {
+                        try
+                        {
+                            _uiService.PrintProcessingMessage();
+                            var loadingCts = _uiService.ShowLoadingAnimation(
+                                "Analyzing document relevance and lineage..."
+                            );
+
+                            var relevanceResult = await _ragService.GetRelevanceAnalysisAsync(
+                                lineageQuestion,
+                                appConfig.RagDocumentCount
+                            );
+
+                            loadingCts.Cancel();
+
+                            // Display detailed relevance analysis
+                            _uiService.PrintRelevanceAnalysis(relevanceResult.GetDetailedRelevanceReport());
+
+                            // Display document lineage
+                            _uiService.PrintDocumentLineage(relevanceResult.DocumentRelevances);
+
+                            // Display summary
+                            _uiService.PrintRelevanceSummary(relevanceResult.GetRelevanceSummary());
+                        }
+                        catch (Exception ex)
+                        {
+                            _uiService.PrintError($"❌ Error analyzing lineage: {ex.Message}");
+                        }
+                    }
                     continue;
                 }
 

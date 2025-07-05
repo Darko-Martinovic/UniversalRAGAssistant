@@ -1,5 +1,6 @@
 using UniversalRAGAssistant.Models;
 using UniversalRAGAssistant.Interfaces;
+using UniversalRAGAssistant.Services;
 
 namespace UniversalRAGAssistant.Services
 {
@@ -302,6 +303,48 @@ namespace UniversalRAGAssistant.Services
             Console.WriteLine($"⚙️  Configuration File: appsettings.json");
             Console.ResetColor();
             Console.WriteLine();
+        }
+
+        public void PrintRelevanceAnalysis(string relevanceReport)
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("\n" + relevanceReport);
+            Console.ResetColor();
+        }
+
+        public void PrintRelevanceSummary(string summary)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"\n{summary}");
+            Console.ResetColor();
+        }
+
+        public void PrintDocumentLineage(List<DocumentRelevance> documents)
+        {
+            if (!documents.Any()) return;
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\n📋 DOCUMENT LINEAGE:");
+            Console.WriteLine("─────────────────────");
+            Console.ResetColor();
+
+            var sortedDocs = documents.OrderByDescending(d => d.FinalRelevanceScore).ToList();
+
+            for (int i = 0; i < sortedDocs.Count; i++)
+            {
+                var doc = sortedDocs[i];
+                var rank = i + 1;
+                var qualityColor = doc.IsHighQuality ? ConsoleColor.Green :
+                                 doc.IsMediumQuality ? ConsoleColor.Yellow : ConsoleColor.Red;
+
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write($"{rank}. ");
+                Console.ForegroundColor = qualityColor;
+                Console.Write($"{doc.DocumentTitle}");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine($" (Score: {doc.FinalRelevanceScore:F3})");
+                Console.ResetColor();
+            }
         }
 
         private string WrapText(string text, int maxLength, string indent = "")

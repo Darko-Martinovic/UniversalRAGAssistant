@@ -75,6 +75,9 @@ namespace UniversalRAGAssistant
                 return new AzureSearchService(searchEndpoint, searchKey);
             });
 
+            // Register relevance validation service
+            services.AddTransient<IRelevanceValidationService, RelevanceValidationService>();
+
             // Register application services
             services.AddTransient<IRagService, RagService>();
             services.AddSingleton<IConsoleUIService, ConsoleUIService>();

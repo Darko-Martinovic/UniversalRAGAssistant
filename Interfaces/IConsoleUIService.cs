@@ -1,4 +1,5 @@
 using UniversalRAGAssistant.Models;
+using UniversalRAGAssistant.Services;
 
 namespace UniversalRAGAssistant.Interfaces
 {
@@ -25,5 +26,8 @@ namespace UniversalRAGAssistant.Interfaces
         void PrintSessionEncouragement(int conversationCount, AppMetadata metadata);
         void PrintErrorAdvice(AppMetadata metadata);
         void PrintDataSourceInfo(AppConfiguration appConfig);
+        void PrintRelevanceAnalysis(string relevanceReport);
+        void PrintRelevanceSummary(string summary);
+        void PrintDocumentLineage(List<DocumentRelevance> documents);
     }
 }

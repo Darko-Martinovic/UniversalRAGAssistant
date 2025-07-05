@@ -13,8 +13,8 @@ namespace UniversalRAGAssistant.Services
     public class RelevanceValidationService : IRelevanceValidationService
     {
         private readonly IAzureOpenAIService _openAIService;
-        private const double MINIMUM_RELEVANCE_THRESHOLD = 0.65;
-        private const double HIGH_RELEVANCE_THRESHOLD = 0.85;
+        private const double MINIMUM_RELEVANCE_THRESHOLD = 0.60; // Lowered from 0.65 to be more inclusive
+        private const double HIGH_RELEVANCE_THRESHOLD = 0.80; // Lowered from 0.85 to be more inclusive
 
         public RelevanceValidationService(IAzureOpenAIService openAIService)
         {
@@ -30,10 +30,18 @@ namespace UniversalRAGAssistant.Services
             var relevantDocuments = 0;
             var highQualityDocuments = 0;
 
+            // Collect all results and find max score
+            var results = new List<SearchResult<KnowledgeDocument>>();
             await foreach (var result in searchResults.GetResultsAsync())
             {
+                results.Add(result);
+            }
+            var maxScore = results.Count > 0 ? results.Max(r => r.Score ?? 0.0) : 0.0;
+
+            foreach (var result in results)
+            {
                 totalDocuments++;
-                var relevance = await ValidateDocumentRelevance(query, result);
+                var relevance = ValidateDocumentRelevance(query, result, maxScore);
                 documentRelevances.Add(relevance);
 
                 if (relevance.IsRelevant)
@@ -58,25 +66,22 @@ namespace UniversalRAGAssistant.Services
             };
         }
 
-        private async Task<DocumentRelevance> ValidateDocumentRelevance(
+        private DocumentRelevance ValidateDocumentRelevance(
             string query,
-            SearchResult<KnowledgeDocument> searchResult)
+            SearchResult<KnowledgeDocument> searchResult,
+            double maxScore)
         {
             var document = searchResult.Document;
-            var vectorScore = searchResult.Score ?? 0.0;
+            var rawVectorScore = searchResult.Score ?? 0.0;
+            var vectorScore = (maxScore > 0) ? (rawVectorScore / maxScore) : 0.0;
 
             // Multi-layer validation
             var keywordRelevance = CalculateKeywordRelevance(query, document);
             var businessContextScore = CalculateBusinessContextScore(query, document);
-            var semanticValidation = await ValidateSemanticRelevance(query, document);
+            var semanticValidation = ValidateSemanticRelevance(query, document);
 
-            // Weighted relevance calculation
-            var finalScore = (vectorScore * 0.4) +
-                           (keywordRelevance * 0.2) +
-                           (businessContextScore * 0.2) +
-                           (semanticValidation * 0.2);
-
-            return new DocumentRelevance
+            // Enhanced weighted relevance calculation with configurable weights
+            var relevance = new DocumentRelevance
             {
                 DocumentId = document.Id,
                 DocumentTitle = document.Title,
@@ -84,10 +89,53 @@ namespace UniversalRAGAssistant.Services
                 KeywordRelevance = keywordRelevance,
                 BusinessContextScore = businessContextScore,
                 SemanticValidation = semanticValidation,
-                FinalRelevanceScore = finalScore,
-                IsRelevant = finalScore >= MINIMUM_RELEVANCE_THRESHOLD,
-                ValidationDetails = GenerateValidationDetails(query, document, finalScore)
+                ContentLength = document.Content.Length,
+                ValidationTimestamp = DateTime.UtcNow
             };
+
+            // Calculate final score with configurable weights
+            relevance.FinalRelevanceScore = (relevance.VectorScore * relevance.VectorWeight) +
+                                           (relevance.KeywordRelevance * relevance.KeywordWeight) +
+                                           (relevance.BusinessContextScore * relevance.BusinessWeight) +
+                                           (relevance.SemanticValidation * relevance.SemanticWeight);
+
+            // Determine relevance category and confidence
+            relevance.IsRelevant = relevance.FinalRelevanceScore >= MINIMUM_RELEVANCE_THRESHOLD;
+            relevance.RelevanceCategory = GetRelevanceCategory(relevance.FinalRelevanceScore);
+            relevance.ConfidenceLevel = GetConfidenceLevel(relevance);
+            relevance.ValidationDetails = GenerateValidationDetails(query, document, relevance.FinalRelevanceScore);
+
+            // Debug output for each document
+            Console.WriteLine($"🔍 DEBUG: {document.Title}");
+            Console.WriteLine($"   Raw Vector: {rawVectorScore:F3} | Normalized Vector: {vectorScore:F3} | Keywords: {keywordRelevance:F3} | Business: {businessContextScore:F3} | Semantic: {semanticValidation:F3}");
+            Console.WriteLine($"   Final Score: {relevance.FinalRelevanceScore:F3} | Relevant: {relevance.IsRelevant} | Threshold: {MINIMUM_RELEVANCE_THRESHOLD}");
+
+            return relevance;
+        }
+
+        private string GetRelevanceCategory(double score)
+        {
+            if (score >= 0.80) return "High";
+            if (score >= 0.60) return "Medium";
+            return "Low";
+        }
+
+        private string GetConfidenceLevel(DocumentRelevance relevance)
+        {
+            // Calculate confidence based on score consistency and content quality
+            var scoreVariance = Math.Abs(relevance.VectorScore - relevance.KeywordRelevance) +
+                               Math.Abs(relevance.BusinessContextScore - relevance.SemanticValidation);
+
+            var contentQuality = relevance.ContentLength > 200 ? 1.0 : relevance.ContentLength / 200.0;
+            var consistencyScore = 1.0 - (scoreVariance / 4.0); // Normalize variance
+
+            var confidenceScore = (relevance.FinalRelevanceScore * 0.6) +
+                                 (consistencyScore * 0.3) +
+                                 (contentQuality * 0.1);
+
+            if (confidenceScore >= 0.8) return "High";
+            if (confidenceScore >= 0.6) return "Medium";
+            return "Low";
         }
 
         private double CalculateKeywordRelevance(string query, KnowledgeDocument document)
@@ -123,34 +171,52 @@ namespace UniversalRAGAssistant.Services
             return (double)businessContextOverlap / maxPossibleOverlap;
         }
 
-        private async Task<double> ValidateSemanticRelevance(string query, KnowledgeDocument document)
+        private double ValidateSemanticRelevance(string query, KnowledgeDocument document)
         {
-            try
-            {
-                var validationPrompt = $@"Rate the relevance of this business document to the user's question on a scale of 0.0 to 1.0.
-
-Question: {query}
-
-Document Title: {document.Title}
-Document Content: {document.Content.Substring(0, Math.Min(300, document.Content.Length))}...
-
-Provide only a decimal number between 0.0 and 1.0 representing relevance.";
-
-                var response = await _openAIService.GenerateResponseWithContextAsync(
-                    validationPrompt, "",
-                    "You are a relevance validation assistant. Return only a decimal number between 0.0 and 1.0.");
-
-                if (double.TryParse(response.Trim(), out double relevanceScore))
-                {
-                    return Math.Max(0.0, Math.Min(1.0, relevanceScore));
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Semantic validation failed: {ex.Message}");
-            }
-
-            return 0.5; // Default neutral score if validation fails
+            // Simplified semantic validation using keyword density and content analysis
+            // This avoids expensive API calls and provides more consistent results
+            
+            var queryWords = ExtractKeywords(query.ToLower());
+            var documentText = $"{document.Title} {document.Content}".ToLower();
+            
+            // Calculate keyword density
+            var keywordMatches = queryWords.Count(word => documentText.Contains(word));
+            var keywordDensity = queryWords.Count > 0 ? (double)keywordMatches / queryWords.Count : 0.0;
+            
+            // Calculate content relevance based on title and content overlap
+            var titleRelevance = CalculateTitleRelevance(query, document.Title);
+            var contentRelevance = CalculateContentRelevance(query, document.Content);
+            
+            // Weighted combination
+            var semanticScore = (keywordDensity * 0.4) + (titleRelevance * 0.3) + (contentRelevance * 0.3);
+            
+            return Math.Max(0.0, Math.Min(1.0, semanticScore));
+        }
+        
+        private double CalculateTitleRelevance(string query, string title)
+        {
+            var queryWords = ExtractKeywords(query.ToLower());
+            var titleWords = ExtractKeywords(title.ToLower());
+            
+            var matchingWords = queryWords.Intersect(titleWords).Count();
+            var totalQueryWords = queryWords.Count;
+            
+            return totalQueryWords > 0 ? (double)matchingWords / totalQueryWords : 0.0;
+        }
+        
+        private double CalculateContentRelevance(string query, string content)
+        {
+            var queryWords = ExtractKeywords(query.ToLower());
+            var contentWords = ExtractKeywords(content.ToLower());
+            
+            var matchingWords = queryWords.Intersect(contentWords).Count();
+            var totalQueryWords = queryWords.Count;
+            
+            // Bonus for content length (more content = more potential relevance)
+            var contentBonus = Math.Min(0.2, content.Length / 10000.0); // Max 20% bonus for long content
+            
+            var baseRelevance = totalQueryWords > 0 ? (double)matchingWords / totalQueryWords : 0.0;
+            return Math.Min(1.0, baseRelevance + contentBonus);
         }
 
         public double CalculateOverallRelevanceScore(List<DocumentRelevance> documents)
@@ -196,18 +262,107 @@ Provide only a decimal number between 0.0 and 1.0 representing relevance.";
             return $"Validation: {RelevantDocuments}/{TotalDocuments} relevant ({relevancePercentage:F1}%), " +
                    $"Overall Score: {OverallRelevanceScore:F3}, High Quality: {HighQualityDocuments}";
         }
+
+        public string GetDetailedRelevanceReport()
+        {
+            var report = new System.Text.StringBuilder();
+
+            report.AppendLine("📊 DOCUMENT RELEVANCE ANALYSIS");
+            report.AppendLine("═══════════════════════════════");
+            report.AppendLine($"🔍 Query: \"{Query}\"");
+            report.AppendLine($"📅 Analysis Time: {ValidationTimestamp:yyyy-MM-dd HH:mm:ss}");
+            report.AppendLine($"📈 Overall Relevance Score: {OverallRelevanceScore:F3}");
+            report.AppendLine($"✅ Relevant Documents: {RelevantDocuments}/{TotalDocuments}");
+            report.AppendLine($"⭐ High Quality Documents: {HighQualityDocuments}");
+            report.AppendLine();
+
+            if (DocumentRelevances.Any())
+            {
+                report.AppendLine("📄 INDIVIDUAL DOCUMENT ANALYSIS:");
+                report.AppendLine("─────────────────────────────────");
+
+                var sortedDocuments = DocumentRelevances
+                    .OrderByDescending(d => d.FinalRelevanceScore)
+                    .ToList();
+
+                for (int i = 0; i < sortedDocuments.Count; i++)
+                {
+                    var doc = sortedDocuments[i];
+                    var rank = i + 1;
+                    var qualityIcon = doc.IsHighQuality ? "⭐" : doc.IsMediumQuality ? "✅" : "⚠️";
+                    var confidenceIcon = doc.ConfidenceLevel == "High" ? "🟢" :
+                                       doc.ConfidenceLevel == "Medium" ? "🟡" : "🔴";
+
+                    report.AppendLine($"{rank}. {qualityIcon} {doc.DocumentTitle}");
+                    report.AppendLine($"   📊 Final Score: {doc.FinalRelevanceScore:F3} ({doc.RelevanceCategory})");
+                    report.AppendLine($"   🎯 Confidence: {confidenceIcon} {doc.ConfidenceLevel}");
+                    report.AppendLine($"   📏 Content Length: {doc.ContentLength:N0} characters");
+                    report.AppendLine($"   🔍 Score Breakdown: {doc.GetDetailedBreakdown()}");
+
+                    if (i < sortedDocuments.Count - 1) report.AppendLine();
+                }
+            }
+
+            return report.ToString();
+        }
+
+        public string GetRelevanceSummary()
+        {
+            var highQuality = DocumentRelevances.Count(d => d.IsHighQuality);
+            var mediumQuality = DocumentRelevances.Count(d => d.IsMediumQuality);
+            var lowQuality = DocumentRelevances.Count(d => d.IsLowQuality);
+
+            return $"📊 Relevance Summary: ⭐{highQuality} High | ✅{mediumQuality} Medium | ⚠️{lowQuality} Low | " +
+                   $"Overall: {OverallRelevanceScore:F3}";
+        }
     }
 
     public class DocumentRelevance
     {
         public string DocumentId { get; set; } = string.Empty;
         public string DocumentTitle { get; set; } = string.Empty;
+        public string DocumentCategory { get; set; } = string.Empty;
+        public string DocumentSource { get; set; } = string.Empty;
+        public DateTime DocumentLastUpdated { get; set; }
+
+        // Individual relevance scores
         public double VectorScore { get; set; }
         public double KeywordRelevance { get; set; }
         public double BusinessContextScore { get; set; }
         public double SemanticValidation { get; set; }
+
+        // Weighted calculation components
+        public double VectorWeight { get; set; } = 0.5;  // Increased weight for vector similarity
+        public double KeywordWeight { get; set; } = 0.2;
+        public double BusinessWeight { get; set; } = 0.2;
+        public double SemanticWeight { get; set; } = 0.1; // Reduced weight for semantic validation
+
+        // Final assessment
         public double FinalRelevanceScore { get; set; }
         public bool IsRelevant { get; set; }
+        public string RelevanceCategory { get; set; } = string.Empty; // "High", "Medium", "Low"
+        public string ConfidenceLevel { get; set; } = string.Empty; // "High", "Medium", "Low"
         public string ValidationDetails { get; set; } = string.Empty;
+
+        // Additional metadata
+        public int ContentLength { get; set; }
+        public int KeywordMatches { get; set; }
+        public int BusinessTermMatches { get; set; }
+        public DateTime ValidationTimestamp { get; set; } = DateTime.UtcNow;
+
+        // Helper methods
+        public string GetRelevanceSummary()
+        {
+            return $"Document: {DocumentTitle} | Score: {FinalRelevanceScore:F3} | Category: {RelevanceCategory} | Confidence: {ConfidenceLevel}";
+        }
+
+        public string GetDetailedBreakdown()
+        {
+            return $"Vector: {VectorScore:F3} | Keywords: {KeywordRelevance:F3} | Business: {BusinessContextScore:F3} | Semantic: {SemanticValidation:F3}";
+        }
+
+        public bool IsHighQuality => FinalRelevanceScore >= 0.80;
+        public bool IsMediumQuality => FinalRelevanceScore >= 0.60 && FinalRelevanceScore < 0.80;
+        public bool IsLowQuality => FinalRelevanceScore < 0.60;
     }
 }
