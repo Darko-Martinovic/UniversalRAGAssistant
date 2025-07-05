@@ -1,7 +1,7 @@
 using Azure.Search.Documents.Models;
 using UniversalRAGAssistant.Models;
 
-namespace UniversalRAGAssistant.Services
+namespace UniversalRAGAssistant.Interfaces
 {
     public interface IAzureSearchService
     {
@@ -9,4 +9,4 @@ namespace UniversalRAGAssistant.Services
         Task UploadDocumentsAsync(List<KnowledgeDocument> documents);
         Task<SearchResults<KnowledgeDocument>> SearchRelevantDocumentsAsync(float[] queryEmbedding, string query, int documentCount);
     }
-} 
+}

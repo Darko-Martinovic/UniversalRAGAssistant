@@ -4,6 +4,7 @@ using Azure.Search.Documents.Indexes;
 using Azure.Search.Documents.Indexes.Models;
 using Azure.Search.Documents.Models;
 using UniversalRAGAssistant.Models;
+using UniversalRAGAssistant.Interfaces;
 
 namespace UniversalRAGAssistant.Services
 {

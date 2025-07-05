@@ -1,4 +1,5 @@
 using UniversalRAGAssistant.Models;
+using UniversalRAGAssistant.Interfaces;
 
 namespace UniversalRAGAssistant.Services
 {

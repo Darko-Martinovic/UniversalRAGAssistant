@@ -1,5 +1,6 @@
 using System.Text.Json;
 using UniversalRAGAssistant.Models;
+using UniversalRAGAssistant.Interfaces;
 
 namespace UniversalRAGAssistant.Services
 {

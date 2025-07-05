@@ -1,4 +1,4 @@
-namespace UniversalRAGAssistant.Services
+namespace UniversalRAGAssistant.Interfaces
 {
     public interface IAzureOpenAIService
     {

@@ -1,6 +1,6 @@
 using UniversalRAGAssistant.Models;
 
-namespace UniversalRAGAssistant.Services
+namespace UniversalRAGAssistant.Interfaces
 {
     public interface IKnowledgeBaseService
     {

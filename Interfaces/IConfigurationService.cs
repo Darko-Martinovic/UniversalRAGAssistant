@@ -1,6 +1,6 @@
 using UniversalRAGAssistant.Models;
 
-namespace UniversalRAGAssistant.Services
+namespace UniversalRAGAssistant.Interfaces
 {
     public interface IConfigurationService
     {
@@ -8,4 +8,4 @@ namespace UniversalRAGAssistant.Services
         (string endpoint, string apiKey, string chatDeployment, string embeddingDeployment) LoadAzureOpenAIConfiguration();
         (string searchEndpoint, string searchKey) LoadAzureSearchConfiguration();
     }
-} 
+}

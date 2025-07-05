@@ -1,6 +1,6 @@
 using UniversalRAGAssistant.Models;
 
-namespace UniversalRAGAssistant.Services
+namespace UniversalRAGAssistant.Interfaces
 {
     public interface IConsoleUIService
     {
@@ -26,4 +26,4 @@ namespace UniversalRAGAssistant.Services
         void PrintErrorAdvice(AppMetadata metadata);
         void PrintDataSourceInfo(AppConfiguration appConfig);
     }
-} 
+}

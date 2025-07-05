@@ -1,14 +1,8 @@
-﻿using System.Text;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using DotNetEnv;
-using Azure;
-using Azure.Search.Documents;
-using Azure.Search.Documents.Indexes;
-using Azure.Search.Documents.Indexes.Models;
-using Azure.Search.Documents.Models;
-using UniversalRAGAssistant.Models;
+﻿using DotNetEnv;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using UniversalRAGAssistant.Services;
+using UniversalRAGAssistant.Interfaces;
 
 namespace UniversalRAGAssistant
 {
@@ -21,22 +15,27 @@ namespace UniversalRAGAssistant
                 // Load environment variables
                 Env.Load();
 
-                // Initialize services
-                var services = InitializeServices();
-
-                // Load configuration
-                var appConfig = await services.ConfigurationService.LoadConfigurationAsync();
+                // Build service provider
+                var serviceProvider = ConfigureServices();
 
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("🚀 Initializing Universal RAG Assistant...");
                 Console.ResetColor();
 
+                // Get services from DI container
+                var configurationService = serviceProvider.GetRequiredService<IConfigurationService>();
+                var knowledgeBaseService = serviceProvider.GetRequiredService<IKnowledgeBaseService>();
+                var chatService = serviceProvider.GetRequiredService<IChatService>();
+
+                // Load configuration
+                var appConfig = await configurationService.LoadConfigurationAsync();
+
                 // Setup knowledge base
-                var (documents, metadata) = await services.KnowledgeBaseService.LoadDocumentsAsync(appConfig);
-                await services.KnowledgeBaseService.SetupKnowledgeBaseAsync(documents);
+                var (documents, metadata) = await knowledgeBaseService.LoadDocumentsAsync(appConfig);
+                await knowledgeBaseService.SetupKnowledgeBaseAsync(documents);
 
                 // Start interactive chat
-                await services.ChatService.StartInteractiveChatAsync(metadata, appConfig);
+                await chatService.StartInteractiveChatAsync(metadata, appConfig);
             }
             catch (Exception ex)
             {
@@ -47,50 +46,42 @@ namespace UniversalRAGAssistant
             }
         }
 
-        private static ServiceContainer InitializeServices()
+        private static ServiceProvider ConfigureServices()
         {
-            // Create HTTP client
-            var httpClient = new HttpClient();
+            var services = new ServiceCollection();
 
-            // Load Azure OpenAI configuration
-            var (endpoint, apiKey, chatDeployment, embeddingDeployment) =
-                new ConfigurationService().LoadAzureOpenAIConfiguration();
+            // Register HttpClient
+            services.AddSingleton<HttpClient>();
 
-            // Load Azure Search configuration
-            var (searchEndpoint, searchKey) =
-                new ConfigurationService().LoadAzureSearchConfiguration();
+            // Register configuration services
+            services.AddSingleton<IConfigurationService, ConfigurationService>();
 
-            // Initialize services
-            var configurationService = new ConfigurationService();
-            var openAIService = new AzureOpenAIService(httpClient, endpoint, apiKey, chatDeployment, embeddingDeployment);
-            var searchService = new AzureSearchService(searchEndpoint, searchKey);
-            var ragService = new RagService(openAIService, searchService);
-            var uiService = new ConsoleUIService();
-            var knowledgeBaseService = new KnowledgeBaseService(openAIService, searchService, uiService);
-            var chatService = new ChatService(ragService, uiService);
-
-            return new ServiceContainer
+            // Register Azure services with factory patterns for configuration
+            services.AddSingleton<IAzureOpenAIService>(serviceProvider =>
             {
-                ConfigurationService = configurationService,
-                AzureOpenAIService = openAIService,
-                AzureSearchService = searchService,
-                RagService = ragService,
-                ConsoleUIService = uiService,
-                KnowledgeBaseService = knowledgeBaseService,
-                ChatService = chatService
-            };
-        }
-    }
+                var httpClient = serviceProvider.GetRequiredService<HttpClient>();
+                var configService = serviceProvider.GetRequiredService<IConfigurationService>();
+                var (endpoint, apiKey, chatDeployment, embeddingDeployment) =
+                    configService.LoadAzureOpenAIConfiguration();
 
-    // Simple service container for dependency injection
-    public class ServiceContainer
-    {
-        public IConfigurationService ConfigurationService { get; set; } = null!;
-        public IAzureOpenAIService AzureOpenAIService { get; set; } = null!;
-        public IAzureSearchService AzureSearchService { get; set; } = null!;
-        public IRagService RagService { get; set; } = null!;
-        public IConsoleUIService ConsoleUIService { get; set; } = null!;
-        public IKnowledgeBaseService KnowledgeBaseService { get; set; } = null!;
-        public IChatService ChatService { get; set; } = null!;
+                return new AzureOpenAIService(httpClient, endpoint, apiKey, chatDeployment, embeddingDeployment);
+            });
+
+            services.AddSingleton<IAzureSearchService>(serviceProvider =>
+            {
+                var configService = serviceProvider.GetRequiredService<IConfigurationService>();
+                var (searchEndpoint, searchKey) = configService.LoadAzureSearchConfiguration();
+
+                return new AzureSearchService(searchEndpoint, searchKey);
+            });
+
+            // Register application services
+            services.AddTransient<IRagService, RagService>();
+            services.AddSingleton<IConsoleUIService, ConsoleUIService>();
+            services.AddTransient<IKnowledgeBaseService, KnowledgeBaseService>();
+            services.AddTransient<IChatService, ChatService>();
+
+            return services.BuildServiceProvider();
+        }
     }
 }
