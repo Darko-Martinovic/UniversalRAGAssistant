@@ -94,21 +94,20 @@ namespace UniversalRAGAssistant.Services
             int documentCount
         )
         {
+            // For better relevance scores, let's try pure text search first
+            // This should give us scores similar to Azure portal (10+ range)
             var searchOptions = new SearchOptions
             {
-                VectorSearch = new VectorSearchOptions
-                {
-                    Queries =
-                    {
-                        new VectorizedQuery(queryEmbedding)
-                        {
-                            KNearestNeighborsCount = documentCount,
-                            Fields = { "contentVector" }
-                        }
-                    }
-                },
+                // Pure text search for high relevance scores
+                SearchFields = { "title", "content" },
                 Select = { "id", "title", "content" },
-                Size = documentCount
+                Size = documentCount,
+                QueryType = SearchQueryType.Simple,
+                IncludeTotalCount = true,
+                // Use BM25 scoring algorithm (same as Azure portal)
+                ScoringProfile = null,
+                // Add search highlights for debugging
+                HighlightFields = { "title", "content" }
             };
 
             return await _searchClient.SearchAsync<KnowledgeDocument>(query, searchOptions);
