@@ -94,7 +94,7 @@ namespace UniversalRAGAssistant
 
             // Load documents from external source
             var documentLoader = new DocumentLoader();
-            List<DocumentInfo> documents;
+            List<DocumentInfo> documents = new List<DocumentInfo>();
 
             try
             {
@@ -129,10 +129,11 @@ namespace UniversalRAGAssistant
 
                     default:
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("⚠️  Using hardcoded documents (fallback)");
+                        Console.WriteLine("⚠️  Invalid data source type configured");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("Please check your appsettings.json configuration.");
                         Console.ResetColor();
-                        documents = GetHardcodedDocuments();
-                        appMetadata = new AppMetadata(); // Use default metadata for fallback
+                        Environment.Exit(1);
                         break;
                 }
 
@@ -145,9 +146,12 @@ namespace UniversalRAGAssistant
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"❌ Error loading documents: {ex.Message}");
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("🔄 Falling back to hardcoded documents");
+                Console.WriteLine("⚠️  Application is not properly configured");
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("Please ensure your data source is properly configured in appsettings.json");
+                Console.WriteLine("and the specified data files exist.");
                 Console.ResetColor();
-                documents = GetHardcodedDocuments();
+                Environment.Exit(1);
             }
 
             // Create or update search index
@@ -213,26 +217,26 @@ namespace UniversalRAGAssistant
                 new DocumentInfo
                 {
                     Id = "1",
-                    Title = "Eiffel Tower",
-                    Content = "The Eiffel Tower is a wrought-iron lattice tower on the Champ de Mars in Paris, France. It is named after the engineer Gustave Eiffel. The tower is 330 metres tall and was the world's tallest man-made structure until 1930."
+                    Title = "Competitive Pricing Intelligence - Market Position Analysis",
+                    Content = "Market positioning by chain: Delhaize (premium, 15-20% above market average, focus on quality and convenience), Carrefour (mainstream, 5-10% above average, hypermarket strategy), Colruyt (value-quality balance, market average pricing, strong loyalty program), Lidl (discount leader, 20-25% below average, limited SKU strategy), Aldi (ultra-discount, 25-30% below average, private label focus). Pricing gaps analysis: Fresh produce shows biggest variance (up to 40% between premium and discount), packaged goods more standardized (10-15% variance). Strategic opportunity: Mid-market positioning between Colruyt and Carrefour shows 8-12% margin potential with proper execution."
                 },
                 new DocumentInfo
                 {
                     Id = "2",
-                    Title = "Louvre Museum",
-                    Content = "The Louvre is the world's largest art museum and a historic monument in Paris, France. It is home to the Mona Lisa and Venus de Milo. The museum is housed in the Louvre Palace, originally built as a fortress in the late 12th century."
+                    Title = "Procurement Strategy - Supplier Cost Analysis Belgium",
+                    Content = "Wholesale pricing intelligence: Direct farm procurement saves 35-45% vs distributors (seasonal produce), Belgian suppliers offer 10-15% cost advantage over imports (dairy, vegetables), Volume discounts: 5% at €100K monthly, 12% at €500K, 18% at €1M+ monthly purchases. Seasonal procurement windows: Asparagus (April-June, lock prices in February), Strawberries (May-August, contract in March), Apples (September-February, secure storage capacity by July). Private label opportunities: 25-35% higher margins vs national brands, minimum €2M investment for dedicated production lines. Supply chain optimization: Regional distribution centers reduce costs by 8-12%, automated ordering systems cut procurement overhead by 15-20%."
                 },
                 new DocumentInfo
                 {
                     Id = "3",
-                    Title = "Notre-Dame Cathedral",
-                    Content = "Notre-Dame de Paris is a medieval Catholic cathedral on the Île de la Cité in the 4th arrondissement of Paris. The cathedral is considered to be one of the finest examples of French Gothic architecture."
+                    Title = "Regional Market Analysis - Store Performance Optimization",
+                    Content = "Brussels market dynamics: Higher operating costs (rent +40%, labor +25%), premium positioning essential, target demographics favor convenience and quality over price. Average basket: €45-65, frequency 2.1x/week. Antwerp opportunities: Port logistics advantage (-15% distribution costs), mixed demographics allow dual positioning, growing expatriate community values international brands. Average basket: €35-50, frequency 2.4x/week. Ghent student market: Price-sensitive segment, bulk buying patterns, promotional responsiveness +180% vs average. Average basket: €25-35, frequency 3.2x/week. Optimal store formats: Brussels (convenience, 800-1200m²), Antwerp (hypermarket, 2000-3500m²), Ghent (compact super, 1000-1500m²)."
                 },
                 new DocumentInfo
                 {
                     Id = "4",
-                    Title = "Champs-Élysées",
-                    Content = "The Champs-Élysées is an avenue in the 8th arrondissement of Paris, France. It is 1.9 kilometres long and is the most famous street in Paris. It connects Place de la Concorde and Place Charles de Gaulle."
+                    Title = "Customer Analytics - Shopping Behavior Intelligence",
+                    Content = "Shopping pattern analysis: Peak hours (Thursday 17-19h, Friday 16-20h, Saturday 9-12h, Sunday 15-18h), Basket composition: Planned purchases 65%, impulse purchases 35% (opportunity for strategic placement). Customer segmentation: Price-sensitive (35%, focus on promotions and private label), Quality-focused (25%, premium positioning and fresh categories), Convenience-oriented (40%, ready meals and extended hours). Loyalty program effectiveness: Colruyt Xtra (85% participation, +22% basket value), Carrefour stamps (60% participation, +15% frequency), Delhaize Plus (+18% retention, premium tier activation). Cross-selling opportunities: Fresh produce → prepared foods (conversion rate 28%), Dairy → bread/bakery (45% correlation), Wine → cheese/delicatessen (65% premium basket uplift)."
                 }
             };
         }
