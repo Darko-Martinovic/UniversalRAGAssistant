@@ -11,6 +11,7 @@ namespace UniversalRAGAssistant.Models
         public DataSourceConfig DataSource { get; set; } = new DataSourceConfig();
         public string IndexName { get; set; } = "knowledge-index";
         public AppMetadata Metadata { get; set; } = new AppMetadata();
+        public int RagDocumentCount { get; set; } = 3;
     }
 
     public class DataSourceConfig
@@ -28,6 +29,7 @@ namespace UniversalRAGAssistant.Models
         public string WelcomeMessage { get; set; } = "Welcome to your AI-powered assistant!";
         public string CapabilityDescription { get; set; } = "I can help you find information and answer questions";
         public string AdditionalInfo { get; set; } = "Ask me anything about the available data";
+        public string SystemPrompt { get; set; } = "You are a helpful assistant answering questions based on the provided context. Use the following context to answer the user's question. If the context doesn't contain relevant information, say so.";
     }
 
     public class DataConfiguration

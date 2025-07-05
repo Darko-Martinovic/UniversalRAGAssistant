@@ -91,7 +91,8 @@ Event market analysis, streaming service comparisons, entertainment industry tre
     "flag": "🇧🇪",
     "welcomeMessage": "Welcome to your business intelligence assistant!",
     "capabilityDescription": "I provide competitive analysis, market insights, and strategic recommendations",
-    "additionalInfo": "Optimize your business strategy with data-driven insights"
+    "additionalInfo": "Optimize your business strategy with data-driven insights",
+    "systemPrompt": "You are a specialized business intelligence assistant for [YOUR DOMAIN]. You provide expert analysis on [SPECIFIC CAPABILITIES]. Use the following context to answer questions with specific data, percentages, and actionable insights. Focus on practical recommendations for [DOMAIN-SPECIFIC OPERATIONS]. If the context doesn't contain relevant information, clearly state that and suggest what additional data might be needed."
   },
   "documents": [
     {
@@ -271,6 +272,63 @@ dotnet run
 
 Use the `data` command in the app for real-time customization guidance.
 
+### 6. **RAG Configuration**
+
+The `RagDocumentCount` setting in `appsettings.json` controls how many relevant documents are retrieved for each query:
+
+- **Default**: 3 documents (balanced performance and context)
+- **Range**: 1-10 documents
+- **Lower values (1-2)**: Faster responses, less context, lower costs
+- **Higher values (5-10)**: More comprehensive responses, more context, higher costs
+- **Recommended**: 3-5 for most business intelligence use cases
+
+**Example configurations in appsettings.json:**
+
+```json
+{
+  "DataSource": {
+    "Type": "Json",
+    "FilePath": "Data/documents.json"
+  },
+  "RagDocumentCount": 3
+}
+```
+
+**Different use cases:**
+
+```json
+// Quick responses with minimal context
+"RagDocumentCount": 1
+
+// Balanced performance (default)
+"RagDocumentCount": 3
+
+// Comprehensive analysis with maximum context
+"RagDocumentCount": 5
+```
+
+### 7. **System Prompt Configuration**
+
+The `systemPrompt` in your data file's metadata controls how the AI responds to questions. This should be customized for each domain:
+
+**Supermarket Business Intelligence:**
+
+```json
+"systemPrompt": "You are a specialized business intelligence assistant for Belgian supermarket chain management. You provide expert analysis on competitive positioning, procurement strategies, market insights, customer analytics, operational efficiency, and strategic recommendations. Use the following context to answer questions with specific data, percentages, and actionable business insights. Focus on practical recommendations for supermarket operations, pricing strategies, and market opportunities in Belgium. If the context doesn't contain relevant information, clearly state that and suggest what additional data might be needed."
+```
+
+**Technology Pricing Assistant:**
+
+```json
+"systemPrompt": "You are a specialized technology pricing assistant for the Belgian market. You provide expert advice on electronics, laptops, smartphones, gaming equipment, and tech gadgets. Use the following context to answer questions with specific prices, store comparisons, and money-saving recommendations. Focus on practical advice for Belgian consumers, including warranty options, installation services, and the best retailers for different product categories. If the context doesn't contain relevant information, clearly state that and suggest alternative sources or similar products."
+```
+
+**Entertainment Pricing Assistant:**
+
+```json
+"systemPrompt": "You are a specialized entertainment pricing assistant for the Belgian market. You provide expert advice on concerts, streaming services, movies, festivals, gaming, and entertainment options. Use the following context to answer questions with specific prices, venue comparisons, and money-saving tips. Focus on practical advice for Belgian consumers, including early bird discounts, student rates, and the best value entertainment options. If the context doesn't contain relevant information, clearly state that and suggest alternative entertainment options or similar events."
+```
+
 ## 🔄 **How It Works - Data Flow**
 
 ### **RAG Architecture Overview**
@@ -309,6 +367,7 @@ The application uses a **Retrieval-Augmented Generation (RAG)** pattern with Azu
 
 - **Vector Search**: 1536-dimensional embeddings for semantic understanding
 - **Hybrid Search**: Combines keyword and vector similarity for best results
+- **Configurable Retrieval**: Adjustable number of documents retrieved per query (1-10, default: 3)
 - **Auto-Indexing**: Automatic search index creation and document upload
 - **Real-time Processing**: Live embedding generation and search operations
 - **Scalable Architecture**: Works with 5 to thousands of documents

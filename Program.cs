@@ -22,6 +22,7 @@ namespace UniversalRAGAssistant
         private static SearchClient searchClient;
         private static AppConfiguration appConfig;
         private static AppMetadata appMetadata;
+        private static int ragDocumentCount;
 
         static async Task Main(string[] args)
         {
@@ -993,14 +994,14 @@ namespace UniversalRAGAssistant
         {
             var searchOptions = new SearchOptions
             {
-                Size = 3,
+                Size = ragDocumentCount,
                 Select = { "Id", "Title", "Content" }
             };
 
             // Add vector search
             var vectorQuery = new VectorizedQuery(queryEmbedding.ToArray())
             {
-                KNearestNeighborsCount = 3,
+                KNearestNeighborsCount = ragDocumentCount,
                 Fields = { "ContentVector" }
             };
             searchOptions.VectorSearch = new() { Queries = { vectorQuery } };
@@ -1013,10 +1014,14 @@ namespace UniversalRAGAssistant
             string url =
                 $"{endpoint.TrimEnd('/')}/openai/deployments/{chatDeployment}/chat/completions?api-version=2024-02-01";
 
-            var systemPrompt =
-                $@"You are a helpful assistant answering questions about Belgian food prices, including fruits, vegetables, and delicatessen products. 
+            // Use dynamic system prompt from metadata, with fallback to default
+            var systemPrompt = !string.IsNullOrEmpty(appMetadata?.SystemPrompt)
+                ? $@"{appMetadata.SystemPrompt}
+
+Context:
+{context}"
+                : $@"You are a helpful assistant answering questions based on the provided context. 
 Use the following context to answer the user's question. If the context doesn't contain relevant information, say so.
-Be specific about prices, seasonal variations, and provide helpful shopping advice for Belgian consumers.
 
 Context:
 {context}";
@@ -1061,10 +1066,25 @@ Context:
                 };
                 appConfig = JsonSerializer.Deserialize<AppConfiguration>(configJson, options) ?? new AppConfiguration();
                 Console.WriteLine($"Loaded configuration: Data source = {appConfig.DataSource.Type}");
+
+                // Set RAG document count from configuration with validation
+                ragDocumentCount = appConfig.RagDocumentCount;
+                if (ragDocumentCount < 1 || ragDocumentCount > 10)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine($"⚠️  Invalid RagDocumentCount value '{ragDocumentCount}' in appsettings.json. Using default value of 3.");
+                    Console.ResetColor();
+                    ragDocumentCount = 3;
+                }
+                else
+                {
+                    Console.WriteLine($"RAG Document Count: {ragDocumentCount}");
+                }
             }
             else
             {
                 appConfig = new AppConfiguration();
+                ragDocumentCount = 3; // Default value
                 Console.WriteLine("Using default configuration");
             }
         }
