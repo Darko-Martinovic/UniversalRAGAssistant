@@ -6,7 +6,38 @@
     "welcomeMessage": "Welcome to your personal Belgian entertainment pricing assistant!",
     "capabilityDescription": "I can help you find the best deals on concerts, streaming services, movies, and entertainment",
     "additionalInfo": "Compare prices across different venues and platforms in Belgium",
-    "systemPrompt": "You are a specialized entertainment pricing assistant for the Belgian market. You provide expert advice on concerts, streaming services, movies, festivals, gaming, and entertainment options. Use the following context to answer questions with specific prices, venue comparisons, and money-saving tips. Focus on practical advice for Belgian consumers, including early bird discounts, student rates, and the best value entertainment options. If the context doesn't contain relevant information, clearly state that and suggest alternative entertainment options or similar events."
+    "systemPrompt": "You are a specialized entertainment pricing assistant for the Belgian market. You provide expert advice on concerts, streaming services, movies, festivals, gaming, and entertainment options. Use the following context to answer questions with specific prices, venue comparisons, and money-saving tips. Focus on practical advice for Belgian consumers, including early bird discounts, student rates, and the best value entertainment options. If the context doesn't contain relevant information, clearly state that and suggest alternative entertainment options or similar events.",
+    "helpExamples": [
+      "🎵 'What are Rock Werchter ticket prices this year?'",
+      "🎬 'Compare movie theater prices in Brussels'",
+      "📺 'Netflix vs Disney+ pricing in Belgium?'",
+      "🎮 'Best gaming console deals in Belgian stores?'",
+      "🎪 'Upcoming festival prices and lineups'",
+      "🎭 'Theater ticket prices in Antwerp vs Ghent'",
+      "🎤 'Comedy show tickets - where to find deals?'",
+      "🕺 'Nightlife and club entry prices in Brussels'"
+    ],
+    "tips": [
+      "💡 Pro tip: Book festival tickets early for 25-40% savings!",
+      "💡 Pro tip: Student discounts available at most venues.",
+      "💡 Pro tip: Tuesday is the cheapest day for movies.",
+      "💡 Pro tip: Annual streaming subscriptions save money.",
+      "💡 Pro tip: Check for early bird and pre-sale discounts."
+    ],
+    "encouragements": [
+      "🎉 Great entertainment question! You're planning an amazing experience!",
+      "🚀 Excellent! Each comparison helps you find the best entertainment value.",
+      "💪 Perfect! You're researching before spending - smart approach!",
+      "🌟 Wonderful! Your entertainment knowledge is growing with each question.",
+      "🎯 Brilliant! You're asking the right questions for the best experiences."
+    ],
+    "errorAdvice": [
+      "Try rephrasing with specific venue or event names",
+      "Include Belgian entertainment venues like Forest National or AB",
+      "Ask about specific entertainment categories or genres",
+      "Mention if you're looking for budget or premium options",
+      "Specify if you need student discounts or group rates"
+    ]
   },
   "documents": [
     {

@@ -329,6 +329,125 @@ The `systemPrompt` in your data file's metadata controls how the AI responds to 
 "systemPrompt": "You are a specialized entertainment pricing assistant for the Belgian market. You provide expert advice on concerts, streaming services, movies, festivals, gaming, and entertainment options. Use the following context to answer questions with specific prices, venue comparisons, and money-saving tips. Focus on practical advice for Belgian consumers, including early bird discounts, student rates, and the best value entertainment options. If the context doesn't contain relevant information, clearly state that and suggest alternative entertainment options or similar events."
 ```
 
+### 8. **Dynamic Help Content Configuration**
+
+The assistant now supports **domain-specific help content** embedded directly in your data files. This provides contextual examples, tips, and guidance tailored to your specific domain:
+
+**Help Examples** - Sample questions for your domain:
+
+```json
+"helpExamples": [
+  "📊 'What is Lidl vs Aldi competitive positioning strategy?'",
+  "💰 'Optimal procurement timing for seasonal produce'",
+  "🎯 'Customer segmentation analysis for Belgian markets'",
+  "📈 'ROI analysis for promotional campaigns'"
+]
+```
+
+**Tips** - Pro tips and best practices:
+
+```json
+"tips": [
+  "💡 Pro tip: Monitor competitor pricing weekly for strategic positioning!",
+  "💡 Pro tip: Seasonal produce procurement can save 15-25% on costs.",
+  "💡 Pro tip: Customer loyalty programs increase basket size by 20-30%."
+]
+```
+
+**Encouragements** - Motivational messages:
+
+```json
+"encouragements": [
+  "🎉 Excellent business question! Your strategic thinking will drive success!",
+  "🚀 Great analysis! Each insight helps optimize your supermarket operations.",
+  "💪 Outstanding! You're building a data-driven competitive advantage."
+]
+```
+
+**Error Advice** - Domain-specific guidance:
+
+```json
+"errorAdvice": [
+  "Try rephrasing with specific supermarket business terms",
+  "Focus on Belgian market context and competitor names",
+  "Ask about specific operational metrics or KPIs"
+]
+```
+
+**Complete metadata structure:**
+
+```json
+{
+  "metadata": {
+    "title": "YOUR DOMAIN ASSISTANT",
+    "icon": "📊",
+    "flag": "🇧🇪",
+    "welcomeMessage": "Welcome to your domain assistant!",
+    "capabilityDescription": "I provide expert analysis and recommendations",
+    "additionalInfo": "Ask me anything about your domain",
+    "systemPrompt": "Your domain-specific system prompt...",
+    "helpExamples": ["Domain-specific example questions..."],
+    "tips": ["Domain-specific pro tips..."],
+    "encouragements": ["Domain-specific motivational messages..."],
+    "errorAdvice": ["Domain-specific error guidance..."]
+  }
+}
+```
+
+## 🏗️ **Modular Architecture Overview**
+
+### **Service-Oriented Design**
+
+The application follows a **modular, service-oriented architecture** with clear separation of concerns and dependency injection:
+
+#### **🎯 Architecture Principles**
+
+- **Single Responsibility**: Each service has one clear purpose
+- **Dependency Injection**: Services are loosely coupled and testable
+- **Interface Segregation**: Services communicate through well-defined interfaces
+- **Open/Closed**: Easy to extend without modifying existing code
+
+#### **🔧 Service Layer Architecture**
+
+**Core Services:**
+
+- **`IConfigurationService`**: Manages application and Azure service configuration
+- **`IAzureOpenAIService`**: Handles embeddings generation and chat completions
+- **`IAzureSearchService`**: Manages Azure Cognitive Search operations
+- **`IRagService`**: Orchestrates RAG workflow (search + response generation)
+- **`IKnowledgeBaseService`**: Manages document loading and knowledge base setup
+- **`IChatService`**: Handles interactive chat session management
+- **`IConsoleUIService`**: Manages all console UI interactions and formatting
+
+**Data Models:**
+
+- **`AppConfiguration`**: Application settings and data source configuration
+- **`AppMetadata`**: Domain-specific metadata including help content and system prompts
+- **`DocumentInfo`**: Document structure for processing
+- **`KnowledgeDocument`**: Search index document structure
+
+#### **🎨 Dynamic Help System**
+
+The assistant now includes **domain-specific help content** embedded in the data:
+
+- **Help Examples**: Sample questions tailored to each domain
+- **Tips**: Pro tips and best practices for the specific domain
+- **Encouragements**: Motivational messages for user engagement
+- **Error Advice**: Domain-specific guidance when queries fail
+
+#### **🔄 Service Dependencies**
+
+```
+Program.cs (Main Entry)
+├── ConfigurationService
+├── AzureOpenAIService
+├── AzureSearchService
+├── RagService (depends on OpenAI + Search)
+├── ConsoleUIService
+├── KnowledgeBaseService (depends on OpenAI + Search + UI)
+└── ChatService (depends on RAG + UI)
+```
+
 ## 🔄 **How It Works - Data Flow**
 
 ### **RAG Architecture Overview**

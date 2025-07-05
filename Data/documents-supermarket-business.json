@@ -6,7 +6,38 @@
     "welcomeMessage": "Welcome to your supermarket business intelligence assistant!",
     "capabilityDescription": "I provide competitive analysis, market insights, and strategic recommendations for supermarket chain management",
     "additionalInfo": "Optimize pricing strategies, procurement decisions, and market positioning across Belgium",
-    "systemPrompt": "You are a specialized business intelligence assistant for Belgian supermarket chain management. You provide expert analysis on competitive positioning, procurement strategies, market insights, customer analytics, operational efficiency, and strategic recommendations. Use the following context to answer questions with specific data, percentages, and actionable business insights. Focus on practical recommendations for supermarket operations, pricing strategies, and market opportunities in Belgium. If the context doesn't contain relevant information, clearly state that and suggest what additional data might be needed."
+    "systemPrompt": "You are a specialized business intelligence assistant for Belgian supermarket chain management. You provide expert analysis on competitive positioning, procurement strategies, market insights, customer analytics, operational efficiency, and strategic recommendations. Use the following context to answer questions with specific data, percentages, and actionable business insights. Focus on practical recommendations for supermarket operations, pricing strategies, and market opportunities in Belgium. If the context doesn't contain relevant information, clearly state that and suggest what additional data might be needed.",
+    "helpExamples": [
+      "📊 'What is Lidl vs Aldi competitive positioning strategy?'",
+      "💰 'Optimal procurement timing for seasonal produce'",
+      "🎯 'Customer segmentation analysis for Belgian markets'",
+      "📈 'ROI analysis for promotional campaigns'",
+      "🏪 'Store format optimization for different regions'",
+      "📦 'Inventory turnover rates by product category'",
+      "🔍 'Market expansion opportunities in Wallonia'",
+      "💼 'Private label margin optimization strategies'"
+    ],
+    "tips": [
+      "💡 Pro tip: Monitor competitor pricing weekly for strategic positioning!",
+      "💡 Pro tip: Seasonal produce procurement can save 15-25% on costs.",
+      "💡 Pro tip: Customer loyalty programs increase basket size by 20-30%.",
+      "💡 Pro tip: Private label margins are typically 15-20% higher than national brands.",
+      "💡 Pro tip: Store format optimization can improve sales density by 25%."
+    ],
+    "encouragements": [
+      "🎉 Excellent business question! Your strategic thinking will drive success!",
+      "🚀 Great analysis! Each insight helps optimize your supermarket operations.",
+      "💪 Outstanding! You're building a data-driven competitive advantage.",
+      "🌟 Brilliant! Your questions reveal deep market understanding.",
+      "🎯 Perfect! You're asking the right questions for business growth."
+    ],
+    "errorAdvice": [
+      "Try rephrasing with specific supermarket business terms",
+      "Focus on Belgian market context and competitor names",
+      "Ask about specific operational metrics or KPIs",
+      "Include product categories or store formats in your question",
+      "Reference specific competitors like Delhaize, Colruyt, or Carrefour"
+    ]
   },
   "documents": [
     {

@@ -6,7 +6,38 @@
     "welcomeMessage": "Welcome to your personal Belgian technology pricing assistant!",
     "capabilityDescription": "I can help you find the best deals on electronics, laptops, smartphones, and tech gadgets",
     "additionalInfo": "Compare prices across different electronics retailers in Belgium",
-    "systemPrompt": "You are a specialized technology pricing assistant for the Belgian market. You provide expert advice on electronics, laptops, smartphones, gaming equipment, and tech gadgets. Use the following context to answer questions with specific prices, store comparisons, and money-saving recommendations. Focus on practical advice for Belgian consumers, including warranty options, installation services, and the best retailers for different product categories. If the context doesn't contain relevant information, clearly state that and suggest alternative sources or similar products."
+    "systemPrompt": "You are a specialized technology pricing assistant for the Belgian market. You provide expert advice on electronics, laptops, smartphones, gaming equipment, and tech gadgets. Use the following context to answer questions with specific prices, store comparisons, and money-saving recommendations. Focus on practical advice for Belgian consumers, including warranty options, installation services, and the best retailers for different product categories. If the context doesn't contain relevant information, clearly state that and suggest alternative sources or similar products.",
+    "helpExamples": [
+      "💻 'Cheapest MacBook Pro prices in Belgium?'",
+      "📱 'Compare iPhone deals at MediaMarkt vs Coolblue'",
+      "🖥️ 'Best laptop deals for students?'",
+      "⌚ 'Smart watch prices and warranty options'",
+      "🎮 'Gaming PC components - where to buy cheapest?'",
+      "📷 'Camera equipment prices at Belgian tech stores'",
+      "🔌 'Best electronics warranty policies comparison'",
+      "💾 'SSD and storage device price trends'"
+    ],
+    "tips": [
+      "💡 Pro tip: Coolblue often has the best prices and service!",
+      "💡 Pro tip: Wait for seasonal sales to save 20-30% on electronics.",
+      "💡 Pro tip: Unlocked phones + SIM-only plans save money long-term.",
+      "💡 Pro tip: Extended warranties are worth it for expensive items.",
+      "💡 Pro tip: Compare prices across multiple Belgian retailers."
+    ],
+    "encouragements": [
+      "🎉 Great tech question! You're making smart purchasing decisions!",
+      "🚀 Excellent! Each comparison helps you find the best value.",
+      "💪 Perfect! You're researching before buying - smart approach!",
+      "🌟 Wonderful! Your tech knowledge is growing with each question.",
+      "🎯 Brilliant! You're asking the right questions for the best deals."
+    ],
+    "errorAdvice": [
+      "Try rephrasing with specific tech product names",
+      "Include Belgian retailer names like MediaMarkt or Coolblue",
+      "Ask about specific product categories or brands",
+      "Mention if you're looking for budget or premium options",
+      "Specify if you need warranty or installation services"
+    ]
   },
   "documents": [
     {
