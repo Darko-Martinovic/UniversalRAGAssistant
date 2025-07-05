@@ -222,53 +222,112 @@ CSV format: `Id,Title,Content`
 
 Automatic fallback when files are unavailable.
 
-## Setup
+## 🚀 **Setup & Configuration**
 
-1. **Environment Variables**: Set up your Azure services:
+### 1. **Environment Setup**
 
-   ```bash
-   AOAI_ENDPOINT=your_azure_openai_endpoint
-   AOAI_APIKEY=your_azure_openai_api_key
-   CHATCOMPLETION_DEPLOYMENTNAME=your_chat_deployment_name
-   EMBEDDING_DEPLOYMENTNAME=your_embedding_deployment_name
-   COGNITIVESEARCH_ENDPOINT=your_search_endpoint
-   COGNITIVESEARCH_APIKEY=your_search_api_key
-   ```
+Copy the example environment file and configure your Azure services:
 
-2. **Configure Your Topic**: Choose your data source in `appsettings.json`
+```bash
+# Copy the example environment file
+cp env.example .env
 
-3. **Add Your Content**:
+# Edit with your actual Azure service credentials
+# (or set environment variables directly in your system)
+```
 
-   - **Quick Start**: Use included example files
-   - **Custom Content**: Edit `Data/documents.json` with your topic
-   - **Multiple Files**: Use CSV or text file options
+> 📝 **Note**: See `env.example` for detailed configuration examples and descriptions.
 
-4. **Run the Application**:
+**Required Environment Variables** (see `env.example` for details):
 
-   ```bash
-   dotnet run
-   ```
+| Variable                        | Description                   | Example                                   |
+| ------------------------------- | ----------------------------- | ----------------------------------------- |
+| `AOAI_ENDPOINT`                 | Azure OpenAI service endpoint | `https://your-resource.openai.azure.com/` |
+| `AOAI_APIKEY`                   | Azure OpenAI API key          | `your-api-key-here`                       |
+| `CHATCOMPLETION_DEPLOYMENTNAME` | Chat model deployment         | `gpt-4`                                   |
+| `EMBEDDING_DEPLOYMENTNAME`      | Embedding model deployment    | `text-embedding-ada-002`                  |
+| `COGNITIVESEARCH_ENDPOINT`      | Azure Search endpoint         | `https://your-search.search.windows.net/` |
+| `COGNITIVESEARCH_APIKEY`        | Azure Search API key          | `your-search-key-here`                    |
 
-5. **Customize Live**: Use the `data` command for customization guidance
+### 2. **Azure Services Setup**
 
-## How It Works - Universal RAG Architecture
+**Azure OpenAI Service:**
 
-### Universal RAG Process
+- Create an Azure OpenAI resource in Azure Portal
+- Deploy chat completion model (e.g., GPT-4)
+- Deploy text embedding model (e.g., text-embedding-ada-002)
+- Get endpoint URL and API key from "Keys and Endpoint" section
 
-1. **📄 Document Loading**: Load content from ANY domain (food, real estate, tech, etc.)
-2. **🧠 Embedding Generation**: Convert YOUR content to AI vector embeddings
-3. **🔍 Index Creation**: Store documents in Azure Cognitive Search for intelligent retrieval
-4. **💬 Query Processing**: Convert user questions to vector embeddings
-5. **🎯 Similarity Search**: Find most relevant content from YOUR knowledge base
-6. **🤖 Response Generation**: AI generates expert answers using retrieved context
+**Azure Cognitive Search:**
 
-### Azure Search Integration
+- Create an Azure Cognitive Search service
+- Get endpoint URL and API key from "Keys" section
+- The app will automatically create the search index
 
-- **Semantic Search**: Understanding meaning, not just keywords
-- **Vector Similarity**: Advanced AI-powered content matching
-- **Hybrid Search**: Best of both keyword and semantic search
-- **Auto-Configuration**: Handles embedding dimensions and search setup
-- **Scalable**: Works with small datasets or thousands of documents
+### 3. **Data Configuration**
+
+Choose your data source in `appsettings.json`:
+
+```json
+{
+  "DataSource": {
+    "Type": "Json",
+    "FilePath": "Data/documents.json"
+  }
+}
+```
+
+### 4. **Run the Application**
+
+```bash
+dotnet run
+```
+
+### 5. **Live Customization**
+
+Use the `data` command in the app for real-time customization guidance.
+
+## 🔄 **How It Works - Data Flow**
+
+### **RAG Architecture Overview**
+
+The application uses a **Retrieval-Augmented Generation (RAG)** pattern with Azure Cognitive Search for intelligent document retrieval:
+
+```
+📄 Documents → 🧠 AI Embeddings → 🔍 Search Index → 💬 User Query → 🎯 Similarity Search → 🤖 AI Response
+```
+
+### **Data Flow Process**
+
+1. **📄 Document Processing**:
+
+   - Load documents from JSON/CSV/text files
+   - Generate AI embeddings (1536-dimensional vectors) for each document
+   - Create `KnowledgeDocument` objects with text + vector data
+
+2. **🔍 Index Creation**:
+
+   - Create Azure Cognitive Search index with vector search capabilities
+   - Upload documents using `IndexDocumentsBatch.Upload()`
+   - Store both text fields and vector embeddings for hybrid search
+
+3. **💬 Query Processing**:
+
+   - Convert user questions to AI embeddings
+   - Perform vector similarity search in Azure Cognitive Search
+   - Retrieve most relevant documents based on semantic similarity
+
+4. **🤖 Response Generation**:
+   - Use retrieved context + user question to generate AI responses
+   - Leverage Azure OpenAI for intelligent answer generation
+
+### **Key Technical Features**
+
+- **Vector Search**: 1536-dimensional embeddings for semantic understanding
+- **Hybrid Search**: Combines keyword and vector similarity for best results
+- **Auto-Indexing**: Automatic search index creation and document upload
+- **Real-time Processing**: Live embedding generation and search operations
+- **Scalable Architecture**: Works with 5 to thousands of documents
 
 ## 🎯 **Example Usage - Adapts to ANY Topic**
 
