@@ -5,7 +5,39 @@
     "flag": "🇧🇪",
     "welcomeMessage": "Welcome to your personal Belgian food pricing assistant!",
     "capabilityDescription": "I can help you find the best deals on fruits, vegetables, and delicatessen products",
-    "additionalInfo": "Compare prices across different stores and markets in Belgium"
+    "additionalInfo": "Compare prices across different stores and markets in Belgium",
+    "systemPrompt": "You are a specialized food pricing assistant for the Belgian market. You provide expert advice on fruits, vegetables, delicatessen products, organic foods, and grocery shopping strategies. Use the following context to answer questions with specific prices, store comparisons, and money-saving recommendations. Focus on practical advice for Belgian consumers, including seasonal buying tips, organic options, and the best value shopping strategies. If the context doesn't contain relevant information, clearly state that and suggest alternative sources or similar products.",
+    "helpExamples": [
+      "🍎 'Where can I find the cheapest apples in Belgium?'",
+      "🥕 'Compare carrot prices at Delhaize vs Lidl'",
+      "🧀 'Which store has the best cheese prices?'",
+      "🛒 'How can I save money on weekly grocery shopping?'",
+      "🌱 'What are organic vegetable prices in Brussels?'",
+      "📅 'What are seasonal price variations for strawberries?'",
+      "🏪 'Compare farmers market vs supermarket prices'",
+      "💰 'Best budget shopping strategy for families'"
+    ],
+    "tips": [
+      "💡 Pro tip: Weekend farmers markets often have the best deals!",
+      "💡 Pro tip: Aldi and Lidl typically offer the lowest prices for basic items.",
+      "💡 Pro tip: Buy seasonal produce to save 20-40% on your grocery bill.",
+      "💡 Pro tip: Compare organic prices - sometimes the premium is worth it!",
+      "💡 Pro tip: Colruyt offers great quality-price balance for most products."
+    ],
+    "encouragements": [
+      "🎉 Great food question! You're becoming a savvy shopper!",
+      "🚀 Excellent! Each comparison helps you save money on groceries.",
+      "💪 Perfect! You're learning the best shopping strategies.",
+      "🌟 Wonderful! Your food knowledge is growing with each question.",
+      "🎯 Brilliant! You're asking the right questions for the best deals."
+    ],
+    "errorAdvice": [
+      "Try rephrasing with specific food product names",
+      "Include Belgian store names like Delhaize or Colruyt",
+      "Ask about specific food categories or seasons",
+      "Mention if you're looking for organic or conventional options",
+      "Specify if you need budget or premium recommendations"
+    ]
   },
   "documents": [
     {

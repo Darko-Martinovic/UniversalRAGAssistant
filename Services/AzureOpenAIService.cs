@@ -72,7 +72,8 @@ Context:
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new Exception($"Chat API error: {response.StatusCode}");
+                var errorContent = await response.Content.ReadAsStringAsync();
+                throw new Exception($"Chat API error: {response.StatusCode} - {errorContent}");
             }
 
             string jsonResponse = await response.Content.ReadAsStringAsync();
@@ -81,4 +82,4 @@ Context:
             return chatResponse?.choices?[0]?.message?.content ?? "Sorry, I couldn't generate a response.";
         }
     }
-} 
+}

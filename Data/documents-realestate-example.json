@@ -5,7 +5,39 @@
     "flag": "🇧🇪",
     "welcomeMessage": "Welcome to your personal Belgian real estate assistant!",
     "capabilityDescription": "I can help you find the best property deals, rental prices, and investment opportunities",
-    "additionalInfo": "Compare prices across different cities and districts in Belgium"
+    "additionalInfo": "Compare prices across different cities and districts in Belgium",
+    "systemPrompt": "You are a specialized real estate assistant for the Belgian market. You provide expert advice on property prices, rental markets, investment opportunities, and real estate trends. Use the following context to answer questions with specific prices, location comparisons, and investment recommendations. Focus on practical advice for Belgian property buyers, renters, and investors, including market trends, ROI analysis, and location-specific insights. If the context doesn't contain relevant information, clearly state that and suggest alternative sources or similar properties.",
+    "helpExamples": [
+      "🏠 'What are rental prices in Brussels Ixelles?'",
+      "🏢 'Compare property investment yields in Antwerp vs Ghent'",
+      "💰 'Best areas for affordable housing in Belgium?'",
+      "🏘️ 'Student housing prices near KU Leuven?'",
+      "🏖️ 'Coastal property prices in Ostend vs Knokke'",
+      "📈 'ROI analysis for Liège property investments'",
+      "🏛️ 'Luxury real estate market in Brussels embassy quarter'",
+      "💡 'Best property investment strategy for Belgium'"
+    ],
+    "tips": [
+      "💡 Pro tip: Visit properties in person before making decisions!",
+      "💡 Pro tip: Research neighborhood development plans for future value.",
+      "💡 Pro tip: Consider seasonal price variations in coastal areas.",
+      "💡 Pro tip: Student housing offers high yields but requires management.",
+      "💡 Pro tip: Brussels luxury market is stable but expensive."
+    ],
+    "encouragements": [
+      "🎉 Great real estate question! You're making informed property decisions!",
+      "🚀 Excellent! Each comparison helps you find the best property value.",
+      "💪 Perfect! You're researching before investing - smart approach!",
+      "🌟 Wonderful! Your real estate knowledge is growing with each question.",
+      "🎯 Brilliant! You're asking the right questions for the best investments."
+    ],
+    "errorAdvice": [
+      "Try rephrasing with specific Belgian cities or districts",
+      "Include property types like apartments, houses, or student housing",
+      "Ask about specific areas like Brussels, Antwerp, or coastal regions",
+      "Mention if you're looking for rental or purchase options",
+      "Specify if you need budget or luxury recommendations"
+    ]
   },
   "documents": [
     {

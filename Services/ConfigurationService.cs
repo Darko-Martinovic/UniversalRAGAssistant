@@ -15,7 +15,13 @@ namespace UniversalRAGAssistant.Services
                 }
 
                 var jsonContent = await File.ReadAllTextAsync("appsettings.json");
-                var appConfig = JsonSerializer.Deserialize<AppConfiguration>(jsonContent);
+                
+                var options = new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                };
+                
+                var appConfig = JsonSerializer.Deserialize<AppConfiguration>(jsonContent, options);
 
                 if (appConfig == null)
                 {

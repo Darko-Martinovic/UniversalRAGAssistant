@@ -1,3 +1,6 @@
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
 namespace UniversalRAGAssistant.Models
 {
     public class AppConfiguration
@@ -29,6 +32,7 @@ namespace UniversalRAGAssistant.Models
         public List<DocumentInfo> Documents { get; set; } = new List<DocumentInfo>();
     }
 
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum DataSourceType
     {
         Json,
