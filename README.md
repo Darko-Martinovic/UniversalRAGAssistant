@@ -4,7 +4,7 @@
 
 **Project Name**: `UniversalRAGAssistant`
 
-This application demonstrates how to build a powerful Retrieval-Augmented Generation (RAG) system using Azure OpenAI and Azure Cognitive Search. **Currently configured as a Belgian Real Estate Assistant, but can be instantly transformed into ANY domain expert by replacing the data files.**
+This application demonstrates how to build a powerful Retrieval-Augmented Generation (RAG) system using Azure OpenAI and Azure Cognitive Search. 
 
 ## 🌟 **Key Concept: Universal Customization**
 
