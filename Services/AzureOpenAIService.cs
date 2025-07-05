@@ -12,7 +12,13 @@ namespace UniversalRAGAssistant.Services
         private readonly string _chatDeployment;
         private readonly string _embeddingDeployment;
 
-        public AzureOpenAIService(HttpClient httpClient, string endpoint, string apiKey, string chatDeployment, string embeddingDeployment)
+        public AzureOpenAIService(
+            HttpClient httpClient,
+            string endpoint,
+            string apiKey,
+            string chatDeployment,
+            string embeddingDeployment
+        )
         {
             _httpClient = httpClient;
             _endpoint = endpoint;
@@ -27,7 +33,8 @@ namespace UniversalRAGAssistant.Services
 
         public async Task<float[]> GetEmbeddingAsync(string text)
         {
-            string url = $"{_endpoint.TrimEnd('/')}/openai/deployments/{_embeddingDeployment}/embeddings?api-version=2023-05-15";
+            string url =
+                $"{_endpoint.TrimEnd('/')}/openai/deployments/{_embeddingDeployment}/embeddings?api-version=2023-05-15";
 
             var request = new EmbeddingRequest { input = new[] { text } };
             string jsonRequest = JsonSerializer.Serialize(request);
@@ -45,11 +52,17 @@ namespace UniversalRAGAssistant.Services
             return embeddingResponse?.data?[0]?.embedding ?? Array.Empty<float>();
         }
 
-        public async Task<string> GenerateResponseWithContextAsync(string question, string context, string systemPrompt)
+        public async Task<string> GenerateResponseWithContextAsync(
+            string question,
+            string context,
+            string systemPrompt
+        )
         {
-            string url = $"{_endpoint.TrimEnd('/')}/openai/deployments/{_chatDeployment}/chat/completions?api-version=2024-02-01";
+            string url =
+                $"{_endpoint.TrimEnd('/')}/openai/deployments/{_chatDeployment}/chat/completions?api-version=2024-02-01";
 
-            var fullSystemPrompt = $@"{systemPrompt}
+            var fullSystemPrompt =
+                $@"{systemPrompt}
 
 Context:
 {context}";
@@ -79,7 +92,8 @@ Context:
             string jsonResponse = await response.Content.ReadAsStringAsync();
             var chatResponse = JsonSerializer.Deserialize<ChatResponse>(jsonResponse);
 
-            return chatResponse?.choices?[0]?.message?.content ?? "Sorry, I couldn't generate a response.";
+            return chatResponse?.choices?[0]?.message?.content
+                ?? "Sorry, I couldn't generate a response.";
         }
     }
 }

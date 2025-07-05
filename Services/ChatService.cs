@@ -13,7 +13,10 @@ namespace UniversalRAGAssistant.Services
             _uiService = uiService;
         }
 
-        public async Task StartInteractiveChatAsync(AppMetadata metadata, AppConfiguration appConfig)
+        public async Task StartInteractiveChatAsync(
+            AppMetadata metadata,
+            AppConfiguration appConfig
+        )
         {
             var conversationHistory = new List<(string question, string answer)>();
             var startTime = DateTime.Now;
@@ -70,11 +73,13 @@ namespace UniversalRAGAssistant.Services
                 try
                 {
                     _uiService.PrintProcessingMessage();
-                    var loadingCts = _uiService.ShowLoadingAnimation("Searching knowledge base and generating response...");
+                    var loadingCts = _uiService.ShowLoadingAnimation(
+                        "Searching knowledge base and generating response..."
+                    );
 
                     var response = await _ragService.ProcessQueryAsync(
-                        userInput, 
-                        metadata.SystemPrompt, 
+                        userInput,
+                        metadata.SystemPrompt,
                         appConfig.RagDocumentCount
                     );
 
@@ -106,4 +111,4 @@ namespace UniversalRAGAssistant.Services
             }
         }
     }
-} 
+}

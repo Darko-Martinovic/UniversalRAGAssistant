@@ -14,22 +14,36 @@ namespace UniversalRAGAssistant.Services
             _searchService = searchService;
         }
 
-        public async Task<string> ProcessQueryAsync(string question, string systemPrompt, int documentCount)
+        public async Task<string> ProcessQueryAsync(
+            string question,
+            string systemPrompt,
+            int documentCount
+        )
         {
             // Generate embedding for the question
             var queryEmbedding = await _openAIService.GetEmbeddingAsync(question);
 
             // Search for relevant documents
-            var searchResults = await _searchService.SearchRelevantDocumentsAsync(queryEmbedding, question, documentCount);
+            var searchResults = await _searchService.SearchRelevantDocumentsAsync(
+                queryEmbedding,
+                question,
+                documentCount
+            );
 
             // Build context from search results
             var context = await BuildContextFromSearchResults(searchResults);
 
             // Generate response using the context
-            return await _openAIService.GenerateResponseWithContextAsync(question, context, systemPrompt);
+            return await _openAIService.GenerateResponseWithContextAsync(
+                question,
+                context,
+                systemPrompt
+            );
         }
 
-        private async Task<string> BuildContextFromSearchResults(SearchResults<KnowledgeDocument> searchResults)
+        private async Task<string> BuildContextFromSearchResults(
+            SearchResults<KnowledgeDocument> searchResults
+        )
         {
             var contextBuilder = new System.Text.StringBuilder();
             var resultCount = 0;
@@ -45,4 +59,4 @@ namespace UniversalRAGAssistant.Services
             return contextBuilder.ToString().Trim();
         }
     }
-} 
+}

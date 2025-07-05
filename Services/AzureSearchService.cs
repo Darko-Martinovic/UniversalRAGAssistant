@@ -20,10 +20,7 @@ namespace UniversalRAGAssistant.Services
                 "knowledge-index",
                 searchCredential
             );
-            _searchIndexClient = new SearchIndexClient(
-                new Uri(searchEndpoint),
-                searchCredential
-            );
+            _searchIndexClient = new SearchIndexClient(new Uri(searchEndpoint), searchCredential);
         }
 
         public async Task CreateSearchIndexAsync()
@@ -33,9 +30,16 @@ namespace UniversalRAGAssistant.Services
                 Fields =
                 {
                     new SearchField("id", SearchFieldDataType.String) { IsKey = true },
-                    new SearchField("title", SearchFieldDataType.String) { IsSearchable = true, IsFilterable = true },
+                    new SearchField("title", SearchFieldDataType.String)
+                    {
+                        IsSearchable = true,
+                        IsFilterable = true
+                    },
                     new SearchField("content", SearchFieldDataType.String) { IsSearchable = true },
-                    new SearchField("contentVector", SearchFieldDataType.Collection(SearchFieldDataType.Single))
+                    new SearchField(
+                        "contentVector",
+                        SearchFieldDataType.Collection(SearchFieldDataType.Single)
+                    )
                     {
                         IsSearchable = true,
                         VectorSearchDimensions = 1536,
@@ -83,13 +87,24 @@ namespace UniversalRAGAssistant.Services
             await _searchClient.IndexDocumentsAsync(batchOperations);
         }
 
-        public async Task<SearchResults<KnowledgeDocument>> SearchRelevantDocumentsAsync(float[] queryEmbedding, string query, int documentCount)
+        public async Task<SearchResults<KnowledgeDocument>> SearchRelevantDocumentsAsync(
+            float[] queryEmbedding,
+            string query,
+            int documentCount
+        )
         {
             var searchOptions = new SearchOptions
             {
                 VectorSearch = new VectorSearchOptions
                 {
-                    Queries = { new VectorizedQuery(queryEmbedding) { KNearestNeighborsCount = documentCount, Fields = { "contentVector" } } }
+                    Queries =
+                    {
+                        new VectorizedQuery(queryEmbedding)
+                        {
+                            KNearestNeighborsCount = documentCount,
+                            Fields = { "contentVector" }
+                        }
+                    }
                 },
                 Select = { "id", "title", "content" },
                 Size = documentCount
@@ -98,4 +113,4 @@ namespace UniversalRAGAssistant.Services
             return await _searchClient.SearchAsync<KnowledgeDocument>(query, searchOptions);
         }
     }
-} 
+}

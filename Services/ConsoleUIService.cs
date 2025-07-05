@@ -69,17 +69,20 @@ namespace UniversalRAGAssistant.Services
             var spinner = new[] { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" };
             var i = 0;
 
-            Task.Run(async () =>
-            {
-                while (!cts.Token.IsCancellationRequested)
+            Task.Run(
+                async () =>
                 {
-                    Console.ForegroundColor = ConsoleColor.Cyan;
-                    Console.Write($"\r{spinner[i % spinner.Length]} {message}");
-                    Console.ResetColor();
-                    await Task.Delay(100, cts.Token);
-                    i++;
-                }
-            }, cts.Token);
+                    while (!cts.Token.IsCancellationRequested)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.Write($"\r{spinner[i % spinner.Length]} {message}");
+                        Console.ResetColor();
+                        await Task.Delay(100, cts.Token);
+                        i++;
+                    }
+                },
+                cts.Token
+            );
 
             return cts;
         }
@@ -121,9 +124,8 @@ namespace UniversalRAGAssistant.Services
             Console.WriteLine("\n💡 EXAMPLE QUESTIONS:");
             Console.WriteLine("────────────────────");
 
-            var examples = metadata.HelpExamples.Length > 0
-                ? metadata.HelpExamples
-                : GetDefaultHelpExamples();
+            var examples =
+                metadata.HelpExamples.Length > 0 ? metadata.HelpExamples : GetDefaultHelpExamples();
 
             foreach (var example in examples)
             {
@@ -163,9 +165,7 @@ namespace UniversalRAGAssistant.Services
 
         public void PrintTip(AppMetadata metadata)
         {
-            var tips = metadata.Tips.Length > 0
-                ? metadata.Tips
-                : GetDefaultTips();
+            var tips = metadata.Tips.Length > 0 ? metadata.Tips : GetDefaultTips();
 
             var tip = tips[_random.Next(tips.Length)];
 
@@ -199,7 +199,11 @@ namespace UniversalRAGAssistant.Services
             Console.ResetColor();
         }
 
-        public void PrintSessionSummary(int conversationCount, DateTime startTime, AppMetadata metadata)
+        public void PrintSessionSummary(
+            int conversationCount,
+            DateTime startTime,
+            AppMetadata metadata
+        )
         {
             var sessionDuration = DateTime.Now - startTime;
 
@@ -246,9 +250,10 @@ namespace UniversalRAGAssistant.Services
 
         public void PrintSessionEncouragement(int conversationCount, AppMetadata metadata)
         {
-            var encouragements = metadata.Encouragements.Length > 0
-                ? metadata.Encouragements
-                : GetDefaultEncouragements();
+            var encouragements =
+                metadata.Encouragements.Length > 0
+                    ? metadata.Encouragements
+                    : GetDefaultEncouragements();
 
             var encouragement = encouragements[_random.Next(encouragements.Length)];
 
@@ -259,9 +264,8 @@ namespace UniversalRAGAssistant.Services
 
         public void PrintErrorAdvice(AppMetadata metadata)
         {
-            var errorAdvice = metadata.ErrorAdvice.Length > 0
-                ? metadata.ErrorAdvice
-                : GetDefaultErrorAdvice();
+            var errorAdvice =
+                metadata.ErrorAdvice.Length > 0 ? metadata.ErrorAdvice : GetDefaultErrorAdvice();
 
             var advice = errorAdvice[_random.Next(errorAdvice.Length)];
 
