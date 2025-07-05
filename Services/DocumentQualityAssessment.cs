@@ -33,7 +33,7 @@ namespace UniversalRAGAssistant.Services
         private double AssessContentLength(string content)
         {
             var wordCount = content.Split(' ', StringSplitOptions.RemoveEmptyEntries).Length;
-
+            
             // Optimal range: 100-500 words per document
             if (wordCount < 50) return 0.3; // Too short
             if (wordCount >= 50 && wordCount <= 100) return 0.6; // Minimal
@@ -206,7 +206,7 @@ namespace UniversalRAGAssistant.Services
 =====================================
 📅 Assessment Date: {DateTime.UtcNow:yyyy-MM-dd HH:mm}
 📄 Total Documents: {documents.Count}
-⭐ High Quality Documents: {highQualityDocs} ({(double)highQualityDocs / documents.Count * 100:F1}%)
+⭐ High Quality Documents: {highQualityDocs} ({(double)highQualityDocs/documents.Count*100:F1}%)
 📈 Average Quality Score: {averageScore:F3} ({GetQualityGrade(averageScore)})
 
 🔍 INDIVIDUAL DOCUMENT SCORES:
@@ -236,7 +236,7 @@ namespace UniversalRAGAssistant.Services
         public string DocumentId { get; set; } = string.Empty;
         public string DocumentTitle { get; set; } = string.Empty;
         public DateTime AssessmentDate { get; set; }
-
+        
         // Quality dimensions (0.0 - 1.0)
         public double ContentLength { get; set; }
         public double QuantifiedData { get; set; }
@@ -244,7 +244,7 @@ namespace UniversalRAGAssistant.Services
         public double ActionableInsights { get; set; }
         public double Structure { get; set; }
         public double Freshness { get; set; }
-
+        
         // Overall assessment
         public double OverallQualityScore { get; set; }
         public string QualityGrade { get; set; } = string.Empty;

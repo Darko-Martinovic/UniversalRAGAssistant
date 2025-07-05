@@ -48,28 +48,21 @@ namespace UniversalRAGAssistant.Services
         {
             var contextBuilder = new System.Text.StringBuilder();
             var resultCount = 0;
-            var relevanceThreshold = 1.0; // Text search threshold (BM25 scores are much higher)
+            var relevanceThreshold = 0.7; // Minimum relevance score (70%)
             var highQualityDocuments = new List<(string title, string content, double score)>();
-            var allDocuments = new List<(string title, double score)>();
 
             await foreach (var result in searchResults.GetResultsAsync())
             {
                 // Extract relevance score from Azure Cognitive Search
                 var relevanceScore = result.Score ?? 0.0;
-                var documentTitle = result.Document.Title ?? "[NO TITLE]";
-                var documentId = result.Document.Id ?? "[NO ID]";
-
-                allDocuments.Add((documentTitle, relevanceScore));
-
-                Console.WriteLine($"🔍 Debug: Document '{documentTitle}' (ID: {documentId}) - Score: {relevanceScore:F4}");
 
                 // Validate relevance threshold
                 if (relevanceScore >= relevanceThreshold)
                 {
                     resultCount++;
-                    highQualityDocuments.Add((documentTitle, result.Document.Content, relevanceScore));
+                    highQualityDocuments.Add((result.Document.Title, result.Document.Content, relevanceScore));
 
-                    contextBuilder.AppendLine($"Document {resultCount}: {documentTitle} (Relevance: {relevanceScore:F2})");
+                    contextBuilder.AppendLine($"Document {resultCount}: {result.Document.Title} (Relevance: {relevanceScore:F2})");
                     contextBuilder.AppendLine(result.Document.Content);
                     contextBuilder.AppendLine();
                 }
@@ -80,19 +73,9 @@ namespace UniversalRAGAssistant.Services
                 highQualityDocuments.Average(d => d.score) : 0.0;
 
             Console.WriteLine($"📊 Relevance Validation:");
-            Console.WriteLine($"   🔍 Total documents found: {allDocuments.Count}");
-            Console.WriteLine($"   ✅ Retrieved: {highQualityDocuments.Count} documents above threshold");
+            Console.WriteLine($"   ✅ Retrieved: {highQualityDocuments.Count} high-quality documents");
             Console.WriteLine($"   📈 Average relevance score: {averageScore:F3}");
-            Console.WriteLine($"   🎯 Threshold: {relevanceThreshold} (BM25 text search scoring)");
-
-            if (allDocuments.Count > 0)
-            {
-                Console.WriteLine($"   📋 Top document scores:");
-                foreach (var doc in allDocuments.OrderByDescending(d => d.score).Take(5))
-                {
-                    Console.WriteLine($"      • {doc.title}: {doc.score:F4}");
-                }
-            }
+            Console.WriteLine($"   🎯 Threshold: {relevanceThreshold} (70% minimum)");
 
             return contextBuilder.ToString().Trim();
         }
