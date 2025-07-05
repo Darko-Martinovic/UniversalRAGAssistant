@@ -394,30 +394,42 @@ The assistant now supports **domain-specific help content** embedded directly in
 }
 ```
 
-## 🏗️ **Modular Architecture Overview**
+## 🏗️ **Modern Architecture Overview**
 
-### **Service-Oriented Design**
+### **Dependency Injection & Service-Oriented Design**
 
-The application follows a **modular, service-oriented architecture** with clear separation of concerns and dependency injection:
+The application follows a **modern .NET architecture** with proper dependency injection, clean separation of concerns, and professional design patterns:
 
 #### **🎯 Architecture Principles**
 
+- **Dependency Injection**: Uses `Microsoft.Extensions.DependencyInjection` for proper IoC container
 - **Single Responsibility**: Each service has one clear purpose
-- **Dependency Injection**: Services are loosely coupled and testable
-- **Interface Segregation**: Services communicate through well-defined interfaces
+- **Interface Segregation**: Services communicate through well-defined interfaces in `Interfaces/` folder
+- **Testability**: All services are easily mockable for unit testing
+- **Lifecycle Management**: Proper service lifetimes (Singleton, Transient)
 - **Open/Closed**: Easy to extend without modifying existing code
 
 #### **🔧 Service Layer Architecture**
 
-**Core Services:**
+**Core Interfaces** (Located in `Interfaces/` folder):
 
 - **`IConfigurationService`**: Manages application and Azure service configuration
-- **`IAzureOpenAIService`**: Handles embeddings generation and chat completions
+- **`IAzureOpenAIService`**: Handles embeddings generation and chat completions  
 - **`IAzureSearchService`**: Manages Azure Cognitive Search operations
 - **`IRagService`**: Orchestrates RAG workflow (search + response generation)
 - **`IKnowledgeBaseService`**: Manages document loading and knowledge base setup
 - **`IChatService`**: Handles interactive chat session management
 - **`IConsoleUIService`**: Manages all console UI interactions and formatting
+
+**Service Implementations** (Located in `Services/` folder):
+
+- **`ConfigurationService`**: Configuration management with environment variables
+- **`AzureOpenAIService`**: Azure OpenAI API integration
+- **`AzureSearchService`**: Azure Cognitive Search integration
+- **`RagService`**: RAG workflow orchestration
+- **`KnowledgeBaseService`**: Document processing and indexing
+- **`ChatService`**: Interactive session management
+- **`ConsoleUIService`**: Professional console UI with progress indicators
 
 **Data Models:**
 
@@ -426,12 +438,44 @@ The application follows a **modular, service-oriented architecture** with clear 
 - **`DocumentInfo`**: Document structure for processing
 - **`KnowledgeDocument`**: Search index document structure
 
-#### **🎨 Dynamic Help System**
+#### **� Dependency Injection Configuration**
 
-The assistant now includes **domain-specific help content** embedded in the data:
+**Service Lifetimes** (Configured in `Program.cs`):
+
+```csharp
+// Singleton Services (Expensive to create, shared across application)
+services.AddSingleton<HttpClient>();
+services.AddSingleton<IAzureOpenAIService, AzureOpenAIService>();
+services.AddSingleton<IAzureSearchService, AzureSearchService>();
+services.AddSingleton<IConsoleUIService, ConsoleUIService>();
+
+// Transient Services (Lightweight, created per request)
+services.AddTransient<IConfigurationService, ConfigurationService>();
+services.AddTransient<IRagService, RagService>();
+services.AddTransient<IKnowledgeBaseService, KnowledgeBaseService>();
+services.AddTransient<IChatService, ChatService>();
+```
+
+**Factory Pattern** for Configuration-Dependent Services:
+
+```csharp
+services.AddSingleton<IAzureOpenAIService>(serviceProvider =>
+{
+    var httpClient = serviceProvider.GetRequiredService<HttpClient>();
+    var configService = serviceProvider.GetRequiredService<IConfigurationService>();
+    var (endpoint, apiKey, chatDeployment, embeddingDeployment) =
+        configService.LoadAzureOpenAIConfiguration();
+    
+    return new AzureOpenAIService(httpClient, endpoint, apiKey, chatDeployment, embeddingDeployment);
+});
+```
+
+#### **�🎨 Dynamic Help System**
+
+The assistant includes **domain-specific help content** embedded in the data:
 
 - **Help Examples**: Sample questions tailored to each domain
-- **Tips**: Pro tips and best practices for the specific domain
+- **Tips**: Pro tips and best practices for the specific domain  
 - **Encouragements**: Motivational messages for user engagement
 - **Error Advice**: Domain-specific guidance when queries fail
 
@@ -439,14 +483,24 @@ The assistant now includes **domain-specific help content** embedded in the data
 
 ```
 Program.cs (Main Entry)
-├── ConfigurationService
-├── AzureOpenAIService
-├── AzureSearchService
-├── RagService (depends on OpenAI + Search)
-├── ConsoleUIService
-├── KnowledgeBaseService (depends on OpenAI + Search + UI)
-└── ChatService (depends on RAG + UI)
+├── ServiceProvider (DI Container)
+    ├── IConfigurationService (Transient)
+    ├── IAzureOpenAIService (Singleton with Factory)
+    ├── IAzureSearchService (Singleton with Factory)
+    ├── IRagService (Transient, depends on OpenAI + Search)
+    ├── IConsoleUIService (Singleton)
+    ├── IKnowledgeBaseService (Transient, depends on OpenAI + Search + UI)
+    └── IChatService (Transient, depends on RAG + UI)
 ```
+
+#### **✅ Benefits of This Architecture**
+
+- **Professional Standards**: Follows modern .NET best practices
+- **Easy Testing**: All dependencies are injected and mockable
+- **Performance Optimized**: Proper service lifetimes prevent unnecessary object creation
+- **Maintainable**: Clear separation of concerns and organized interfaces
+- **Extensible**: Easy to add new services or swap implementations
+- **Integration Ready**: Prepared for future web API or desktop UI integration
 
 ## 🔄 **How It Works - Data Flow**
 
@@ -517,7 +571,75 @@ The application uses a **Retrieval-Augmented Generation (RAG)** pattern with Azu
 
 **The AI provides expert business intelligence and strategic recommendations!**
 
-## 💡 **Why This Business Intelligence Platform is Revolutionary**
+## � **Project Structure**
+
+```
+UniversalRAGAssistant/
+├── 📁 Interfaces/           # Service interfaces for dependency injection
+│   ├── IAzureOpenAIService.cs
+│   ├── IAzureSearchService.cs  
+│   ├── IRagService.cs
+│   ├── IKnowledgeBaseService.cs
+│   ├── IChatService.cs
+│   ├── IConsoleUIService.cs
+│   └── IConfigurationService.cs
+├── 📁 Services/             # Service implementations
+│   ├── AzureOpenAIService.cs
+│   ├── AzureSearchService.cs
+│   ├── RagService.cs
+│   ├── KnowledgeBaseService.cs
+│   ├── ChatService.cs
+│   ├── ConsoleUIService.cs
+│   └── ConfigurationService.cs
+├── 📁 Models/               # Data models and DTOs
+│   ├── AppConfiguration.cs
+│   ├── AppMetadata.cs
+│   ├── DocumentInfo.cs
+│   ├── KnowledgeDocument.cs
+│   ├── ChatMessage.cs
+│   ├── ChatRequest.cs
+│   ├── ChatResponse.cs
+│   ├── EmbeddingRequest.cs
+│   ├── EmbeddingResponse.cs
+│   └── Usage.cs
+├── 📁 Data/                 # Business intelligence documents
+│   ├── documents.json       # Current active assistant
+│   ├── documents-supermarket-business.json
+│   ├── documents-realestate-example.json
+│   ├── documents-technology-example.json
+│   ├── documents-food-example.json
+│   ├── documents-entertainment-example.json
+│   └── 📁 TextFiles/        # Optional text file data source
+├── 📁 Documentation/        # Customization guides
+│   ├── DATA-CUSTOMIZATION-GUIDE.md
+│   ├── QUICK-CUSTOMIZATION.md
+│   └── STYLING-ENHANCEMENTS.md
+├── 📄 Program.cs            # Main entry point with DI configuration
+├── 📄 appsettings.json      # Data source configuration
+├── 📄 .env                  # Environment variables (create from env.example)
+├── 📄 env.example           # Environment template
+├── 📄 UniversalRAGAssistant.csproj  # Project file with dependencies
+├── 📄 README.md             # This comprehensive guide
+└── 📁 Batch Scripts/        # Quick switching utilities
+    ├── assistant-switcher.bat
+    ├── run-supermarket-business.bat
+    ├── run-realestate.bat
+    ├── run-technology.bat
+    ├── run-food.bat
+    ├── run-entertainment.bat
+    └── show-current.bat
+```
+
+### **Key Architecture Components**
+
+- **🔧 Dependency Injection**: Modern .NET DI container with proper service lifetimes
+- **🎯 Interface Segregation**: Clean separation between interfaces and implementations  
+- **📊 Business Intelligence**: Domain-specific data files for different industries
+- **⚡ Performance Optimized**: Singleton services for expensive resources, transient for lightweight operations
+- **🧪 Test-Ready**: All services are mockable through interfaces
+- **📚 Well-Documented**: Comprehensive guides for customization and extension
+
+## �💡 **Why This Business Intelligence Platform is Revolutionary**
 
 ### **Traditional Business Intelligence**:
 
